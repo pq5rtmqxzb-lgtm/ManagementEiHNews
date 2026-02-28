@@ -1,5 +1,6 @@
 // CFO Nieuws Archief — Eneco in Huis
 // Dit bestand wordt elke ochtend automatisch bijgewerkt door de geplande taak.
+// GitHub verbinding getest op: 2026-02-28 12:03
 
 const briefsData = [
   {
