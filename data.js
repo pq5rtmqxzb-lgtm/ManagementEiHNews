@@ -1,4 +1,4 @@
-// CFO Nieuws Archief — Eneco in Huis
+// Management Nieuwsoverzicht — Eneco in Huis
 // Dit bestand wordt elke ochtend automatisch bijgewerkt door de geplande taak.
 // GitHub verbinding getest op: 2026-02-28 12:03
 
@@ -6,149 +6,141 @@ const briefsData = [
   {
     date: "2026-02-28",
     dateFormatted: "zaterdag 28 februari 2026",
-    samenvatting: "De energiemarkt in Nederland laat een gunstig beeld zien voor 2026: lagere gasprijzen, dalende huishoudelijke energierekeningen en aantrekkende woningprijzen creëren een positief klimaat voor installatieopdrachten. Tegelijkertijd brengt het schrappen van de hybride warmtepompverplichting per 2026 – nu verschoven naar 2029 – strategische herprioritering van de portfolio mee. Het tekort aan vakmensen blijft de grootste operationele rem. Het macro-economische klimaat is gunstig: ECB-inflatiereductie en lichte economische groei geven de sector lucht.",
+    samenvatting: "De energiemarkt biedt Eneco in Huis in 2026 gunstige omstandigheden: lagere gasprijzen, dalende huishoudelijke energierekeningen en stijgende woningprijzen vergroten de investeringsbereidheid van consumenten. Het schrappen van de hybride warmtepompverplichting (nu 2029) vraagt om strategische heroriëntatie van de productportfolio. Operationeel is het tekort aan vakmensen de grootste rem op groei en servicebeloften. Kansen liggen in de nieuwbouwmarkt, het serviceabonnementen-segment en de opkomende R290-warmtepomptechnologie.",
     kpis: [
       { label: "Gasmarkt TTF", value: "€29/MWh", sub: "Laagste niveau in lange tijd", trend: "positive" },
-      { label: "Huishoudrekening 2026", value: "€1.993", sub: "−2,5% t.o.v. 2025", trend: "positive" },
-      { label: "Warmtepomp verkoop 2024", value: "−14%", sub: "T.o.v. 2023; CV stijgt", trend: "negative" },
-      { label: "Woningprijsstijging", value: "+4,8%", sub: "Verwachting 2026 (Rabobank)", trend: "neutral" }
+      { label: "Woningmarkt groei", value: "+4,8%", sub: "Verwachting 2026 (Rabobank)", trend: "positive" },
+      { label: "Warmtepomp verkoop", value: "−14%", sub: "2024 t.o.v. 2023", trend: "negative" },
+      { label: "Technici tekort 2030", value: "120.000", sub: "Prognose Wij Techniek", trend: "negative" }
     ],
     sections: [
       {
-        title: "Energiemarkt & Prijzen",
-        icon: "⚡",
+        title: "Strategie & Marktpositie",
+        icon: "🎯",
         items: [
           {
-            title: "Gasmarkt TTF op laagste peil: positief voor vraagstimulering",
-            sentiment: "positive",
-            body: "De TTF-gasprijs is gedaald naar €29 per MWh, het laagste niveau in lange tijd. Dit is het directe gevolg van een sterk gestegen LNG-aanbod (VS en Qatar). Lagere gasprijzen verkleinen de economische urgentie voor huishoudens om over te stappen op warmtepompen, maar servicepropositie op CV-ketels blijft aantrekkelijk.",
-            actie: "Controleer aannames in de jaarplanning voor warmtepompgroei – bijstellen kan verstandig zijn.",
-            actieType: "CFO-actie"
-          },
-          {
-            title: "Huishoudelijke energierekening daalt naar €1.993 (−2,5%)",
-            sentiment: "positive",
-            body: "Huishoudens betalen in 2026 gemiddeld €52 minder voor gas en elektriciteit ten opzichte van 2025. De verlaging is primair variabel – positief voor de koopkracht van consumenten en investeringsbereidheid in duurzame installaties.",
-            actie: null,
-            actieType: null
-          },
-          {
-            title: "Netwerktarieven stijgen €25/jaar door energie-transitie-investeringen",
+            title: "Verplichting hybride warmtepomp per 2026 GESCHRAPT — nu 2029",
             sentiment: "negative",
-            body: "ACM heeft bevestigd dat huishoudens in 2026 meer betalen voor netwerktransport. Beperkte directe impact, maar vergroot op langere termijn de businesscase voor decentrale opwek.",
-            actie: null,
-            actieType: null
+            body: "Het Schoof-kabinet heeft de aangekondigde verplichting om bij vervanging van een CV-ketel een hybride warmtepomp te installeren definitief geschrapt. De maatregel is verschoven naar 2029. Voor Eneco in Huis betekent dit dat de massa-adoptie van warmtepompen trager verloopt dan gepland en dat de CV-ketelmarkt langer relevant blijft.",
+            actie: "Herzien strategisch groeipad: balans tussen kortetermijn CV-service omzet en langetermijn warmtepomp-investering opnieuw bepalen voor 2026–2029.",
+            actieType: "Strategie"
+          },
+          {
+            title: "Nieuwbouwmarkt structureel warmtepomp-gedreven door gasverbod",
+            sentiment: "positive",
+            body: "In nieuwbouwprojecten geldt een verbod op gasaansluitingen, waardoor warmtepompen de standaard zijn. Nederland kampt met een woningtekort van ~400.000 woningen en zet in op versnelde nieuwbouw. Dit vertegenwoordigt een structurele en gegarandeerde afzetmarkt voor Eneco in Huis, onafhankelijk van subsidies of verplichtingen.",
+            actie: "Versterk partnerships met projectontwikkelaars en woningcorporaties voor nieuwbouwcontracten.",
+            actieType: "Strategie"
           }
         ]
       },
       {
-        title: "Markt & Producten",
-        icon: "🔧",
+        title: "Energiemarkt & Beleid",
+        icon: "⚡",
         items: [
           {
-            title: "Verplichting hybride warmtepomp per 2026 GESCHRAPT – nu 2029",
-            sentiment: "negative",
-            body: "Het Schoof-kabinet heeft de eerder aangekondigde verplichting om bij vervanging van een CV-ketel een hybride warmtepomp te installeren per 2026 definitief geschrapt. De maatregel keert terug in het coalitieakkoord met ingangsdatum 2029.",
-            actie: "CV-ketelomzet blijft voorspoediger dan eerder ingepland; herzien businesscase warmtepompen 2026–2029.",
-            actieType: "Strategische implicatie"
-          },
-          {
-            title: "CV-ketelverkoop trekt aan; warmtepompen −14% in 2024",
-            sentiment: "neutral",
-            body: "In 2024 zijn 393.000 warmtepompen verkocht – 14% minder dan in 2023. Tegelijkertijd stijgt de CV-ketelverkoop. De servicemarkt voor CV-ketels is daarmee structureel groter dan eerder verwacht voor de korte termijn.",
-            actie: null,
-            actieType: null
+            title: "Gasmarkt TTF op laagste peil — energierekening daalt naar €1.993",
+            sentiment: "positive",
+            body: "De TTF-gasprijs is gedaald naar €29/MWh dankzij sterk gestegen LNG-aanbod (VS en Qatar). Huishoudens betalen in 2026 gemiddeld €1.993 voor energie — €52 minder dan in 2025. Lagere gasprijzen temperen de urgentie voor warmtepompaanschaf, maar verhogen de koopkracht voor andere investeringen.",
+            actie: "Herzien aannames warmtepompconversie in jaarplanning; servicepropositie CV-ketels opwaarderen.",
+            actieType: "Financiën"
           },
           {
             title: "ISDE-subsidie warmtepompen 2026: lagere startbedragen, nieuwe regels",
             sentiment: "negative",
-            body: "Startbedrag lucht-water warmtepompen daalt van €1.250 naar €1.025. Positief: variabele component van €225/kW geldt nu al vanaf de eerste kilowatt. Geen subsidie meer voor split-systemen met GWP >750 en vulgewicht <3 kg.",
-            actie: "Verkooppropositie aanpassen op nieuwe ISDE-maxima; klantcommunicatie tijdig bijwerken.",
-            actieType: "CFO-actie"
+            body: "Het startbedrag voor lucht-water warmtepompen daalt van €1.250 naar €1.025. Nieuw: variabele component van €225/kW geldt al vanaf de eerste kilowatt. Geen subsidie meer voor split-systemen met GWP >750 en vulgewicht <3 kg. Ook subsidie voor energiezuinige ventilatie als gecombineerd met isolatie.",
+            actie: "Verkoopmateriaal en klantcalculators aanpassen op nieuwe ISDE-parameters.",
+            actieType: "Marketing"
           },
           {
-            title: "Markt verschuift naar R290 (propaan) – gevolgen voor productportfolio",
-            sentiment: "neutral",
-            body: "Door uitfasering van koudemiddel R32 verschuift de warmtepompmarkt naar monoblock-systemen met R290 (propaan). Dit stelt hogere eisen aan installatie-expertise en leverancierscontracten.",
-            actie: null,
-            actieType: null
+            title: "Saldering zonnepanelen afgeschaft per 1 januari 2027",
+            sentiment: "negative",
+            body: "Huishoudens met zonnepanelen gaan €180–€470 per jaar meer betalen door het vervallen van de netsaldering. Dit raakt een groot klantsegment en verlaagt hun resterende investeringsbudget voor verwarmingsoplossingen.",
+            actie: "PV-klantensegment analyseren op impact; gerichte aanbiedingen voor gecombineerde installaties ontwikkelen.",
+            actieType: "Marketing"
           }
         ]
       },
       {
-        title: "Woningmarkt & Groeikansen",
-        icon: "🏠",
+        title: "Klant & Merk",
+        icon: "💬",
         items: [
           {
-            title: "Woningprijzen stijgen 4–5% in 2026; marktmediaan €470.000",
+            title: "Starters domineren woningmarkt — bijna 50% van alle transacties",
             sentiment: "positive",
-            body: "De Nederlandse woningmarkt groeit gematigd door in 2026, na de sterke stijgingen van 2025. Rabobank verwacht 4,8% prijsgroei. Meer transacties betekent meer vervangingsvraag voor installaties.",
-            actie: null,
-            actieType: null
+            body: "Volgens NVM-data zijn starters goed voor bijna de helft van alle woningtransacties in 2024–2025. Starters kopen vaker woningen met een verouderde installatie en staan open voor slimme, ontzorgende serviceconcepten. Dit is een prioritaire doelgroep voor Eneco in Huis.",
+            actie: "Ontwikkel een starter-propositie: all-in serviceabonnement inclusief vervanging bij aankoop eerste woning.",
+            actieType: "Marketing"
           },
           {
-            title: "NHG-grens stijgt naar €470.000 – meer ruimte voor energiezuinige investeringen",
+            title: "Voormalige verhuurders verkopen door tot juni 2026 — kansen in doorstroom",
             sentiment: "positive",
-            body: "De Nationale Hypotheek Garantie dekt in 2026 woningen tot €470.000 (of €498.200 met energiebesparende maatregelen).",
-            actie: null,
-            actieType: null
-          },
-          {
-            title: "Woningtekort van ~400.000 woningen: kansen in nieuwbouw",
-            sentiment: "positive",
-            body: "Nederland kampt met een structureel woningtekort. In nieuwbouwprojecten geldt een verbod op gasaansluitingen – warmtepompen zijn de standaard. Dit vertegenwoordigt een structurele groeimarkt.",
+            body: "Door nieuwe huurregels en vermogensbelasting verkopen particuliere verhuurders hun woningen door tot juni 2026. Dit levert extra transacties op in het midden- en hogere segment, met kopers die doorgaans meer investeren in woningkwaliteit.",
             actie: null,
             actieType: null
           }
         ]
       },
       {
-        title: "Operationeel Risico & HR",
+        title: "Operaties & Service",
+        icon: "🔧",
+        items: [
+          {
+            title: "CV-ketelverkoop trekt aan; servicedruk neemt toe",
+            sentiment: "neutral",
+            body: "De warmtepompverkoop daalde 14% in 2024 terwijl CV-ketelverkoop aantrekt. De servicepijplijn voor CV-ketels groeit daarmee harder dan verwacht — positief voor omzet op korte termijn, maar dit verhoogt ook de druk op servicecapaciteit.",
+            actie: "Serviceplanningscapaciteit aanpassen aan hogere CV-ketelvolumes voor 2026.",
+            actieType: "Operaties"
+          },
+          {
+            title: "Markt verschuift naar R290 (propaan) warmtepompen — installatievereisten veranderen",
+            sentiment: "neutral",
+            body: "Door uitfasering van koudemiddel R32 verschuift de markt naar R290-systemen. Dit stelt hogere eisen aan plaatsing van buitendelen, leidingdiameter en veiligheidscertificering. Installateurs hebben aanvullende training nodig.",
+            actie: "Start R290-trainingsprogramma voor installateurs; controleer leverancierscontracten op R290-aanbod.",
+            actieType: "Operaties"
+          }
+        ]
+      },
+      {
+        title: "HR & Arbeidsmarkt",
         icon: "👷",
         items: [
           {
-            title: "Tekort van 120.000 technici tot 2030 – grootste operationeel risico",
+            title: "Tekort van 120.000 technici in installatiebranche tot 2030",
             sentiment: "negative",
-            body: "De installatiebranche kampt met een acuut tekort aan vakmensen. Wij Techniek prognosticeert een tekort van meer dan 120.000 technici tot 2030. Dit is de meest directe bedreiging voor groeiambities van Eneco in Huis.",
-            actie: "Beoordeel personeelsbegroting 2026–2030; overweeg samenwerking met technische opleidingsinstellingen of overnamestrategie.",
-            actieType: "CFO-actie"
+            body: "Wij Techniek prognosticeert een structureel tekort van meer dan 120.000 vakmensen in de installatiebranche tot 2030. Voor Eneco in Huis is dit het grootste risico voor het waarmaken van groeiambities en servicegaranties aan klanten.",
+            actie: "Opstellen meerjaren HR-strategie: eigen opleidingsprogramma's, samenwerking met ROC's, en acquisitie van installatiebedrijven als talent-strategie.",
+            actieType: "HR"
           }
         ]
       },
       {
-        title: "Macro-Economie & Financiën",
+        title: "Financiën & Macro",
         icon: "📊",
         items: [
           {
-            title: "ECB: inflatie daalt naar 1,9% in 2026 – gunstig renteklimaat",
+            title: "ECB: inflatie 1,9% in 2026, BNP-groei eurozone 1,3%",
             sentiment: "positive",
-            body: "Inflatie wordt verwacht op 1,9% voor 2026, onder de 2%-doelstelling. Olieprijsaannames verlaagd met 4%, gasgroothandelsprijzen met 8,6%. Biedt gunstige randvoorwaarden voor de reële economie.",
+            body: "De ECB verwacht inflatie onder de 2%-doelstelling en een gestage economische groei van 1,3%. Het reëel besteedbaar inkomen stijgt, consumentenvertrouwen stabiliseert. Gunstige macro-omgeving voor investeringen in woningverbetering.",
             actie: null,
             actieType: null
           },
           {
-            title: "BNP-groei eurozone: 1,3% in 2026 – stabiel investeringsklimaat",
+            title: "NHG-grens stijgt naar €470.000 — extra leenruimte voor energiezuinige woningen",
             sentiment: "positive",
-            body: "De ECB verwacht een gemiddelde reële BBP-groei van 1,3%, gedreven door stijgend reëel besteedbaar inkomen. Voor Eneco in Huis betekent dit een stabiele consumentenmarkt.",
-            actie: null,
-            actieType: null
-          },
-          {
-            title: "Afschaffing salderingsregeling 2027: zonnepaneel-klanten betalen meer",
-            sentiment: "negative",
-            body: "Per 1 januari 2027 vervalt de netsaldering voor zonnepaneelhouders. Huishoudens gaan €180–€470 per jaar meer betalen. Dit raakt klanten en beïnvloedt resterende budget voor verwarmingsinvesteringen.",
-            actie: "Meewegen in klantcommunicatie en financieringsadvies rond PV-klantensegment.",
-            actieType: "CFO-actie"
+            body: "De Nationale Hypotheek Garantie dekt woningen tot €470.000 (of €498.200 met energiebesparende maatregelen). Consumenten kunnen hierdoor meer lenen voor woningen met energieverbeteringen — direct relevant voor warmtepomp- en isolatiecombinaties die Eneco in Huis aanbiedt.",
+            actie: "Verkoopargumentatie updaten met NHG-leenruimte als financieringsvoordeel voor warmtepomppakket.",
+            actieType: "Financiën"
           }
         ]
       }
     ],
     priorities: [
-      "Herzien van de businesscase warmtepompen 2026–2029 gezien het verschuiven van de verplichting naar 2029.",
-      "Bewaken van personeelsbegroting: tekort aan technici is grootste risico voor groei- en servicebeloften.",
-      "Klantcommunicatie afstemmen op gewijzigde ISDE-subsidieregels en R290-overgang.",
-      "Strategische heroriëntatie portfolio: kortetermijnwinst in CV-ketelservice vs. langetermijninvestering.",
-      "Financieel model aanpassen voor afschaffing saldering 2027."
+      "Strategie: Herzien groeipad warmtepompen 2026–2029 na schrappen verplichting; korte termijn CV-service vs. langetermijn warmtepomp in balans brengen.",
+      "HR: Meerjaren personeelsstrategie opstellen — tekort van 120.000 technici is existentieel risico voor schaalgroei.",
+      "Operaties: R290-trainingsprogramma opstarten; serviceplanningscapaciteit aanpassen op hogere CV-ketelvolumes.",
+      "Marketing: Starter-propositie en PV-klantenaanpak ontwikkelen; verkoopmateriaal bijwerken op nieuwe ISDE-regels.",
+      "Financiën: Jaarplanning bijstellen op lagere warmtepompconversie en hogere CV-servicemarges."
     ]
   }
 ];

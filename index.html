@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Eneco in Huis — CFO Nieuws Archief</title>
+  <title>Eneco in Huis — Management Nieuwsoverzicht</title>
   <style>
     :root {
       --teal: #00828A;
@@ -268,7 +268,11 @@
       flex-shrink: 0; margin-top: 1px;
       background: #FEF3C7; color: #92400E;
     }
-    .actie-badge.strategisch { background: #EDE9FE; color: #4C1D95; }
+    .actie-badge.strategie  { background: #EDE9FE; color: #4C1D95; }
+    .actie-badge.operaties  { background: #FFF3E0; color: #E65100; }
+    .actie-badge.hr         { background: #E3F2FD; color: #0D47A1; }
+    .actie-badge.marketing  { background: #FCE4EC; color: #880E4F; }
+    .actie-badge.technologie{ background: #E8F5E9; color: #1B5E20; }
     .actie-text {
       font-size: 12px; font-style: italic;
       color: var(--gray-dark); line-height: 1.5;
@@ -344,7 +348,7 @@
       <div class="logo-icon">Ei</div>
       <div class="logo-text">
         <span class="logo-main">Eneco in Huis</span>
-        <span class="logo-sub">CFO NIEUWS ARCHIEF</span>
+        <span class="logo-sub">MANAGEMENT NIEUWSOVERZICHT</span>
       </div>
     </a>
     <div class="header-right">
@@ -369,7 +373,7 @@
   </div>
 
   <footer>
-    Vertrouwelijk — Eneco in Huis · Gegenereerd door AI-assistent · Dagelijks bijgewerkt om 07:00
+    Intern gebruik — Eneco in Huis Management Team · Gegenereerd door AI-assistent · Dagelijks bijgewerkt om 07:00
   </footer>
 
   <script src="data.js"></script>
@@ -412,7 +416,7 @@
       // Header
       html += `<div class="brief-header">
         <div class="brief-header-top">
-          <span class="brief-label">CFO Dagelijks Nieuwsoverzicht</span>
+          <span class="brief-label">Dagelijks Management Nieuwsoverzicht</span>
         </div>
         <div class="brief-date-full">${b.dateFormatted}</div>
         <p class="brief-summary">${b.samenvatting}</p>
@@ -448,7 +452,12 @@
             </div>
             <p class="news-body">${item.body}</p>`;
           if (item.actie) {
-            const badge = item.actieType === 'Strategische implicatie' ? 'strategisch' : '';
+            const badgeMap = {
+              'Strategie': 'strategie', 'Strategische implicatie': 'strategie',
+              'Operaties': 'operaties', 'HR': 'hr',
+              'Marketing': 'marketing', 'Technologie': 'technologie'
+            };
+            const badge = badgeMap[item.actieType] || '';
             html += `<div class="news-actie">
               <span class="actie-badge ${badge}">${item.actieType}</span>
               <span class="actie-text">${item.actie}</span>
@@ -462,7 +471,7 @@
       // Priorities
       if (b.priorities && b.priorities.length) {
         html += `<div class="priorities-card">
-          <div class="priorities-title">⚡ Top Prioriteiten CFO — Deze Week</div>`;
+          <div class="priorities-title">⚡ Top Prioriteiten Management Team</div>`;
         b.priorities.forEach((p, i) => {
           html += `<div class="priority-item">
             <span class="priority-num">${i+1}</span>
