@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eneco in Huis — CFO Nieuws Archief</title>
+  <style>
+    :root {
+      --teal: #00828A;
+      --teal-dark: #006068;
+      --teal-light: #E6F4F5;
+      --teal-mid: #B2DDE0;
+      --gray-dark: #1E2A2A;
+      --gray-med: #4A5568;
+      --gray-light: #F7FAFA;
+      --gray-border: #DCE8E9;
+      --positive: #1B6B32;
+      --positive-bg: #EAF5ED;
+      --negative: #B91C1C;
+      --negative-bg: #FEF2F2;
+      --neutral: #374151;
+      --neutral-bg: #F3F4F6;
+      --white: #FFFFFF;
+      --shadow: 0 2px 12px rgba(0,130,138,0.09);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Arial, sans-serif;
+      background: var(--gray-light);
+      color: var(--gray-dark);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ─── TOP NAV ─────────────────────────────────────── */
+    header {
+      background: var(--white);
+      border-bottom: 3px solid var(--teal);
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      height: 64px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: var(--shadow);
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .logo-icon {
+      width: 36px; height: 36px;
+      background: var(--teal);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-size: 18px; font-weight: 800;
+      letter-spacing: -1px;
+    }
+    .logo-text { display: flex; flex-direction: column; }
+    .logo-main { font-size: 15px; font-weight: 700; color: var(--teal-dark); line-height: 1; }
+    .logo-sub  { font-size: 11px; color: var(--gray-med); letter-spacing: 0.05em; }
+    .header-right { margin-left: auto; display: flex; align-items: center; gap: 16px; }
+    .brief-count {
+      background: var(--teal-light);
+      color: var(--teal-dark);
+      font-size: 12px; font-weight: 600;
+      padding: 4px 10px; border-radius: 20px;
+    }
+
+    /* ─── MAIN LAYOUT ─────────────────────────────────── */
+    .layout {
+      display: flex;
+      flex: 1;
+      max-width: 1400px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 24px 20px;
+      gap: 24px;
+    }
+
+    /* ─── SIDEBAR ─────────────────────────────────────── */
+    .sidebar {
+      width: 260px;
+      flex-shrink: 0;
+    }
+    .sidebar-sticky {
+      position: sticky;
+      top: 88px;
+    }
+    .sidebar-title {
+      font-size: 11px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--gray-med);
+      padding: 0 4px 10px;
+      border-bottom: 1px solid var(--gray-border);
+      margin-bottom: 8px;
+    }
+    .brief-list { list-style: none; }
+    .brief-list-item {
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.15s, transform 0.1s;
+    }
+    .brief-list-item:hover { background: var(--teal-light); }
+    .brief-list-item.active {
+      background: var(--teal);
+      color: white;
+    }
+    .brief-list-btn {
+      display: flex; flex-direction: column;
+      width: 100%; text-align: left;
+      padding: 10px 12px;
+      border: none; background: none; cursor: pointer;
+      border-radius: 10px;
+    }
+    .brief-list-date {
+      font-size: 13px; font-weight: 600;
+      color: inherit;
+    }
+    .brief-list-item.active .brief-list-date { color: white; }
+    .brief-list-weekday {
+      font-size: 11px; color: var(--gray-med);
+      margin-top: 1px;
+    }
+    .brief-list-item.active .brief-list-weekday { color: rgba(255,255,255,0.75); }
+
+    /* ─── MAIN CONTENT ────────────────────────────────── */
+    .main { flex: 1; min-width: 0; }
+
+    /* Brief header card */
+    .brief-header {
+      background: var(--white);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      padding: 28px 32px 24px;
+      margin-bottom: 20px;
+      border-top: 4px solid var(--teal);
+    }
+    .brief-header-top {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 8px;
+    }
+    .brief-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--teal);
+    }
+    .brief-date-full {
+      font-size: 22px; font-weight: 700; color: var(--gray-dark);
+      margin-bottom: 12px;
+    }
+    .brief-summary {
+      font-size: 14px; line-height: 1.7;
+      color: var(--gray-med);
+      max-width: 720px;
+    }
+
+    /* KPI row */
+    .kpi-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .kpi-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 16px 18px;
+      box-shadow: var(--shadow);
+      border-left: 4px solid var(--teal);
+    }
+    .kpi-card.positive { border-color: var(--positive); }
+    .kpi-card.negative { border-color: var(--negative); }
+    .kpi-value {
+      font-size: 22px; font-weight: 800;
+      color: var(--teal-dark);
+      line-height: 1;
+    }
+    .kpi-card.positive .kpi-value { color: var(--positive); }
+    .kpi-card.negative .kpi-value { color: var(--negative); }
+    .kpi-label {
+      font-size: 12px; font-weight: 600;
+      color: var(--gray-dark);
+      margin: 4px 0 2px;
+    }
+    .kpi-sub {
+      font-size: 11px; color: var(--gray-med);
+    }
+
+    /* Sections */
+    .section-card {
+      background: var(--white);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      margin-bottom: 16px;
+      overflow: hidden;
+    }
+    .section-header {
+      display: flex; align-items: center; gap: 10px;
+      padding: 14px 20px;
+      background: var(--teal-light);
+      border-bottom: 1px solid var(--teal-mid);
+      cursor: pointer;
+      user-select: none;
+    }
+    .section-icon { font-size: 18px; }
+    .section-title {
+      font-size: 14px; font-weight: 700; color: var(--teal-dark);
+      flex: 1;
+    }
+    .section-count {
+      font-size: 11px; font-weight: 600;
+      background: var(--teal);
+      color: white;
+      padding: 2px 8px; border-radius: 20px;
+    }
+    .section-chevron {
+      font-size: 12px; color: var(--teal);
+      transition: transform 0.2s;
+    }
+    .section-card.collapsed .section-chevron { transform: rotate(-90deg); }
+    .section-body { padding: 0; }
+    .section-card.collapsed .section-body { display: none; }
+
+    /* News items */
+    .news-item {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--gray-border);
+      transition: background 0.12s;
+    }
+    .news-item:last-child { border-bottom: none; }
+    .news-item:hover { background: #FAFEFE; }
+    .news-item-top {
+      display: flex; align-items: flex-start; gap: 10px;
+      margin-bottom: 6px;
+    }
+    .sentiment-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      flex-shrink: 0; margin-top: 5px;
+    }
+    .sentiment-dot.positive { background: var(--positive); }
+    .sentiment-dot.negative { background: var(--negative); }
+    .sentiment-dot.neutral  { background: #9CA3AF; }
+    .news-title {
+      font-size: 14px; font-weight: 600;
+      color: var(--gray-dark); line-height: 1.4;
+    }
+    .news-title.positive { color: var(--positive); }
+    .news-title.negative { color: var(--negative); }
+    .news-body {
+      font-size: 13px; line-height: 1.65;
+      color: var(--gray-med);
+      margin: 4px 0 0 18px;
+    }
+    .news-actie {
+      margin: 8px 0 0 18px;
+      display: flex; align-items: flex-start; gap: 6px;
+    }
+    .actie-badge {
+      font-size: 10px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.06em;
+      padding: 2px 7px; border-radius: 4px;
+      flex-shrink: 0; margin-top: 1px;
+      background: #FEF3C7; color: #92400E;
+    }
+    .actie-badge.strategisch { background: #EDE9FE; color: #4C1D95; }
+    .actie-text {
+      font-size: 12px; font-style: italic;
+      color: var(--gray-dark); line-height: 1.5;
+    }
+
+    /* Priorities */
+    .priorities-card {
+      background: var(--white);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      padding: 20px 24px;
+      margin-bottom: 16px;
+      border-top: 4px solid #7C3AED;
+    }
+    .priorities-title {
+      font-size: 13px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.07em;
+      color: #5B21B6;
+      margin-bottom: 14px;
+    }
+    .priority-item {
+      display: flex; align-items: flex-start; gap: 10px;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--gray-border);
+      font-size: 13px; line-height: 1.6; color: var(--gray-dark);
+    }
+    .priority-item:last-child { border-bottom: none; }
+    .priority-num {
+      width: 22px; height: 22px;
+      background: #7C3AED; color: white;
+      border-radius: 50%;
+      font-size: 11px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* Empty state */
+    .empty-state {
+      text-align: center; padding: 80px 20px;
+      color: var(--gray-med);
+    }
+    .empty-state .icon { font-size: 48px; margin-bottom: 12px; }
+    .empty-state p { font-size: 15px; }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 16px;
+      font-size: 12px;
+      color: var(--gray-med);
+      border-top: 1px solid var(--gray-border);
+      background: var(--white);
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .layout { flex-direction: column; padding: 16px; }
+      .sidebar { width: 100%; }
+      .sidebar-sticky { position: static; }
+      .brief-list { display: flex; flex-wrap: wrap; gap: 8px; }
+      .brief-list-item { flex: 0 0 auto; }
+      .kpi-row { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 500px) {
+      .kpi-row { grid-template-columns: 1fr; }
+      .brief-header { padding: 20px 16px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="logo" href="#">
+      <div class="logo-icon">Ei</div>
+      <div class="logo-text">
+        <span class="logo-main">Eneco in Huis</span>
+        <span class="logo-sub">CFO NIEUWS ARCHIEF</span>
+      </div>
+    </a>
+    <div class="header-right">
+      <span class="brief-count" id="briefCount">0 briefs</span>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="sidebar-sticky">
+        <div class="sidebar-title">Edities</div>
+        <ul class="brief-list" id="briefList"></ul>
+      </div>
+    </aside>
+
+    <main class="main" id="mainContent">
+      <div class="empty-state">
+        <div class="icon">📰</div>
+        <p>Selecteer een editie in het menu om te lezen.</p>
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    Vertrouwelijk — Eneco in Huis · Gegenereerd door AI-assistent · Dagelijks bijgewerkt om 07:00
+  </footer>
+
+  <script src="data.js"></script>
+  <script>
+    // ── Sort newest first ─────────────────────────────────────────────
+    const sorted = [...briefsData].sort((a, b) => b.date.localeCompare(a.date));
+
+    // ── Sidebar list ──────────────────────────────────────────────────
+    const briefList = document.getElementById('briefList');
+    document.getElementById('briefCount').textContent =
+      sorted.length + (sorted.length === 1 ? ' brief' : ' briefs');
+
+    sorted.forEach((brief, idx) => {
+      const li = document.createElement('li');
+      li.className = 'brief-list-item' + (idx === 0 ? ' active' : '');
+      li.dataset.idx = idx;
+      li.innerHTML = `
+        <button class="brief-list-btn" onclick="showBrief(${idx})">
+          <span class="brief-list-date">${brief.date}</span>
+          <span class="brief-list-weekday">${brief.dateFormatted.split(' ')[0]}</span>
+        </button>`;
+      briefList.appendChild(li);
+    });
+
+    // ── Render a brief ────────────────────────────────────────────────
+    function sentimentClass(s) {
+      if (s === 'positive') return 'positive';
+      if (s === 'negative') return 'negative';
+      return 'neutral';
+    }
+
+    function showBrief(idx) {
+      // Highlight sidebar
+      document.querySelectorAll('.brief-list-item').forEach(el => el.classList.remove('active'));
+      document.querySelector(`[data-idx="${idx}"]`).classList.add('active');
+
+      const b = sorted[idx];
+      let html = '';
+
+      // Header
+      html += `<div class="brief-header">
+        <div class="brief-header-top">
+          <span class="brief-label">CFO Dagelijks Nieuwsoverzicht</span>
+        </div>
+        <div class="brief-date-full">${b.dateFormatted}</div>
+        <p class="brief-summary">${b.samenvatting}</p>
+      </div>`;
+
+      // KPIs
+      html += `<div class="kpi-row">`;
+      b.kpis.forEach(k => {
+        html += `<div class="kpi-card ${sentimentClass(k.trend)}">
+          <div class="kpi-value">${k.value}</div>
+          <div class="kpi-label">${k.label}</div>
+          <div class="kpi-sub">${k.sub}</div>
+        </div>`;
+      });
+      html += `</div>`;
+
+      // Sections
+      b.sections.forEach((sec, si) => {
+        html += `<div class="section-card" id="sec-${si}">
+          <div class="section-header" onclick="toggleSection(${si})">
+            <span class="section-icon">${sec.icon}</span>
+            <span class="section-title">${sec.title}</span>
+            <span class="section-count">${sec.items.length}</span>
+            <span class="section-chevron">▼</span>
+          </div>
+          <div class="section-body">`;
+        sec.items.forEach(item => {
+          const sc = sentimentClass(item.sentiment);
+          html += `<div class="news-item">
+            <div class="news-item-top">
+              <span class="sentiment-dot ${sc}"></span>
+              <span class="news-title ${sc}">${item.title}</span>
+            </div>
+            <p class="news-body">${item.body}</p>`;
+          if (item.actie) {
+            const badge = item.actieType === 'Strategische implicatie' ? 'strategisch' : '';
+            html += `<div class="news-actie">
+              <span class="actie-badge ${badge}">${item.actieType}</span>
+              <span class="actie-text">${item.actie}</span>
+            </div>`;
+          }
+          html += `</div>`;
+        });
+        html += `</div></div>`;
+      });
+
+      // Priorities
+      if (b.priorities && b.priorities.length) {
+        html += `<div class="priorities-card">
+          <div class="priorities-title">⚡ Top Prioriteiten CFO — Deze Week</div>`;
+        b.priorities.forEach((p, i) => {
+          html += `<div class="priority-item">
+            <span class="priority-num">${i+1}</span>
+            <span>${p}</span>
+          </div>`;
+        });
+        html += `</div>`;
+      }
+
+      document.getElementById('mainContent').innerHTML = html;
+    }
+
+    function toggleSection(idx) {
+      const card = document.getElementById(`sec-${idx}`);
+      card.classList.toggle('collapsed');
+    }
+
+    // ── Auto-load most recent ─────────────────────────────────────────
+    if (sorted.length > 0) showBrief(0);
+  </script>
+</body>
+</html>
