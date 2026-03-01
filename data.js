@@ -4,6 +4,140 @@
 
 const briefsData = [
   {
+    date: "2026-03-01",
+    dateFormatted: "zondag 1 maart 2026",
+    samenvatting: "De TTF-gasprijs beweegt in maart terug richting €30/MWh na een tijdelijke daling begin 2026. De woningmarkt overschrijdt voor het eerst de grens van €500.000 gemiddeld (NVM Q4 2025), met meer aanbod en vlottere doorstroom. Eneco's target van 60.000 hybride warmtepompen per jaar na 2027 vereist directe opschaling van capaciteit en personeel. ETS-2 maakt gas structureel duurder na 2027 — een window of opportunity om klanten nu te binden.",
+    kpis: [
+      { label: "TTF Gasprijs", value: "€30/MWh", sub: "Stijging t.o.v. jan; gem. 2026 ~€30", trend: "neutral" },
+      { label: "Gem. woningprijs", value: "€502.000", sub: "+3,9% YoY — eerste keer boven €500k", trend: "positive" },
+      { label: "WP-target 2027", value: "60.000", sub: "Eneco hybride warmtepompen/jaar", trend: "positive" },
+      { label: "Gem. verkooptijd", value: "28 dagen", sub: "NVM Q4 2025 — markt blijft snel", trend: "neutral" }
+    ],
+    sections: [
+      {
+        title: "Strategie & Marktpositie",
+        icon: "🎯",
+        items: [
+          {
+            title: "Eneco zet in op 60.000 hybride warmtepompen per jaar vanaf 2027",
+            sentiment: "positive",
+            body: "Eneco publiceert haar target van 60.000 hybride warmtepompinstallaties per jaar na 2027, oplopend van 45.000 in 2025. Eneco in Huis is als uitvoerend installatiebedrijf direct verantwoordelijk voor dit target. Dit vereist significante opschaling van installatie- en servicecapaciteit.",
+            actie: "Beoordeel of personeels- en materiaalplanning aansluit op de opschaling naar 60.000 WP/jaar richting 2027.",
+            actieType: "Strategie"
+          },
+          {
+            title: "ETS-2 maakt gas duurder na 2027 — nu klanten binden loont",
+            sentiment: "positive",
+            body: "Het Europese emissiehandelssysteem ETS-2 treedt na 2027 in werking voor de gebouwde omgeving. Gas wordt structureel duurder, wat de businesscase voor hybride warmtepompen versterkt. De huidige relatief lage gasprijzen bieden ruimte om klanten te informeren en te binden vóór de urgentie toeneemt.",
+            actie: "Ontwikkel een campagne die klanten nu al laat profiteren van een hybride installatie, vóór ETS-2 de druk vergroot.",
+            actieType: "Marketing"
+          }
+        ]
+      },
+      {
+        title: "Energiemarkt & Beleid",
+        icon: "⚡",
+        items: [
+          {
+            title: "TTF-gasprijs stijgt terug naar €30/MWh — zomerverwachting €26",
+            sentiment: "neutral",
+            body: "Na de daling begin 2026 beweegt de TTF richting €30/MWh voor het maart-contract. Analisten verwachten een zomergemiddelde van €26/MWh en een jaargemiddelde van €30. Hogere gasprijzen versterken de warmtepomp-businesscase voor de tweede helft van 2026.",
+            actie: "Pas tariefstelling en marge-aannames aan op TTF-verwachting €26–30/MWh voor rest van 2026.",
+            actieType: "Financiën"
+          },
+          {
+            title: "Energiebelasting op gas omhoog, op stroom omlaag — elektrificatie aantrekkelijker",
+            sentiment: "positive",
+            body: "De Nederlandse overheid heeft de energiebelasting op gas verhoogd en op elektriciteit verlaagd in 2026. Consumenten met een hoog gasverbruik worden financieel steeds harder geraakt — een structurele koers richting elektrificatie.",
+            actie: "Gebruik de belastingvergelijking gas vs. elektriciteit als concreet verkoopargument in offertegesprekken.",
+            actieType: "Marketing"
+          }
+        ]
+      },
+      {
+        title: "Woningmarkt & Groeikansen",
+        icon: "🏠",
+        items: [
+          {
+            title: "Eerste gemiddelde woningprijs boven €500.000 — 47.600 transacties in Q4",
+            sentiment: "positive",
+            body: "NVM rapporteert voor Q4 2025 een gemiddelde transactieprijs van €502.000 — voor het eerst boven €500k. Er werden ruim 47.600 woningen verkocht (+11% YoY). In januari 2026 lag de prijs op €493.875 (+5,4% YoY). Meer transacties betekent direct meer vervangingsvraag voor CV-ketels en boilers.",
+            actie: null,
+            actieType: null
+          },
+          {
+            title: "Starters vrijgesteld van overdrachtsbelasting tot €555.000",
+            sentiment: "positive",
+            body: "Starters tussen 18 en 34 jaar betalen in 2026 geen overdrachtsbelasting bij aankoop van een woning tot €555.000. Dit vergroot de groep actieve starters significant — zij kopen vaak woningen met verouderde installaties.",
+            actie: "Lanceer een starterscampagne: 'nieuwe woning, nieuwe installatie' — sluit aan op koopmomenten van starters.",
+            actieType: "Marketing"
+          }
+        ]
+      },
+      {
+        title: "Operaties & Service",
+        icon: "🔧",
+        items: [
+          {
+            title: "72% van woningen boven vraagprijs — snelheid beslissend in installatieslag",
+            sentiment: "neutral",
+            body: "NVM meldt dat 72% van de woningen boven de vraagprijs werd verkocht in Q4 2025, met een gemiddelde verkooptijd van 28 dagen. Kopers nemen snel beslissingen over installaties — snelle offertes en beschikbaarheid van monteurs zijn cruciaal.",
+            actie: "Implementeer een fast-track offerteproces voor woningoverdrachten met een doorlooptijd van maximaal 48 uur.",
+            actieType: "Operaties"
+          },
+          {
+            title: "ISDE-subsidiewijzigingen van kracht — klanten zoeken advies bij installateurs",
+            sentiment: "neutral",
+            body: "Nieuwe ISDE-regels zijn per 1 januari van kracht: lager startbedrag (€1.025), geen subsidie voor split-systemen met GWP>750. Veel consumenten zijn verward en zoeken actief advies. Eneco in Huis kan profiteren door als kennispartner op te treden.",
+            actie: "Zorg dat monteurs en verkopers de nieuwe ISDE-regels kennen; maak een klantgerichte FAQ beschikbaar.",
+            actieType: "Operaties"
+          }
+        ]
+      },
+      {
+        title: "HR & Arbeidsmarkt",
+        icon: "👷",
+        items: [
+          {
+            title: "200 monteurs nu — opschaling naar 60.000 WP/jaar vraagt structurele personeelsgroei",
+            sentiment: "negative",
+            body: "Eneco in Huis werkt momenteel met 200 monteurs, voornamelijk actief in de Randstad. Om het groeitarget van 60.000 WP/jaar na 2027 te realiseren is een substantiële uitbreiding noodzakelijk — in een markt met een sectorbreed tekort van 120.000 technici tot 2030.",
+            actie: "Start nu met opbouw van opleidingspipeline: eigen leerwerktrajecten, ROC-samenwerking en zij-instromerprogramma's.",
+            actieType: "HR"
+          }
+        ]
+      },
+      {
+        title: "Financiën & Macro",
+        icon: "📊",
+        items: [
+          {
+            title: "NHG-grens €470.000 — warmtepompinstallatie meefinancierbaar via hypotheek",
+            sentiment: "positive",
+            body: "De NHG dekt in 2026 woningen tot €470.000, of €498.200 als de koper energiebesparende voorzieningen meefinanciert. Dit biedt een directe financieringshaak voor warmtepompinstallaties via de hypotheek.",
+            actie: "Verwerk de NHG-combinatiemogelijkheid als standaard USP in warmtepomp-offertes.",
+            actieType: "Financiën"
+          },
+          {
+            title: "Energierekening daalt naar €1.993 — meer bestedingsruimte bij consumenten",
+            sentiment: "positive",
+            body: "De gemiddelde huishoudelijke energierekening daalt naar €1.993 in 2026, €52 lager dan 2025. Huishoudens houden meer vrij besteedbaar inkomen over, wat de drempel voor investeringen in woningverbetering verlaagt.",
+            actie: null,
+            actieType: null
+          }
+        ]
+      }
+    ],
+    priorities: [
+      "Strategie: Capaciteitsplan opstellen voor opschaling naar 60.000 WP/jaar — HR, materiaal en regio.",
+      "Marketing: ETS-2 campagne voorbereiden; klanten nu binden vóór gaskosten na 2027 stijgen.",
+      "Marketing: Starterscampagne lanceren voor woningoverdrachten — snel, ontzorgend, all-in.",
+      "Operaties: Fast-track offerteproces (48u) implementeren voor woningtransacties.",
+      "HR: Opleidingspipeline voor monteurs starten — zij-instromers, ROC-samenwerking, leerwerktrajecten.",
+      "Financiën: NHG-combinatiefinanciering opnemen als standaard USP in warmtepomp-offertes."
+    ]
+  },
+  {
     date: "2026-02-28",
     dateFormatted: "zaterdag 28 februari 2026",
     samenvatting: "De energiemarkt biedt Eneco in Huis in 2026 gunstige omstandigheden: lagere gasprijzen, dalende huishoudelijke energierekeningen en stijgende woningprijzen vergroten de investeringsbereidheid van consumenten. Het schrappen van de hybride warmtepompverplichting (nu 2029) vraagt om strategische heroriëntatie van de productportfolio. Operationeel is het tekort aan vakmensen de grootste rem op groei en servicebeloften. Kansen liggen in de nieuwbouwmarkt, het serviceabonnementen-segment en de opkomende R290-warmtepomptechnologie.",
