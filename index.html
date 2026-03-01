@@ -35,70 +35,6 @@
       flex-direction: column;
     }
 
-    /* ─── LOGIN OVERLAY ───────────────────────────────── */
-    #loginOverlay {
-      position: fixed; inset: 0; z-index: 9999;
-      background: linear-gradient(160deg, #1A1A1A 0%, #2D1000 50%, #FF6200 100%);
-      display: flex; align-items: center; justify-content: center;
-      padding: 20px;
-    }
-    #loginOverlay.hidden { display: none; }
-
-    .login-box {
-      background: white;
-      border-radius: 20px;
-      padding: 48px 40px 36px;
-      width: 100%; max-width: 400px;
-      box-shadow: 0 32px 80px rgba(0,0,0,0.35);
-      text-align: center;
-    }
-    .login-logo-wrap { margin: 0 auto 24px; }
-    .login-title {
-      font-size: 13px; font-weight: 600;
-      color: var(--gray-med);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 6px;
-    }
-    .login-subtitle {
-      font-size: 18px; font-weight: 700;
-      color: var(--gray-dark);
-      margin-bottom: 32px;
-    }
-    .login-input {
-      width: 100%; padding: 13px 16px;
-      font-size: 15px; font-family: inherit;
-      border: 2px solid var(--gray-border);
-      border-radius: 10px;
-      outline: none;
-      transition: border 0.2s, box-shadow 0.2s;
-      margin-bottom: 12px;
-      letter-spacing: 0.05em;
-    }
-    .login-input:focus {
-      border-color: var(--orange);
-      box-shadow: 0 0 0 3px rgba(255,98,0,0.12);
-    }
-    .login-btn {
-      width: 100%; padding: 13px;
-      font-size: 15px; font-weight: 700;
-      font-family: inherit;
-      background: var(--orange);
-      color: white; border: none;
-      border-radius: 10px; cursor: pointer;
-      transition: background 0.2s, transform 0.1s;
-    }
-    .login-btn:hover  { background: var(--orange-dark); }
-    .login-btn:active { transform: scale(0.99); }
-    .login-error {
-      font-size: 13px; color: var(--negative);
-      margin-top: 10px; min-height: 18px;
-    }
-    .login-footer {
-      font-size: 11px; color: #AAAAAA;
-      margin-top: 28px;
-    }
-
     /* ─── HEADER ──────────────────────────────────────── */
     header {
       background: var(--white);
@@ -349,32 +285,6 @@
 </head>
 <body>
 
-  <!-- ─── LOGIN ──────────────────────────────────────── -->
-  <div id="loginOverlay">
-    <div class="login-box">
-      <div class="login-logo-wrap">
-        <!-- Eneco in Huis logo SVG -->
-        <svg width="180" height="54" viewBox="0 0 180 54" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Eneco in Huis">
-          <!-- Flame icon -->
-          <path d="M20 4 C20 4 8 14 8 26 C8 36 13.5 43 20 46 C20 46 18 40 22 35 C24 32.5 26 34 26 34 C26 34 24 28 28 22 C30 19 32 22 32 26 C32 26 36 20 32 12 C36 18 38 26 36 34 C38 31 40 28 40 24 C40 24 42 34 38 40 C42 38 44 33 44 26 C44 14 32 4 20 4 Z" fill="#FF6200"/>
-          <!-- eneco wordmark -->
-          <text x="54" y="32" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="800" fill="#1A1A1A" letter-spacing="-0.5">eneco</text>
-          <!-- in huis -->
-          <text x="54" y="47" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600" fill="#FF6200" letter-spacing="0.5">in huis</text>
-        </svg>
-      </div>
-      <div class="login-title">Management Nieuwsoverzicht</div>
-      <div class="login-subtitle">Intern gebruik — log in om verder te gaan</div>
-      <input type="password" id="pwInput" class="login-input"
-             placeholder="Wachtwoord"
-             autocomplete="current-password"
-             onkeydown="if(event.key==='Enter') checkPassword()" />
-      <button class="login-btn" onclick="checkPassword()">Inloggen →</button>
-      <div class="login-error" id="loginError"></div>
-      <div class="login-footer">Neem contact op met je collega voor het wachtwoord.</div>
-    </div>
-  </div>
-
   <!-- ─── HEADER ─────────────────────────────────────── -->
   <header>
     <a class="header-logo" href="#">
@@ -414,34 +324,6 @@
 
   <script src="data.js"></script>
   <script>
-    // ── Password check — simple btoa comparison (synchronous, works everywhere) ──
-    // Password: InHuis2026
-    const AUTH_TOKEN = 'SW5IdWlzMjAyNg==';
-
-    function checkPassword() {
-      const val = document.getElementById('pwInput').value;
-      try {
-        if (btoa(val) === AUTH_TOKEN) {
-          sessionStorage.setItem('eih_auth', AUTH_TOKEN);
-          document.getElementById('loginOverlay').classList.add('hidden');
-        } else {
-          document.getElementById('loginError').textContent = 'Onjuist wachtwoord. Probeer het opnieuw.';
-          document.getElementById('pwInput').value = '';
-          document.getElementById('pwInput').focus();
-        }
-      } catch(e) {
-        // btoa fails on non-latin chars — just show error
-        document.getElementById('loginError').textContent = 'Onjuist wachtwoord. Probeer het opnieuw.';
-        document.getElementById('pwInput').value = '';
-      }
-    }
-
-    if (sessionStorage.getItem('eih_auth') === AUTH_TOKEN) {
-      document.getElementById('loginOverlay').classList.add('hidden');
-    } else {
-      document.getElementById('pwInput').focus();
-    }
-
     // ── Render ────────────────────────────────────────────────────────
     const sorted = [...briefsData].sort((a, b) => b.date.localeCompare(a.date));
 
