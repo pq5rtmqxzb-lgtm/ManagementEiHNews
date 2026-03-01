@@ -4,79 +4,30 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Eneco in Huis — Management Nieuwsoverzicht</title>
-  <style>
-    /* ─── LOGIN OVERLAY ───────────────────────────────── */
-    #loginOverlay {
-      position: fixed; inset: 0; z-index: 9999;
-      background: linear-gradient(135deg, #004F55 0%, #00828A 60%, #00A8B2 100%);
-      display: flex; align-items: center; justify-content: center;
-    }
-    #loginOverlay.hidden { display: none; }
-    .login-box {
-      background: white; border-radius: 20px;
-      padding: 48px 40px; width: 100%; max-width: 400px;
-      box-shadow: 0 24px 60px rgba(0,0,0,0.25);
-      text-align: center;
-    }
-    .login-logo {
-      width: 56px; height: 56px; background: #00828A; border-radius: 14px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 26px; font-weight: 800; color: white;
-      margin: 0 auto 20px; letter-spacing: -1px;
-    }
-    .login-title {
-      font-size: 20px; font-weight: 700; color: #1E2A2A; margin-bottom: 4px;
-    }
-    .login-subtitle {
-      font-size: 13px; color: #4A5568; margin-bottom: 32px;
-    }
-    .login-input {
-      width: 100%; padding: 12px 16px; font-size: 15px;
-      border: 2px solid #DCE8E9; border-radius: 10px;
-      outline: none; transition: border 0.2s;
-      font-family: inherit; letter-spacing: 0.08em;
-      margin-bottom: 12px; box-sizing: border-box;
-    }
-    .login-input:focus { border-color: #00828A; }
-    .login-btn {
-      width: 100%; padding: 12px; font-size: 15px; font-weight: 700;
-      background: #00828A; color: white; border: none;
-      border-radius: 10px; cursor: pointer;
-      transition: background 0.2s; font-family: inherit;
-    }
-    .login-btn:hover { background: #006068; }
-    .login-error {
-      font-size: 13px; color: #B91C1C; margin-top: 10px;
-      min-height: 18px;
-    }
-    .login-footer {
-      font-size: 11px; color: #9CA3AF; margin-top: 24px;
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --teal: #00828A;
-      --teal-dark: #006068;
-      --teal-light: #E6F4F5;
-      --teal-mid: #B2DDE0;
-      --gray-dark: #1E2A2A;
-      --gray-med: #4A5568;
-      --gray-light: #F7FAFA;
-      --gray-border: #DCE8E9;
-      --positive: #1B6B32;
-      --positive-bg: #EAF5ED;
-      --negative: #B91C1C;
-      --negative-bg: #FEF2F2;
-      --neutral: #374151;
-      --neutral-bg: #F3F4F6;
-      --white: #FFFFFF;
-      --shadow: 0 2px 12px rgba(0,130,138,0.09);
+      --orange:       #FF6200;
+      --orange-dark:  #D94F00;
+      --orange-light: #FFF0E6;
+      --orange-mid:   #FFD4B8;
+      --gray-dark:    #1A1A1A;
+      --gray-med:     #555555;
+      --gray-light:   #F6F6F6;
+      --gray-border:  #E0E0E0;
+      --positive:     #1B6B32;
+      --positive-bg:  #EAF5ED;
+      --negative:     #B91C1C;
+      --negative-bg:  #FEF2F2;
+      --white:        #FFFFFF;
+      --shadow:       0 2px 14px rgba(255,98,0,0.10);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Arial, sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
       background: var(--gray-light);
       color: var(--gray-dark);
       min-height: 100vh;
@@ -84,231 +35,246 @@
       flex-direction: column;
     }
 
-    /* ─── TOP NAV ─────────────────────────────────────── */
-    header {
-      background: var(--white);
-      border-bottom: 3px solid var(--teal);
-      padding: 0 32px;
-      display: flex;
-      align-items: center;
-      height: 64px;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: var(--shadow);
-    }
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-    }
-    .logo-icon {
-      width: 36px; height: 36px;
-      background: var(--teal);
-      border-radius: 8px;
+    /* ─── LOGIN OVERLAY ───────────────────────────────── */
+    #loginOverlay {
+      position: fixed; inset: 0; z-index: 9999;
+      background: linear-gradient(160deg, #1A1A1A 0%, #2D1000 50%, #FF6200 100%);
       display: flex; align-items: center; justify-content: center;
-      color: white; font-size: 18px; font-weight: 800;
-      letter-spacing: -1px;
+      padding: 20px;
     }
-    .logo-text { display: flex; flex-direction: column; }
-    .logo-main { font-size: 15px; font-weight: 700; color: var(--teal-dark); line-height: 1; }
-    .logo-sub  { font-size: 11px; color: var(--gray-med); letter-spacing: 0.05em; }
-    .header-right { margin-left: auto; display: flex; align-items: center; gap: 16px; }
-    .brief-count {
-      background: var(--teal-light);
-      color: var(--teal-dark);
-      font-size: 12px; font-weight: 600;
-      padding: 4px 10px; border-radius: 20px;
+    #loginOverlay.hidden { display: none; }
+
+    .login-box {
+      background: white;
+      border-radius: 20px;
+      padding: 48px 40px 36px;
+      width: 100%; max-width: 400px;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.35);
+      text-align: center;
+    }
+    .login-logo-wrap { margin: 0 auto 24px; }
+    .login-title {
+      font-size: 13px; font-weight: 600;
+      color: var(--gray-med);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .login-subtitle {
+      font-size: 18px; font-weight: 700;
+      color: var(--gray-dark);
+      margin-bottom: 32px;
+    }
+    .login-input {
+      width: 100%; padding: 13px 16px;
+      font-size: 15px; font-family: inherit;
+      border: 2px solid var(--gray-border);
+      border-radius: 10px;
+      outline: none;
+      transition: border 0.2s, box-shadow 0.2s;
+      margin-bottom: 12px;
+      letter-spacing: 0.05em;
+    }
+    .login-input:focus {
+      border-color: var(--orange);
+      box-shadow: 0 0 0 3px rgba(255,98,0,0.12);
+    }
+    .login-btn {
+      width: 100%; padding: 13px;
+      font-size: 15px; font-weight: 700;
+      font-family: inherit;
+      background: var(--orange);
+      color: white; border: none;
+      border-radius: 10px; cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+    }
+    .login-btn:hover  { background: var(--orange-dark); }
+    .login-btn:active { transform: scale(0.99); }
+    .login-error {
+      font-size: 13px; color: var(--negative);
+      margin-top: 10px; min-height: 18px;
+    }
+    .login-footer {
+      font-size: 11px; color: #AAAAAA;
+      margin-top: 28px;
     }
 
-    /* ─── MAIN LAYOUT ─────────────────────────────────── */
+    /* ─── HEADER ──────────────────────────────────────── */
+    header {
+      background: var(--white);
+      border-bottom: 3px solid var(--orange);
+      padding: 0 32px;
+      display: flex; align-items: center;
+      height: 66px;
+      position: sticky; top: 0; z-index: 100;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    }
+    .header-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .header-tagline {
+      font-size: 11px; font-weight: 600;
+      color: var(--gray-med);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding-left: 16px;
+      border-left: 1px solid var(--gray-border);
+      margin-left: 4px;
+    }
+    .header-right { margin-left: auto; display: flex; align-items: center; gap: 12px; }
+    .edition-badge {
+      background: var(--orange-light);
+      color: var(--orange-dark);
+      font-size: 12px; font-weight: 600;
+      padding: 4px 12px; border-radius: 20px;
+    }
+
+    /* ─── LAYOUT ──────────────────────────────────────── */
     .layout {
-      display: flex;
-      flex: 1;
-      max-width: 1400px;
-      width: 100%;
+      display: flex; flex: 1;
+      max-width: 1400px; width: 100%;
       margin: 0 auto;
-      padding: 24px 20px;
+      padding: 28px 24px;
       gap: 24px;
     }
 
     /* ─── SIDEBAR ─────────────────────────────────────── */
-    .sidebar {
-      width: 260px;
-      flex-shrink: 0;
-    }
-    .sidebar-sticky {
-      position: sticky;
-      top: 88px;
-    }
-    .sidebar-title {
-      font-size: 11px; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 0.1em;
+    .sidebar { width: 240px; flex-shrink: 0; }
+    .sidebar-sticky { position: sticky; top: 94px; }
+    .sidebar-label {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
       color: var(--gray-med);
       padding: 0 4px 10px;
       border-bottom: 1px solid var(--gray-border);
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
     .brief-list { list-style: none; }
-    .brief-list-item {
+    .brief-item {
       border-radius: 10px;
+      transition: background 0.12s;
       cursor: pointer;
-      transition: background 0.15s, transform 0.1s;
     }
-    .brief-list-item:hover { background: var(--teal-light); }
-    .brief-list-item.active {
-      background: var(--teal);
-      color: white;
-    }
-    .brief-list-btn {
+    .brief-item:hover { background: var(--orange-light); }
+    .brief-item.active { background: var(--orange); }
+    .brief-btn {
       display: flex; flex-direction: column;
-      width: 100%; text-align: left;
-      padding: 10px 12px;
-      border: none; background: none; cursor: pointer;
-      border-radius: 10px;
+      width: 100%; padding: 10px 12px;
+      border: none; background: none;
+      cursor: pointer; border-radius: 10px;
+      text-align: left;
     }
-    .brief-list-date {
-      font-size: 13px; font-weight: 600;
-      color: inherit;
-    }
-    .brief-list-item.active .brief-list-date { color: white; }
-    .brief-list-weekday {
-      font-size: 11px; color: var(--gray-med);
-      margin-top: 1px;
-    }
-    .brief-list-item.active .brief-list-weekday { color: rgba(255,255,255,0.75); }
+    .brief-date   { font-size: 13px; font-weight: 600; color: var(--gray-dark); }
+    .brief-day    { font-size: 11px; color: var(--gray-med); margin-top: 1px; }
+    .brief-item.active .brief-date { color: white; }
+    .brief-item.active .brief-day  { color: rgba(255,255,255,0.75); }
 
-    /* ─── MAIN CONTENT ────────────────────────────────── */
+    /* ─── MAIN ────────────────────────────────────────── */
     .main { flex: 1; min-width: 0; }
 
-    /* Brief header card */
+    /* Brief header */
     .brief-header {
-      background: var(--white);
+      background: white;
       border-radius: 16px;
       box-shadow: var(--shadow);
       padding: 28px 32px 24px;
       margin-bottom: 20px;
-      border-top: 4px solid var(--teal);
+      border-top: 4px solid var(--orange);
     }
-    .brief-header-top {
-      display: flex; align-items: center; justify-content: space-between;
-      margin-bottom: 8px;
-    }
-    .brief-label {
-      font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--teal);
+    .brief-eyebrow {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 6px;
     }
     .brief-date-full {
-      font-size: 22px; font-weight: 700; color: var(--gray-dark);
-      margin-bottom: 12px;
+      font-size: 22px; font-weight: 800;
+      color: var(--gray-dark); margin-bottom: 14px;
     }
     .brief-summary {
-      font-size: 14px; line-height: 1.7;
-      color: var(--gray-med);
-      max-width: 720px;
+      font-size: 14px; line-height: 1.75;
+      color: var(--gray-med); max-width: 740px;
     }
 
-    /* KPI row */
+    /* KPIs */
     .kpi-row {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-      margin-bottom: 20px;
+      gap: 12px; margin-bottom: 20px;
     }
     .kpi-card {
-      background: var(--white);
-      border-radius: 12px;
-      padding: 16px 18px;
-      box-shadow: var(--shadow);
-      border-left: 4px solid var(--teal);
+      background: white; border-radius: 12px;
+      padding: 16px 18px; box-shadow: var(--shadow);
+      border-left: 4px solid var(--orange);
     }
     .kpi-card.positive { border-color: var(--positive); }
     .kpi-card.negative { border-color: var(--negative); }
     .kpi-value {
       font-size: 22px; font-weight: 800;
-      color: var(--teal-dark);
-      line-height: 1;
+      color: var(--orange); line-height: 1;
     }
     .kpi-card.positive .kpi-value { color: var(--positive); }
     .kpi-card.negative .kpi-value { color: var(--negative); }
-    .kpi-label {
-      font-size: 12px; font-weight: 600;
-      color: var(--gray-dark);
-      margin: 4px 0 2px;
-    }
-    .kpi-sub {
-      font-size: 11px; color: var(--gray-med);
-    }
+    .kpi-label { font-size: 12px; font-weight: 600; color: var(--gray-dark); margin: 5px 0 2px; }
+    .kpi-sub   { font-size: 11px; color: var(--gray-med); }
 
     /* Sections */
     .section-card {
-      background: var(--white);
-      border-radius: 14px;
-      box-shadow: var(--shadow);
-      margin-bottom: 16px;
+      background: white; border-radius: 14px;
+      box-shadow: var(--shadow); margin-bottom: 14px;
       overflow: hidden;
     }
-    .section-header {
+    .section-head {
       display: flex; align-items: center; gap: 10px;
-      padding: 14px 20px;
-      background: var(--teal-light);
-      border-bottom: 1px solid var(--teal-mid);
-      cursor: pointer;
-      user-select: none;
+      padding: 13px 20px;
+      background: var(--orange-light);
+      border-bottom: 1px solid var(--orange-mid);
+      cursor: pointer; user-select: none;
     }
-    .section-icon { font-size: 18px; }
-    .section-title {
-      font-size: 14px; font-weight: 700; color: var(--teal-dark);
-      flex: 1;
-    }
+    .section-icon  { font-size: 17px; }
+    .section-title { font-size: 13px; font-weight: 700; color: var(--orange-dark); flex: 1; }
     .section-count {
       font-size: 11px; font-weight: 600;
-      background: var(--teal);
-      color: white;
+      background: var(--orange); color: white;
       padding: 2px 8px; border-radius: 20px;
     }
-    .section-chevron {
-      font-size: 12px; color: var(--teal);
-      transition: transform 0.2s;
-    }
+    .section-chevron { font-size: 11px; color: var(--orange); transition: transform 0.2s; }
     .section-card.collapsed .section-chevron { transform: rotate(-90deg); }
-    .section-body { padding: 0; }
+    .section-body  { padding: 0; }
     .section-card.collapsed .section-body { display: none; }
 
     /* News items */
     .news-item {
       padding: 16px 20px;
       border-bottom: 1px solid var(--gray-border);
-      transition: background 0.12s;
+      transition: background 0.1s;
     }
     .news-item:last-child { border-bottom: none; }
-    .news-item:hover { background: #FAFEFE; }
-    .news-item-top {
-      display: flex; align-items: flex-start; gap: 10px;
-      margin-bottom: 6px;
-    }
-    .sentiment-dot {
+    .news-item:hover { background: #FFFAF7; }
+
+    .news-item-top { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 5px; }
+    .dot {
       width: 8px; height: 8px; border-radius: 50%;
       flex-shrink: 0; margin-top: 5px;
+      background: #AAAAAA;
     }
-    .sentiment-dot.positive { background: var(--positive); }
-    .sentiment-dot.negative { background: var(--negative); }
-    .sentiment-dot.neutral  { background: #9CA3AF; }
+    .dot.positive { background: var(--positive); }
+    .dot.negative { background: var(--negative); }
+    .dot.neutral  { background: var(--orange); }
+
     .news-title {
       font-size: 14px; font-weight: 600;
       color: var(--gray-dark); line-height: 1.4;
     }
     .news-title.positive { color: var(--positive); }
     .news-title.negative { color: var(--negative); }
+
     .news-body {
-      font-size: 13px; line-height: 1.65;
+      font-size: 13px; line-height: 1.7;
       color: var(--gray-med);
       margin: 4px 0 0 18px;
     }
     .news-actie {
       margin: 8px 0 0 18px;
-      display: flex; align-items: flex-start; gap: 6px;
+      display: flex; align-items: flex-start; gap: 7px;
     }
     .actie-badge {
       font-size: 10px; font-weight: 700;
@@ -317,11 +283,11 @@
       flex-shrink: 0; margin-top: 1px;
       background: #FEF3C7; color: #92400E;
     }
-    .actie-badge.strategie  { background: #EDE9FE; color: #4C1D95; }
-    .actie-badge.operaties  { background: #FFF3E0; color: #E65100; }
-    .actie-badge.hr         { background: #E3F2FD; color: #0D47A1; }
-    .actie-badge.marketing  { background: #FCE4EC; color: #880E4F; }
-    .actie-badge.technologie{ background: #E8F5E9; color: #1B5E20; }
+    .actie-badge.strategie   { background: #EDE9FE; color: #4C1D95; }
+    .actie-badge.operaties   { background: #FFF3E0; color: #E65100; }
+    .actie-badge.hr          { background: #E3F2FD; color: #0D47A1; }
+    .actie-badge.marketing   { background: #FCE4EC; color: #880E4F; }
+    .actie-badge.technologie { background: #E8F5E9; color: #1B5E20; }
     .actie-text {
       font-size: 12px; font-style: italic;
       color: var(--gray-dark); line-height: 1.5;
@@ -329,51 +295,41 @@
 
     /* Priorities */
     .priorities-card {
-      background: var(--white);
-      border-radius: 14px;
+      background: white; border-radius: 14px;
       box-shadow: var(--shadow);
-      padding: 20px 24px;
-      margin-bottom: 16px;
-      border-top: 4px solid #7C3AED;
+      padding: 20px 24px; margin-bottom: 16px;
+      border-top: 4px solid var(--orange);
     }
     .priorities-title {
-      font-size: 13px; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 0.07em;
-      color: #5B21B6;
-      margin-bottom: 14px;
+      font-size: 12px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--orange); margin-bottom: 14px;
     }
     .priority-item {
       display: flex; align-items: flex-start; gap: 10px;
-      padding: 8px 0;
+      padding: 9px 0;
       border-bottom: 1px solid var(--gray-border);
       font-size: 13px; line-height: 1.6; color: var(--gray-dark);
     }
     .priority-item:last-child { border-bottom: none; }
     .priority-num {
       width: 22px; height: 22px;
-      background: #7C3AED; color: white;
-      border-radius: 50%;
-      font-size: 11px; font-weight: 700;
+      background: var(--orange); color: white;
+      border-radius: 50%; font-size: 11px; font-weight: 700;
       display: flex; align-items: center; justify-content: center;
       flex-shrink: 0;
     }
 
     /* Empty state */
-    .empty-state {
-      text-align: center; padding: 80px 20px;
-      color: var(--gray-med);
-    }
+    .empty-state { text-align: center; padding: 80px 20px; color: var(--gray-med); }
     .empty-state .icon { font-size: 48px; margin-bottom: 12px; }
-    .empty-state p { font-size: 15px; }
 
     /* Footer */
     footer {
-      text-align: center;
-      padding: 16px;
-      font-size: 12px;
-      color: var(--gray-med);
+      text-align: center; padding: 16px;
+      font-size: 12px; color: var(--gray-med);
       border-top: 1px solid var(--gray-border);
-      background: var(--white);
+      background: white;
     }
 
     /* Responsive */
@@ -382,49 +338,63 @@
       .sidebar { width: 100%; }
       .sidebar-sticky { position: static; }
       .brief-list { display: flex; flex-wrap: wrap; gap: 8px; }
-      .brief-list-item { flex: 0 0 auto; }
       .kpi-row { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 500px) {
       .kpi-row { grid-template-columns: 1fr; }
       .brief-header { padding: 20px 16px; }
+      header { padding: 0 16px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- ─── LOGIN OVERLAY ─────────────────────────────────── -->
+  <!-- ─── LOGIN ──────────────────────────────────────── -->
   <div id="loginOverlay">
     <div class="login-box">
-      <div class="login-logo">Ei</div>
-      <div class="login-title">Eneco in Huis</div>
-      <div class="login-subtitle">Management Nieuwsoverzicht — intern gebruik</div>
+      <div class="login-logo-wrap">
+        <!-- Eneco in Huis logo SVG -->
+        <svg width="180" height="54" viewBox="0 0 180 54" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Eneco in Huis">
+          <!-- Flame icon -->
+          <path d="M20 4 C20 4 8 14 8 26 C8 36 13.5 43 20 46 C20 46 18 40 22 35 C24 32.5 26 34 26 34 C26 34 24 28 28 22 C30 19 32 22 32 26 C32 26 36 20 32 12 C36 18 38 26 36 34 C38 31 40 28 40 24 C40 24 42 34 38 40 C42 38 44 33 44 26 C44 14 32 4 20 4 Z" fill="#FF6200"/>
+          <!-- eneco wordmark -->
+          <text x="54" y="32" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="800" fill="#1A1A1A" letter-spacing="-0.5">eneco</text>
+          <!-- in huis -->
+          <text x="54" y="47" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600" fill="#FF6200" letter-spacing="0.5">in huis</text>
+        </svg>
+      </div>
+      <div class="login-title">Management Nieuwsoverzicht</div>
+      <div class="login-subtitle">Intern gebruik — log in om verder te gaan</div>
       <input type="password" id="pwInput" class="login-input"
-             placeholder="Wachtwoord" autocomplete="current-password"
+             placeholder="Wachtwoord"
+             autocomplete="current-password"
              onkeydown="if(event.key==='Enter') checkPassword()" />
-      <button class="login-btn" onclick="checkPassword()">Inloggen</button>
+      <button class="login-btn" onclick="checkPassword()">Inloggen →</button>
       <div class="login-error" id="loginError"></div>
       <div class="login-footer">Neem contact op met je collega voor het wachtwoord.</div>
     </div>
   </div>
 
+  <!-- ─── HEADER ─────────────────────────────────────── -->
   <header>
-    <a class="logo" href="#">
-      <div class="logo-icon">Ei</div>
-      <div class="logo-text">
-        <span class="logo-main">Eneco in Huis</span>
-        <span class="logo-sub">MANAGEMENT NIEUWSOVERZICHT</span>
-      </div>
+    <a class="header-logo" href="#">
+      <svg width="140" height="42" viewBox="0 0 180 54" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Eneco in Huis">
+        <path d="M20 4 C20 4 8 14 8 26 C8 36 13.5 43 20 46 C20 46 18 40 22 35 C24 32.5 26 34 26 34 C26 34 24 28 28 22 C30 19 32 22 32 26 C32 26 36 20 32 12 C36 18 38 26 36 34 C38 31 40 28 40 24 C40 24 42 34 38 40 C42 38 44 33 44 26 C44 14 32 4 20 4 Z" fill="#FF6200"/>
+        <text x="54" y="32" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="800" fill="#1A1A1A" letter-spacing="-0.5">eneco</text>
+        <text x="54" y="47" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="600" fill="#FF6200" letter-spacing="0.5">in huis</text>
+      </svg>
     </a>
+    <span class="header-tagline">Management Nieuwsoverzicht</span>
     <div class="header-right">
-      <span class="brief-count" id="briefCount">0 briefs</span>
+      <span class="edition-badge" id="briefCount">0 edities</span>
     </div>
   </header>
 
+  <!-- ─── LAYOUT ─────────────────────────────────────── -->
   <div class="layout">
     <aside class="sidebar">
       <div class="sidebar-sticky">
-        <div class="sidebar-title">Edities</div>
+        <div class="sidebar-label">Edities</div>
         <ul class="brief-list" id="briefList"></ul>
       </div>
     </aside>
@@ -437,73 +407,66 @@
     </main>
   </div>
 
+  <!-- ─── FOOTER ─────────────────────────────────────── -->
   <footer>
-    Intern gebruik — Eneco in Huis Management Team · Gegenereerd door AI-assistent · Dagelijks bijgewerkt om 07:00
+    Intern gebruik — Eneco in Huis Management Team &nbsp;·&nbsp; Dagelijks bijgewerkt om 07:00
   </footer>
 
   <script src="data.js"></script>
   <script>
-    // ── Password protection ───────────────────────────────────────────
-    // SHA-256 hash of the password (not the plaintext password itself)
-    const PASSWORD_HASH = '1fa0f2620bb1de1c67e2fc10f7a4c042c4bb7a270af3271da5948e9c33a7f12b';
+    // ── Password check — simple btoa comparison (synchronous, works everywhere) ──
+    // Password: InHuis2026
+    const AUTH_TOKEN = 'SW5IdWlzMjAyNg==';
 
-    async function sha256(str) {
-      const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
-      return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
-    }
-
-    async function checkPassword() {
-      const input = document.getElementById('pwInput').value;
-      const hash = await sha256(input);
-      if (hash === PASSWORD_HASH) {
-        sessionStorage.setItem('eih_auth', '1');
-        document.getElementById('loginOverlay').classList.add('hidden');
-      } else {
+    function checkPassword() {
+      const val = document.getElementById('pwInput').value;
+      try {
+        if (btoa(val) === AUTH_TOKEN) {
+          sessionStorage.setItem('eih_auth', AUTH_TOKEN);
+          document.getElementById('loginOverlay').classList.add('hidden');
+        } else {
+          document.getElementById('loginError').textContent = 'Onjuist wachtwoord. Probeer het opnieuw.';
+          document.getElementById('pwInput').value = '';
+          document.getElementById('pwInput').focus();
+        }
+      } catch(e) {
+        // btoa fails on non-latin chars — just show error
         document.getElementById('loginError').textContent = 'Onjuist wachtwoord. Probeer het opnieuw.';
         document.getElementById('pwInput').value = '';
-        document.getElementById('pwInput').focus();
       }
     }
 
-    // Auto-unlock if already authenticated this session
-    if (sessionStorage.getItem('eih_auth') === '1') {
+    if (sessionStorage.getItem('eih_auth') === AUTH_TOKEN) {
       document.getElementById('loginOverlay').classList.add('hidden');
     } else {
-      // Focus password field immediately
-      window.addEventListener('load', () => document.getElementById('pwInput').focus());
+      document.getElementById('pwInput').focus();
     }
-  </script>
-  <script>
-    // ── Sort newest first ─────────────────────────────────────────────
+
+    // ── Render ────────────────────────────────────────────────────────
     const sorted = [...briefsData].sort((a, b) => b.date.localeCompare(a.date));
 
-    // ── Sidebar list ──────────────────────────────────────────────────
     const briefList = document.getElementById('briefList');
     document.getElementById('briefCount').textContent =
-      sorted.length + (sorted.length === 1 ? ' brief' : ' briefs');
+      sorted.length + (sorted.length === 1 ? ' editie' : ' edities');
 
     sorted.forEach((brief, idx) => {
       const li = document.createElement('li');
-      li.className = 'brief-list-item' + (idx === 0 ? ' active' : '');
+      li.className = 'brief-item' + (idx === 0 ? ' active' : '');
       li.dataset.idx = idx;
       li.innerHTML = `
-        <button class="brief-list-btn" onclick="showBrief(${idx})">
-          <span class="brief-list-date">${brief.date}</span>
-          <span class="brief-list-weekday">${brief.dateFormatted.split(' ')[0]}</span>
+        <button class="brief-btn" onclick="showBrief(${idx})">
+          <span class="brief-date">${brief.date}</span>
+          <span class="brief-day">${brief.dateFormatted.split(' ')[0]}</span>
         </button>`;
       briefList.appendChild(li);
     });
 
-    // ── Render a brief ────────────────────────────────────────────────
-    function sentimentClass(s) {
-      if (s === 'positive') return 'positive';
-      if (s === 'negative') return 'negative';
-      return 'neutral';
+    function sc(s) {
+      return s === 'positive' ? 'positive' : s === 'negative' ? 'negative' : 'neutral';
     }
 
     function showBrief(idx) {
-      // Highlight sidebar
-      document.querySelectorAll('.brief-list-item').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.brief-item').forEach(el => el.classList.remove('active'));
       document.querySelector(`[data-idx="${idx}"]`).classList.add('active');
 
       const b = sorted[idx];
@@ -511,9 +474,7 @@
 
       // Header
       html += `<div class="brief-header">
-        <div class="brief-header-top">
-          <span class="brief-label">Dagelijks Management Nieuwsoverzicht</span>
-        </div>
+        <div class="brief-eyebrow">Dagelijks Management Nieuwsoverzicht</div>
         <div class="brief-date-full">${b.dateFormatted}</div>
         <p class="brief-summary">${b.samenvatting}</p>
       </div>`;
@@ -521,7 +482,7 @@
       // KPIs
       html += `<div class="kpi-row">`;
       b.kpis.forEach(k => {
-        html += `<div class="kpi-card ${sentimentClass(k.trend)}">
+        html += `<div class="kpi-card ${sc(k.trend)}">
           <div class="kpi-value">${k.value}</div>
           <div class="kpi-label">${k.label}</div>
           <div class="kpi-sub">${k.sub}</div>
@@ -532,7 +493,7 @@
       // Sections
       b.sections.forEach((sec, si) => {
         html += `<div class="section-card" id="sec-${si}">
-          <div class="section-header" onclick="toggleSection(${si})">
+          <div class="section-head" onclick="toggleSec(${si})">
             <span class="section-icon">${sec.icon}</span>
             <span class="section-title">${sec.title}</span>
             <span class="section-count">${sec.items.length}</span>
@@ -540,22 +501,22 @@
           </div>
           <div class="section-body">`;
         sec.items.forEach(item => {
-          const sc = sentimentClass(item.sentiment);
+          const s = sc(item.sentiment);
           html += `<div class="news-item">
             <div class="news-item-top">
-              <span class="sentiment-dot ${sc}"></span>
-              <span class="news-title ${sc}">${item.title}</span>
+              <span class="dot ${s}"></span>
+              <span class="news-title ${s}">${item.title}</span>
             </div>
             <p class="news-body">${item.body}</p>`;
           if (item.actie) {
             const badgeMap = {
-              'Strategie': 'strategie', 'Strategische implicatie': 'strategie',
-              'Operaties': 'operaties', 'HR': 'hr',
-              'Marketing': 'marketing', 'Technologie': 'technologie'
+              'Strategie':'strategie','Strategische implicatie':'strategie',
+              'Operaties':'operaties','HR':'hr',
+              'Marketing':'marketing','Technologie':'technologie'
             };
-            const badge = badgeMap[item.actieType] || '';
+            const cls = badgeMap[item.actieType] || '';
             html += `<div class="news-actie">
-              <span class="actie-badge ${badge}">${item.actieType}</span>
+              <span class="actie-badge ${cls}">${item.actieType}</span>
               <span class="actie-text">${item.actie}</span>
             </div>`;
           }
@@ -567,10 +528,10 @@
       // Priorities
       if (b.priorities && b.priorities.length) {
         html += `<div class="priorities-card">
-          <div class="priorities-title">⚡ Top Prioriteiten Management Team</div>`;
+          <div class="priorities-title">⚡ Top prioriteiten management team</div>`;
         b.priorities.forEach((p, i) => {
           html += `<div class="priority-item">
-            <span class="priority-num">${i+1}</span>
+            <span class="priority-num">${i + 1}</span>
             <span>${p}</span>
           </div>`;
         });
@@ -580,12 +541,10 @@
       document.getElementById('mainContent').innerHTML = html;
     }
 
-    function toggleSection(idx) {
-      const card = document.getElementById(`sec-${idx}`);
-      card.classList.toggle('collapsed');
+    function toggleSec(idx) {
+      document.getElementById(`sec-${idx}`).classList.toggle('collapsed');
     }
 
-    // ── Auto-load most recent ─────────────────────────────────────────
     if (sorted.length > 0) showBrief(0);
   </script>
 </body>
