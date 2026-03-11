@@ -5,44 +5,165 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Eneco in Huis — Management Nieuwsoverzicht</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
+    /* ── Brand tokens (from enecoinhuis.nl) ──────────────────── */
     :root {
-      --primary-amber: #F5A623;
-      --beige-warm: #DCBDAB;
-      --near-black: #1A1A0F;
-      --white: #FFFFFF;
-      --bg-light: #FAF8F5;
-      --grey-medium: #6B6560;
-      --grey-border: #E8E2DC;
-      --positive: #2D7A4F;
-      --positive-bg: #EAF5ED;
-      --negative: #C0392B;
-      --negative-bg: #FDEDEC;
-      --shadow-warm: 0 2px 16px rgba(245,166,35,0.08);
-      --shadow-subtle: 0 1px 3px rgba(26,26,15,0.05);
+      --green:        #007250;   /* primaire CTA kleur */
+      --green-dark:   #005C40;
+      --green-light:  #E8F5F1;
+      --coral:        #D44B3C;   /* accent / hero / iconen */
+      --coral-light:  #FDF0EE;
+      --coral-mid:    #F5C4BE;
+      --dark:         #2F2D2D;   /* hoofdtekst */
+      --medium:       #6E6B6B;   /* secondaire tekst */
+      --border:       #E5E1E1;
+      --bg:           #FFFFFF;
+      --bg-page:      #F7F5F5;   /* pagina-achtergrond */
+      --bg-section:   #F0EEEE;
+      --logo-red:     #C62828;   /* Eneco woordmerk kleur */
+      --shadow:       0 2px 12px rgba(47,45,45,0.08);
+      --shadow-md:    0 4px 20px rgba(47,45,45,0.10);
+      --radius:       12px;
+      --radius-lg:    18px;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    html, body {
-      height: 100%;
-    }
-
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: var(--bg-light);
-      color: var(--near-black);
+      font-family: 'Nunito', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+      background: var(--bg-page);
+      color: var(--dark);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      letter-spacing: -0.3px;
+      font-size: 15px;
     }
 
-    /* ─── HEADER ──────────────────────────────────────── */
+    /* ── PASSWORD OVERLAY ──────────────────────────────────── */
+    #login-overlay {
+      position: fixed;
+      inset: 0;
+      background: var(--bg-page);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      padding: 24px;
+    }
+
+    .login-card {
+      background: var(--bg);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      padding: 48px 44px;
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .login-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 32px;
+    }
+
+    .login-logo .brand-name {
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--logo-red);
+      line-height: 1;
+      letter-spacing: -0.5px;
+    }
+
+    .login-logo .brand-sub {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--logo-red);
+      letter-spacing: 0.05em;
+    }
+
+    .login-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+
+    .login-subtitle {
+      font-size: 13px;
+      color: var(--medium);
+      margin-bottom: 28px;
+      line-height: 1.6;
+    }
+
+    .login-input {
+      width: 100%;
+      padding: 14px 18px;
+      border: 2px solid var(--border);
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--dark);
+      outline: none;
+      margin-bottom: 14px;
+      transition: border-color 0.2s;
+    }
+
+    .login-input:focus {
+      border-color: var(--green);
+    }
+
+    .login-btn {
+      width: 100%;
+      padding: 14px;
+      background: var(--green);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+
+    .login-btn:hover { background: var(--green-dark); }
+
+    .login-error {
+      margin-top: 14px;
+      font-size: 13px;
+      color: var(--coral);
+      font-weight: 600;
+      display: none;
+    }
+
+    /* ── TOPBAR (small nav above header) ──────────────────── */
+    .topbar {
+      background: #EDEAEA;
+      border-bottom: 1px solid var(--border);
+      padding: 6px 32px;
+      display: flex;
+      justify-content: flex-end;
+      gap: 24px;
+    }
+
+    .topbar a {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--medium);
+      text-decoration: none;
+    }
+
+    .topbar a:hover { color: var(--dark); }
+
+    /* ── HEADER ────────────────────────────────────────────── */
     header {
-      background: var(--white);
-      border-top: 3px solid var(--primary-amber);
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
       padding: 0 32px;
       display: flex;
       align-items: center;
@@ -50,40 +171,50 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      box-shadow: var(--shadow-subtle);
+      box-shadow: var(--shadow);
     }
 
     .header-logo {
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 12px;
       text-decoration: none;
-      margin: 0;
     }
 
-    .logo-svg {
-      flex-shrink: 0;
-    }
-
-    .header-title {
+    .brand-text {
       display: flex;
       flex-direction: column;
-      gap: 2px;
-    }
-
-    .header-brand {
-      font-size: 24px;
-      font-weight: 800;
-      color: var(--near-black);
       line-height: 1;
-      letter-spacing: -0.5px;
     }
 
-    .header-tagline {
-      font-size: 11px;
-      font-weight: 500;
-      color: var(--grey-medium);
+    .brand-eneco {
+      font-size: 26px;
+      font-weight: 900;
+      color: var(--logo-red);
+      letter-spacing: -0.5px;
+      line-height: 1;
+    }
+
+    .brand-inhuis {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--logo-red);
       letter-spacing: 0.08em;
+      margin-top: 1px;
+    }
+
+    .header-divider {
+      width: 1px;
+      height: 32px;
+      background: var(--border);
+      margin: 0 20px;
+    }
+
+    .header-pagetitle {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--medium);
+      letter-spacing: 0.06em;
       text-transform: uppercase;
     }
 
@@ -91,78 +222,78 @@
       margin-left: auto;
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
     }
 
     .edition-badge {
-      background: linear-gradient(135deg, rgba(245,166,35,0.08) 0%, rgba(220,189,171,0.04) 100%);
-      color: var(--near-black);
+      background: var(--green-light);
+      color: var(--green);
       font-size: 12px;
-      font-weight: 600;
-      padding: 6px 14px;
-      border-radius: 24px;
-      border: 1px solid var(--grey-border);
+      font-weight: 800;
+      padding: 5px 14px;
+      border-radius: 20px;
     }
 
-    /* ─── LAYOUT ──────────────────────────────────────── */
+    .intern-badge {
+      background: var(--coral-light);
+      color: var(--coral);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 11px;
+      border-radius: 20px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    /* ── LAYOUT ────────────────────────────────────────────── */
     .layout {
       display: flex;
       flex: 1;
       max-width: 1440px;
       width: 100%;
       margin: 0 auto;
-      padding: 32px;
-      gap: 32px;
+      padding: 28px 28px;
+      gap: 24px;
     }
 
-    /* ─── SIDEBAR ─────────────────────────────────────── */
-    .sidebar {
-      width: 240px;
-      flex-shrink: 0;
-    }
+    /* ── SIDEBAR ───────────────────────────────────────────── */
+    .sidebar { width: 224px; flex-shrink: 0; }
 
     .sidebar-sticky {
       position: sticky;
-      top: 104px;
-      max-height: calc(100vh - 136px);
+      top: 96px;
+      max-height: calc(100vh - 120px);
       overflow-y: auto;
     }
 
     .sidebar-label {
       font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
+      font-weight: 800;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--grey-medium);
-      padding: 0 8px 12px;
-      border-bottom: 1px solid var(--grey-border);
+      color: var(--medium);
+      padding: 0 8px 10px;
+      border-bottom: 2px solid var(--green);
       margin-bottom: 8px;
     }
 
-    .brief-list {
-      list-style: none;
-    }
+    .brief-list { list-style: none; }
 
     .brief-item {
       border-radius: 10px;
-      transition: all 0.15s ease;
+      margin-bottom: 3px;
       cursor: pointer;
-      margin-bottom: 4px;
+      transition: background 0.12s;
     }
 
-    .brief-item:hover {
-      background: #FFF8ED;
-    }
-
-    .brief-item.active {
-      background: var(--primary-amber);
-    }
+    .brief-item:hover { background: var(--green-light); }
+    .brief-item.active { background: var(--green); }
 
     .brief-btn {
       display: flex;
       flex-direction: column;
       width: 100%;
-      padding: 11px 14px;
+      padding: 10px 13px;
       border: none;
       background: none;
       cursor: pointer;
@@ -171,535 +302,418 @@
       font-family: inherit;
     }
 
-    .brief-date {
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--near-black);
-      line-height: 1.2;
-    }
+    .brief-date { font-size: 13px; font-weight: 800; color: var(--dark); }
+    .brief-day  { font-size: 11px; font-weight: 600; color: var(--medium); margin-top: 2px; }
+    .brief-item.active .brief-date { color: white; }
+    .brief-item.active .brief-day  { color: rgba(255,255,255,0.8); }
 
-    .brief-day {
-      font-size: 11px;
-      color: var(--grey-medium);
-      margin-top: 3px;
-      font-weight: 500;
-    }
-
-    .brief-item.active .brief-date {
-      color: var(--white);
-    }
-
-    .brief-item.active .brief-day {
-      color: rgba(255,255,255,0.85);
-    }
-
-    /* ─── MAIN ────────────────────────────────────────── */
-    .main {
-      flex: 1;
-      min-width: 0;
-    }
+    /* ── MAIN ──────────────────────────────────────────────── */
+    .main { flex: 1; min-width: 0; }
 
     /* Brief header */
     .brief-header {
-      background: var(--white);
-      border-radius: 16px;
-      box-shadow: var(--shadow-warm);
-      padding: 36px 40px;
-      margin-bottom: 28px;
-      border-top: 4px solid var(--primary-amber);
+      background: var(--coral);
+      border-radius: var(--radius-lg);
+      padding: 32px 36px;
+      margin-bottom: 20px;
+      color: white;
     }
 
     .brief-eyebrow {
       font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
+      font-weight: 800;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--primary-amber);
+      color: rgba(255,255,255,0.75);
       margin-bottom: 8px;
     }
 
     .brief-date-full {
-      font-size: 28px;
-      font-weight: 800;
-      color: var(--near-black);
-      margin-bottom: 16px;
-      line-height: 1.1;
-      letter-spacing: -0.5px;
+      font-size: 26px;
+      font-weight: 900;
+      color: white;
+      margin-bottom: 14px;
+      letter-spacing: -0.3px;
     }
 
     .brief-summary {
-      font-size: 15px;
-      line-height: 1.8;
-      color: var(--grey-medium);
-      max-width: 780px;
-      font-weight: 400;
+      font-size: 14px;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.90);
+      max-width: 760px;
+      font-weight: 500;
     }
 
     /* KPIs */
     .kpi-row {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      margin-bottom: 28px;
+      gap: 12px;
+      margin-bottom: 20px;
     }
 
     .kpi-card {
-      background: var(--white);
-      border-radius: 14px;
-      padding: 20px 22px;
-      box-shadow: var(--shadow-warm);
-      border-left: 5px solid var(--primary-amber);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      background: var(--bg);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      box-shadow: var(--shadow);
+      border-top: 4px solid var(--green);
+      transition: transform 0.15s, box-shadow 0.15s;
     }
 
-    .kpi-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 24px rgba(245,166,35,0.12);
-    }
-
-    .kpi-card.positive {
-      border-color: var(--positive);
-    }
-
-    .kpi-card.negative {
-      border-color: var(--negative);
-    }
+    .kpi-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+    .kpi-card.positive { border-color: var(--green); }
+    .kpi-card.negative { border-color: var(--coral); }
+    .kpi-card.neutral  { border-color: #F5A623; }
 
     .kpi-value {
-      font-size: 24px;
-      font-weight: 800;
-      color: var(--primary-amber);
-      line-height: 1.1;
-      margin-bottom: 4px;
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--green);
+      line-height: 1;
+      margin-bottom: 5px;
     }
 
-    .kpi-card.positive .kpi-value {
-      color: var(--positive);
-    }
+    .kpi-card.negative .kpi-value { color: var(--coral); }
+    .kpi-card.neutral  .kpi-value { color: #C87B00; }
 
-    .kpi-card.negative .kpi-value {
-      color: var(--negative);
-    }
+    .kpi-label { font-size: 12px; font-weight: 800; color: var(--dark); margin-bottom: 3px; }
+    .kpi-sub   { font-size: 11px; font-weight: 500; color: var(--medium); line-height: 1.4; }
 
-    .kpi-label {
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--near-black);
-      margin-bottom: 6px;
-      letter-spacing: -0.2px;
-    }
-
-    .kpi-sub {
-      font-size: 11px;
-      color: var(--grey-medium);
-      font-weight: 500;
-      line-height: 1.4;
-    }
-
-    /* Sections */
+    /* Section cards */
     .section-card {
-      background: var(--white);
-      border-radius: 14px;
-      box-shadow: var(--shadow-warm);
-      margin-bottom: 16px;
+      background: var(--bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      margin-bottom: 12px;
       overflow: hidden;
-      transition: box-shadow 0.2s ease;
-    }
-
-    .section-card:hover {
-      box-shadow: 0 4px 20px rgba(245,166,35,0.1);
     }
 
     .section-head {
       display: flex;
       align-items: center;
-      gap: 12px;
-      padding: 16px 22px;
-      background: linear-gradient(135deg, #FFF8F0 0%, #FFFAF5 100%);
-      border-bottom: 1px solid var(--grey-border);
+      gap: 10px;
+      padding: 14px 20px;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
       cursor: pointer;
       user-select: none;
-      transition: background 0.2s ease;
+      transition: background 0.12s;
     }
 
-    .section-head:hover {
-      background: linear-gradient(135deg, #FFFAF5 0%, #FFFCF8 100%);
-    }
+    .section-head:hover { background: var(--bg-section); }
 
-    .section-icon {
-      font-size: 18px;
-      flex-shrink: 0;
-    }
+    .section-icon { font-size: 17px; }
 
     .section-title {
       font-size: 14px;
-      font-weight: 700;
-      color: var(--near-black);
+      font-weight: 800;
+      color: var(--dark);
       flex: 1;
-      letter-spacing: -0.2px;
     }
 
     .section-count {
       font-size: 11px;
-      font-weight: 700;
-      background: var(--primary-amber);
-      color: var(--white);
-      padding: 3px 10px;
+      font-weight: 800;
+      background: var(--green);
+      color: white;
+      padding: 2px 9px;
       border-radius: 20px;
-      letter-spacing: 0.02em;
     }
 
     .section-chevron {
-      font-size: 12px;
-      color: var(--primary-amber);
-      transition: transform 0.3s ease;
-      font-weight: 600;
+      font-size: 11px;
+      color: var(--green);
+      transition: transform 0.2s;
     }
 
-    .section-card.collapsed .section-chevron {
-      transform: rotate(-90deg);
-    }
-
-    .section-body {
-      padding: 0;
-    }
-
-    .section-card.collapsed .section-body {
-      display: none;
-    }
+    .section-card.collapsed .section-chevron { transform: rotate(-90deg); }
+    .section-card.collapsed .section-body { display: none; }
 
     /* News items */
     .news-item {
-      padding: 18px 22px;
-      border-bottom: 1px solid var(--grey-border);
-      transition: background 0.15s ease;
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+      transition: background 0.1s;
     }
 
-    .news-item:last-child {
-      border-bottom: none;
-    }
-
-    .news-item:hover {
-      background: #FFFBF8;
-    }
+    .news-item:last-child { border-bottom: none; }
+    .news-item:hover { background: var(--bg-page); }
 
     .news-item-top {
       display: flex;
       align-items: flex-start;
-      gap: 12px;
-      margin-bottom: 6px;
+      gap: 10px;
+      margin-bottom: 5px;
     }
 
     .dot {
-      width: 9px;
-      height: 9px;
+      width: 8px; height: 8px;
       border-radius: 50%;
       flex-shrink: 0;
       margin-top: 5px;
-      background: var(--grey-medium);
-      opacity: 0.6;
+      background: var(--medium);
     }
 
-    .dot.positive {
-      background: var(--positive);
-      opacity: 1;
-    }
-
-    .dot.negative {
-      background: var(--negative);
-      opacity: 1;
-    }
-
-    .dot.neutral {
-      background: var(--primary-amber);
-      opacity: 1;
-    }
+    .dot.positive { background: var(--green); }
+    .dot.negative { background: var(--coral); }
+    .dot.neutral  { background: #F5A623; }
 
     .news-title {
       font-size: 14px;
-      font-weight: 700;
-      color: var(--near-black);
-      line-height: 1.5;
-      letter-spacing: -0.2px;
+      font-weight: 800;
+      color: var(--dark);
+      line-height: 1.4;
     }
 
-    .news-title.positive {
-      color: var(--positive);
-    }
-
-    .news-title.negative {
-      color: var(--negative);
-    }
+    .news-title.positive { color: var(--green); }
+    .news-title.negative { color: var(--coral); }
 
     .news-body {
       font-size: 13px;
       line-height: 1.7;
-      color: var(--grey-medium);
-      margin: 6px 0 0 21px;
-      font-weight: 400;
+      color: var(--medium);
+      margin: 5px 0 0 18px;
+      font-weight: 500;
     }
 
     .news-actie {
-      margin: 10px 0 0 21px;
+      margin: 8px 0 0 18px;
       display: flex;
       align-items: flex-start;
-      gap: 10px;
+      gap: 8px;
     }
 
     .actie-badge {
       font-size: 9px;
       font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      padding: 3px 10px;
+      letter-spacing: 0.07em;
+      padding: 3px 9px;
       border-radius: 5px;
       flex-shrink: 0;
-      margin-top: 1px;
+      margin-top: 2px;
       background: #FEF3C7;
       color: #92400E;
     }
 
-    .actie-badge.strategie {
-      background: #EDE9FE;
-      color: #4C1D95;
-    }
-
-    .actie-badge.financiën {
-      background: #FEF3C7;
-      color: #92400E;
-    }
-
-    .actie-badge.operaties {
-      background: #FFF3E0;
-      color: #E65100;
-    }
-
-    .actie-badge.hr {
-      background: #E3F2FD;
-      color: #0D47A1;
-    }
-
-    .actie-badge.marketing {
-      background: #FCE4EC;
-      color: #880E4F;
-    }
-
-    .actie-badge.technologie {
-      background: #E8F5E9;
-      color: #1B5E20;
-    }
+    .actie-badge.strategie   { background: #EDE9FE; color: #4C1D95; }
+    .actie-badge.financiën   { background: #FEF3C7; color: #92400E; }
+    .actie-badge.operaties   { background: var(--coral-light); color: var(--coral); }
+    .actie-badge.hr          { background: var(--green-light); color: var(--green-dark); }
+    .actie-badge.marketing   { background: #FCE4EC; color: #880E4F; }
+    .actie-badge.technologie { background: #E8F5E9; color: #1B5E20; }
 
     .actie-text {
-      font-size: 13px;
+      font-size: 12px;
       font-style: italic;
-      color: var(--near-black);
-      line-height: 1.6;
-      font-weight: 400;
+      color: var(--dark);
+      line-height: 1.55;
+      font-weight: 500;
     }
 
     /* Priorities */
     .priorities-card {
-      background: var(--white);
-      border-radius: 14px;
-      box-shadow: var(--shadow-warm);
-      padding: 24px 28px;
-      margin-bottom: 20px;
-      border-top: 4px solid var(--primary-amber);
+      background: var(--bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 20px 24px;
+      margin-bottom: 14px;
+      border-left: 4px solid var(--green);
     }
 
     .priorities-title {
       font-size: 11px;
       font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--primary-amber);
-      margin-bottom: 16px;
+      letter-spacing: 0.10em;
+      color: var(--green);
+      margin-bottom: 14px;
     }
 
     .priority-item {
       display: flex;
       align-items: flex-start;
       gap: 12px;
-      padding: 12px 0;
-      border-bottom: 1px solid var(--grey-border);
+      padding: 9px 0;
+      border-bottom: 1px solid var(--border);
       font-size: 13px;
-      line-height: 1.7;
-      color: var(--near-black);
-      font-weight: 400;
+      line-height: 1.65;
+      color: var(--dark);
+      font-weight: 500;
     }
 
-    .priority-item:last-child {
-      border-bottom: none;
-    }
+    .priority-item:last-child { border-bottom: none; }
 
     .priority-num {
-      width: 24px;
-      height: 24px;
-      background: var(--primary-amber);
-      color: var(--white);
+      width: 22px; height: 22px;
+      background: var(--green);
+      color: white;
       border-radius: 50%;
       font-size: 11px;
-      font-weight: 800;
+      font-weight: 900;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      margin-top: 2px;
+      margin-top: 1px;
     }
 
     /* Empty state */
-    .empty-state {
-      text-align: center;
-      padding: 100px 20px;
-      color: var(--grey-medium);
-    }
-
-    .empty-state .icon {
-      font-size: 56px;
-      margin-bottom: 16px;
-      opacity: 0.6;
-    }
-
-    .empty-state p {
-      font-size: 16px;
-      font-weight: 500;
-    }
+    .empty-state { text-align: center; padding: 80px 20px; color: var(--medium); }
+    .empty-state .icon { font-size: 48px; margin-bottom: 14px; }
 
     /* Footer */
     footer {
       text-align: center;
-      padding: 20px 32px;
+      padding: 16px 24px;
       font-size: 12px;
-      color: var(--grey-medium);
-      border-top: 1px solid var(--grey-border);
-      background: var(--white);
-      font-weight: 400;
+      color: var(--medium);
+      border-top: 1px solid var(--border);
+      background: var(--bg);
+      font-weight: 600;
     }
+
+    /* Scrollbar */
+    .sidebar-sticky::-webkit-scrollbar { width: 5px; }
+    .sidebar-sticky::-webkit-scrollbar-track { background: transparent; }
+    .sidebar-sticky::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
 
     /* Responsive */
-    @media (max-width: 1024px) {
-      .layout {
-        flex-direction: column;
-        gap: 24px;
-        padding: 24px;
-      }
-
-      .sidebar {
-        width: 100%;
-      }
-
-      .sidebar-sticky {
-        position: static;
-        max-height: none;
-      }
-
-      .brief-list {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 6px;
-      }
-
-      .brief-item {
-        flex: 0 1 calc(25% - 5px);
-      }
-
-      .kpi-row {
-        grid-template-columns: repeat(2, 1fr);
-      }
+    @media (max-width: 960px) {
+      .layout { flex-direction: column; padding: 18px; gap: 18px; }
+      .sidebar { width: 100%; }
+      .sidebar-sticky { position: static; max-height: none; }
+      .brief-list { display: flex; flex-wrap: wrap; gap: 6px; }
+      .brief-item { flex: 0 1 auto; }
+      .kpi-row { grid-template-columns: repeat(2, 1fr); }
+      .topbar { display: none; }
     }
 
-    @media (max-width: 640px) {
-      header {
-        padding: 0 16px;
-        height: 64px;
-      }
-
-      .header-logo {
-        gap: 12px;
-      }
-
-      .layout {
-        flex-direction: column;
-        gap: 16px;
-        padding: 16px;
-      }
-
-      .brief-header {
-        padding: 24px 20px;
-      }
-
-      .brief-date-full {
-        font-size: 24px;
-      }
-
-      .brief-summary {
-        font-size: 14px;
-      }
-
-      .kpi-row {
-        grid-template-columns: 1fr;
-        gap: 12px;
-      }
-
-      .brief-item {
-        flex: 0 1 calc(50% - 3px);
-      }
-
-      .section-head {
-        padding: 14px 16px;
-      }
-
-      .news-item {
-        padding: 14px 16px;
-      }
-
-      footer {
-        padding: 16px;
-        font-size: 11px;
-      }
-    }
-
-    /* Scrollbar styling */
-    .sidebar-sticky::-webkit-scrollbar {
-      width: 6px;
-    }
-
-    .sidebar-sticky::-webkit-scrollbar-track {
-      background: transparent;
-    }
-
-    .sidebar-sticky::-webkit-scrollbar-thumb {
-      background: var(--grey-border);
-      border-radius: 3px;
-    }
-
-    .sidebar-sticky::-webkit-scrollbar-thumb:hover {
-      background: var(--grey-medium);
+    @media (max-width: 520px) {
+      header { padding: 0 16px; height: 64px; }
+      .layout { padding: 12px; }
+      .kpi-row { grid-template-columns: 1fr; }
+      .brief-header { padding: 24px 20px; }
+      .brief-date-full { font-size: 22px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- ─── HEADER ─────────────────────────────────────── -->
+  <!-- ── PASSWORD OVERLAY ──────────────────────────────────── -->
+  <div id="login-overlay">
+    <div class="login-card">
+      <div class="login-logo">
+        <!-- Eneco in Huis bubble logo -->
+        <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <radialGradient id="g1" cx="35%" cy="30%" r="65%">
+              <stop offset="0%" stop-color="#F07050"/>
+              <stop offset="100%" stop-color="#C42020"/>
+            </radialGradient>
+            <radialGradient id="g2" cx="35%" cy="28%" r="60%">
+              <stop offset="0%" stop-color="#F09040"/>
+              <stop offset="100%" stop-color="#D06010"/>
+            </radialGradient>
+            <radialGradient id="g3" cx="38%" cy="30%" r="62%">
+              <stop offset="0%" stop-color="#F07880"/>
+              <stop offset="100%" stop-color="#CC2840"/>
+            </radialGradient>
+            <radialGradient id="g4" cx="35%" cy="30%" r="65%">
+              <stop offset="0%" stop-color="#E86060"/>
+              <stop offset="100%" stop-color="#AA1818"/>
+            </radialGradient>
+            <radialGradient id="g5" cx="35%" cy="30%" r="65%">
+              <stop offset="0%" stop-color="#F8C840"/>
+              <stop offset="100%" stop-color="#D49010"/>
+            </radialGradient>
+          </defs>
+          <!-- Main large salmon-red sphere -->
+          <circle cx="30" cy="32" r="18" fill="url(#g1)"/>
+          <!-- Large orange-red sphere top-left -->
+          <circle cx="16" cy="20" r="14" fill="url(#g2)"/>
+          <!-- Medium pink-red sphere right -->
+          <circle cx="40" cy="18" r="10" fill="url(#g3)"/>
+          <!-- Small crimson sphere bottom-left -->
+          <circle cx="12" cy="38" r="7" fill="url(#g4)"/>
+          <!-- Tiny gold sphere top-center -->
+          <circle cx="26" cy="8" r="5" fill="url(#g5)"/>
+          <!-- Highlight dots for 3D effect -->
+          <circle cx="24" cy="14" r="2.5" fill="white" opacity="0.35"/>
+          <circle cx="36" cy="26" r="3" fill="white" opacity="0.25"/>
+          <circle cx="42" cy="13" r="2" fill="white" opacity="0.40"/>
+        </svg>
+        <div>
+          <div class="brand-name">Eneco</div>
+          <div class="brand-sub">in Huis</div>
+        </div>
+      </div>
+      <div class="login-title">Management Nieuwsoverzicht</div>
+      <div class="login-subtitle">Voer het wachtwoord in om toegang te krijgen tot het interne nieuwsoverzicht.</div>
+      <input class="login-input" type="password" id="pw-input" placeholder="Wachtwoord" autocomplete="off" />
+      <button class="login-btn" onclick="checkLogin()">Inloggen</button>
+      <div class="login-error" id="pw-error">Onjuist wachtwoord — probeer opnieuw.</div>
+    </div>
+  </div>
+
+  <!-- ── TOPBAR ─────────────────────────────────────────────── -->
+  <div class="topbar">
+    <a href="#">Over ons</a>
+    <a href="#">Intern portaal</a>
+    <a href="#">Contact</a>
+  </div>
+
+  <!-- ── HEADER ─────────────────────────────────────────────── -->
   <header>
     <a class="header-logo" href="#">
-      <svg class="logo-svg" width="40" height="48" viewBox="0 0 40 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Eneco">
-        <!-- Outer flame shape -->
-        <path d="M20 2 C20 2 6 14 6 28 C6 39 12.5 46 20 46 C27.5 46 34 39 34 28 C34 14 20 2 20 2 Z" fill="#F5A623"/>
-        <!-- Inner white accent (negative space) -->
-        <path d="M20 12 C20 12 13 18 13 26 C13 31 15.5 35 20 36 C20 36 18 31 21 28 C22.5 26 24 27.5 24 28 C24 28 23 23 20 18 C20 18 25 23 25 29 C25 32 23.5 34 22 35.5 C25 34 28 31 28 26 C28 18 20 12 20 12 Z" fill="white" opacity="0.4"/>
+      <!-- Eneco in Huis logo — exact match met enecoinhuis.nl -->
+      <svg width="48" height="48" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Eneco in Huis">
+        <defs>
+          <radialGradient id="hg1" cx="35%" cy="30%" r="65%">
+            <stop offset="0%" stop-color="#F07050"/>
+            <stop offset="100%" stop-color="#C42020"/>
+          </radialGradient>
+          <radialGradient id="hg2" cx="35%" cy="28%" r="60%">
+            <stop offset="0%" stop-color="#F09040"/>
+            <stop offset="100%" stop-color="#D06010"/>
+          </radialGradient>
+          <radialGradient id="hg3" cx="38%" cy="30%" r="62%">
+            <stop offset="0%" stop-color="#F07880"/>
+            <stop offset="100%" stop-color="#CC2840"/>
+          </radialGradient>
+          <radialGradient id="hg4" cx="35%" cy="30%" r="65%">
+            <stop offset="0%" stop-color="#E86060"/>
+            <stop offset="100%" stop-color="#AA1818"/>
+          </radialGradient>
+          <radialGradient id="hg5" cx="35%" cy="30%" r="65%">
+            <stop offset="0%" stop-color="#F8C840"/>
+            <stop offset="100%" stop-color="#D49010"/>
+          </radialGradient>
+        </defs>
+        <circle cx="30" cy="32" r="18" fill="url(#hg1)"/>
+        <circle cx="16" cy="20" r="14" fill="url(#hg2)"/>
+        <circle cx="40" cy="18" r="10" fill="url(#hg3)"/>
+        <circle cx="12" cy="38" r="7"  fill="url(#hg4)"/>
+        <circle cx="26" cy="8"  r="5"  fill="url(#hg5)"/>
+        <circle cx="24" cy="14" r="2.5" fill="white" opacity="0.35"/>
+        <circle cx="36" cy="26" r="3"   fill="white" opacity="0.25"/>
+        <circle cx="42" cy="13" r="2"   fill="white" opacity="0.40"/>
       </svg>
-      <div class="header-title">
-        <span class="header-brand">eneco</span>
-        <span class="header-tagline">in huis</span>
+      <div class="brand-text">
+        <span class="brand-eneco">Eneco</span>
+        <span class="brand-inhuis">in Huis</span>
       </div>
     </a>
+    <div class="header-divider"></div>
+    <span class="header-pagetitle">Management Nieuwsoverzicht</span>
     <div class="header-right">
+      <span class="intern-badge">Intern</span>
       <span class="edition-badge" id="briefCount">0 edities</span>
     </div>
   </header>
 
-  <!-- ─── LAYOUT ─────────────────────────────────────── -->
+  <!-- ── LAYOUT ─────────────────────────────────────────────── -->
   <div class="layout">
     <aside class="sidebar">
       <div class="sidebar-sticky">
@@ -711,25 +725,55 @@
     <main class="main" id="mainContent">
       <div class="empty-state">
         <div class="icon">📰</div>
-        <p>Selecteer een editie in het menu om te lezen.</p>
+        <p>Selecteer een editie in het menu.</p>
       </div>
     </main>
   </div>
 
-  <!-- ─── FOOTER ─────────────────────────────────────── -->
+  <!-- ── FOOTER ─────────────────────────────────────────────── -->
   <footer>
-    Intern gebruik — Eneco in Huis Management Team &nbsp;·&nbsp; Dagelijks bijgewerkt om 11:00
+    Intern gebruik &nbsp;·&nbsp; Eneco in Huis Management Team &nbsp;·&nbsp; Dagelijks bijgewerkt om 11:00
   </footer>
 
   <script src="data.js"></script>
   <script>
-    // ── Render ────────────────────────────────────────────────────────
+    // ── Wachtwoordbeveiliging ──────────────────────────────────
+    (function() {
+      const overlay = document.getElementById('login-overlay');
+      // Check sessie
+      try {
+        if (sessionStorage.getItem('eih_mt_auth') === '1') {
+          overlay.style.display = 'none';
+        }
+      } catch(e) {}
+
+      document.getElementById('pw-input').addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') checkLogin();
+        document.getElementById('pw-error').style.display = 'none';
+      });
+    })();
+
+    function checkLogin() {
+      const input = document.getElementById('pw-input').value;
+      // Wachtwoord: EiHNieuws2026
+      const correct = ['EiH', 'Nieuws', '2026'].join('');
+      if (input === correct) {
+        document.getElementById('login-overlay').style.display = 'none';
+        try { sessionStorage.setItem('eih_mt_auth', '1'); } catch(e) {}
+      } else {
+        document.getElementById('pw-error').style.display = 'block';
+        document.getElementById('pw-input').value = '';
+        document.getElementById('pw-input').focus();
+      }
+    }
+
+    // ── Render ────────────────────────────────────────────────
     const sorted = [...briefsData].sort((a, b) => b.date.localeCompare(a.date));
 
-    const briefList = document.getElementById('briefList');
     document.getElementById('briefCount').textContent =
       sorted.length + (sorted.length === 1 ? ' editie' : ' edities');
 
+    const briefList = document.getElementById('briefList');
     sorted.forEach((brief, idx) => {
       const li = document.createElement('li');
       li.className = 'brief-item' + (idx === 0 ? ' active' : '');
