@@ -4,6 +4,118 @@
 
 const briefsData = [
   {
+    date: "2026-03-11",
+    dateFormatted: "woensdag 11 maart 2026",
+    samenvatting: "De reorganisatie van moederbedrijf Eneco bereikt op 31 maart haar deadline (350 banen) — directe afstemming over impact op Eneco in Huis is urgent. Tegelijk pioniert Eneco in Huis als eersten met een stille warmtepomp (Whspr), die geschikt is voor dichtbebouwde wijken — een potentieel nieuwe markt. De TTF-gasprijs blijft hoog (€49/MWh gemiddeld, piek €56) en consumentengas kost €1,39/m³, wat de urgentie bij klanten voor hybride warmtepompen versterkt. ISDE loopt tot 2031 met €511 mln budget; per 2029 wordt de hybride warmtepomp de minimale norm bij ketelvervanging. Arbeidsmarktdruk blijft kritisch: sectorbreed 120.000 technici nodig tot 2030.",
+    kpis: [
+      { label: "TTF Gasprijs", value: "€49/MWh", sub: "Gem. maart; piek €56/MWh — Hormuz-naschok", trend: "negative" },
+      { label: "Consumentengas", value: "€1,39/m³", sub: "Stijgend t.o.v. vorige week — druk op huishoudens", trend: "negative" },
+      { label: "ISDE Budget 2026", value: "€511 mln", sub: "Beschikbaar t/m 2031 — nieuw startbedrag €1.025", trend: "positive" },
+      { label: "WP-norm verplicht", value: "2029", sub: "Hybride WP minimale norm bij ketelvervanging", trend: "positive" }
+    ],
+    sections: [
+      {
+        title: "Eneco Concern & Leiderschap",
+        icon: "🏢",
+        items: [
+          {
+            title: "Nieuwe CEO Eneco: Martijn Hagens per 1 maart aangetreden — Management Board hervormd",
+            sentiment: "neutral",
+            body: "Martijn Hagens is per 1 maart 2026 aangetreden als de nieuwe CEO van Eneco. Tegelijk is de samenstelling van de Management Board aangepast: de functie van COO-A is vervallen. Dit markeert een nieuwe leiderschapsfase voor het concern. Voor Eneco in Huis — opgericht december 2025 als zelfstandige dochter — is het van belang de relatie en afstemming met de nieuwe CEO-structuur tijdig te verankeren.",
+            actie: "Directeur Diederick Schoon plant bilateraal met nieuwe CEO Hagens over strategie en positie van Eneco in Huis binnen het concern.",
+            actieType: "Strategie"
+          },
+          {
+            title: "Reorg-deadline 31 maart: 350 banen — impact op Eneco in Huis nog niet gecommuniceerd",
+            sentiment: "negative",
+            body: "De reorganisatie van Eneco (aankondiging december 2024) bereikt eind maart haar officiële deadline. Oorzaken waren stijgende loon- en materiaalkosten en een dalende warmtepomp- en EV-vraag. Eneco verwacht het grootste deel op te vangen via natuurlijk verloop, tijdelijke contracten en automatisering. Eneco in Huis is een aparte BV maar maakt gebruik van gedeelde Eneco-diensten; concrete doorwerking op de 250 EiH-medewerkers is nog niet geclarificeerd.",
+            actie: "Concrete helderheid verschaffen aan eigen medewerkers vóór 31 maart over wat de reorg wel/niet raakt voor EiH. Interne communicatielijn met EiH-HR (Kirstin Hartwijk) en Eneco-directie opstellen.",
+            actieType: "HR"
+          }
+        ]
+      },
+      {
+        title: "Productinnovatie",
+        icon: "💡",
+        items: [
+          {
+            title: "Eneco in Huis installeert stille Whspr warmtepompen in dichtbebouwde wijken — nieuwe marktkans",
+            sentiment: "positive",
+            body: "Eneco en Whspr zijn een pilot gestart met een innovatieve stille warmtepomp die specifiek geschikt is voor dichtbebouwde woonwijken. Eneco in Huis heeft al circa 20 units bij klanten thuis geïnstalleerd. De meeste standaard warmtepompen zijn te lawaaierig voor rijwoningen en appartementen in stedelijk gebied — een segment dat tot nu toe grotendeels buiten bereik bleef. De stille warmtepomp kan zelfs in een hoek van de tuin worden geplaatst zonder geluidsoverlast voor buren.",
+            actie: "Resultaten van de 20 pilotinstallaties evalueren en succescase uitwerken. Commercieel rollout-plan voorbereiden voor stedelijke marktsegmenten die tot nu toe moeilijk bereikbaar waren.",
+            actieType: "Innovatie"
+          }
+        ]
+      },
+      {
+        title: "Energiemarkt & Klanturgentie",
+        icon: "⚡",
+        items: [
+          {
+            title: "TTF gemiddeld €49/MWh in maart — hoge gasprijzen versterken businesscase warmtepomp structureel",
+            sentiment: "negative",
+            body: "Na de piek van €56/MWh als gevolg van de Iran/Hormuz-crisis begin maart ligt de TTF-gasprijs nog steeds hoog op gemiddeld €49/MWh. De consumentenprijs voor gas bedraagt per 11 maart €1,39/m³ — significant hoger dan een jaar geleden. Klanten met een CV-ketel ondervinden direct hogere stookkosten. Een hybride warmtepomp van Eneco in Huis reduceert de gasafhankelijkheid en biedt prijszekerheid — exact het gesprek dat klanten nu voeren.",
+            actie: "Activeer conversiecampagne op bestaande CV-ketelklanten in het 100.000+ onderhoudspoolbestand met hoge gasrekening als aanleiding voor een warmtepompadviesgesprek.",
+            actieType: "Marketing"
+          }
+        ]
+      },
+      {
+        title: "ISDE Subsidies & Beleid",
+        icon: "🔥",
+        items: [
+          {
+            title: "ISDE 2026: €511 mln budget, nieuw startbedrag €1.025 — offertetools bijwerken",
+            sentiment: "neutral",
+            body: "Het ISDE-budget voor 2026 is vastgesteld op €511 mln voor warmtepompen, zonneboilers, isolatie en warmtenetten. Voor lucht-waterwarmtepompen is het startbedrag gewijzigd: €1.025 (was €1.250) maar de subsidiabele variabele component (€225/kW) telt nu al vanaf de eerste kW — in plaats van de tweede. De ISDE loopt door tot 2031. Eneco in Huis verkoopt ISDE-subsidiabele warmtepompen (o.a. Intergas Xtend, Remeha Elga Ace, Vaillant aroTHERM) — correcte ISDE-communicatie in de sales funnel is essentieel.",
+            actie: "Offertetools en klantcommunicatie per direct updaten met nieuwe ISDE-bedragen. Controleer of de subsidiabele modellen in het warmtepomp-assortiment correct zijn geconfigureerd in het verkoopsysteem.",
+            actieType: "Operaties"
+          },
+          {
+            title: "Hybride warmtepomp wordt minimale norm bij ketelvervanging per 2029 — 3 jaar runway",
+            sentiment: "positive",
+            body: "De eerdere verplichting per 2026 is in het coalitieakkoord van mei 2024 geschrapt. In het meest recente beleid (begin 2026) is vastgelegd dat slimme hybride warmtepompen per 2029 de minimale norm worden bij CV-ketelvervanging in bestaande bouw. Eneco in Huis verkoopt nu al uitsluitend 'hybrid ready' CV-ketels (Intergas, Remeha) én hybride warmtepompen — ideaal gepositioneerd. De 2029-norm creëert een goed voorspelbare vraagpiek.",
+            actie: "Gebruik de 2029-deadline in klantcommunicatie als urgentieframe: 'Vervang nu en profiteer van lagere ISDE-subsidie en installatiemogelijkheid vóór de drukte.' Plan installatiescaling voor 2028-2029.",
+            actieType: "Strategie"
+          }
+        ]
+      },
+      {
+        title: "Woningmarkt & Klantenbase",
+        icon: "🏠",
+        items: [
+          {
+            title: "CBS: meer bestaande koopwoningen verkocht in jan 2026, minder nieuwbouw — netto meer vervangingsmoment",
+            sentiment: "positive",
+            body: "CBS rapporteert voor begin 2026 meer transacties in bestaande koopwoningen maar minder nieuwbouwoplevering. Rabobank voorspelt een gemiddelde prijsstijging van 6,6% voor 2026; ABN AMRO rekent op 3%. Het totaal verwacht verkopen is 223.000 (vs. 239.000 in recordjaar 2025). Elke woningtransactie is een potentieel installatiemoment voor Eneco in Huis — zeker bij verouderde CV-installaties in bestaande woningen.",
+            actie: "Versterk samenwerking met makelaars en hypotheekadviseurs voor koppeling 'koopmomenten aan installatiemomenten'. Overweeg een referal-programma met regionale makelaars.",
+            actieType: "Marketing"
+          }
+        ]
+      },
+      {
+        title: "HR & Arbeidsmarkt",
+        icon: "👷",
+        items: [
+          {
+            title: "Branchebreed tekort 120.000 technici tot 2030 — EiH Bedrijfsschool is strategisch voordeel",
+            sentiment: "negative",
+            body: "Wij Techniek prognosticeert dat de installatiebranche tot 2030 meer dan 120.000 nieuwe technici nodig heeft. Werkloosheid in de sector blijft laag (3,8%), vacatures stijgen. Eneco in Huis zoekt permanent installatiemonteurs voor CV-ketels en warmtepompen, storingen/onderhoud, en elektrotechniek — en heeft bewust een eigen Bedrijfsschool opgezet. Met 300 klantbezoeken per dag is monteursbeschikbaarheid de operationele bottleneck van de groei.",
+            actie: "Versterk zij-instromerprogramma via de EiH Bedrijfsschool. Overweeg samenwerking met ROC's voor stageplaatsen. Zet gerichte wervingscampagne op, ook voor MBO-technici die willen omscholen naar warmtepomptechnologie.",
+            actieType: "HR"
+          }
+        ]
+      }
+    ],
+    priorities: [
+      "Leiderschap: Directeur Schoon stemt nieuwe concernpositie af met CEO Martijn Hagens — voor 31 maart.",
+      "HR: Interne duidelijkheid over reorg-impact voor EiH-medewerkers communiceren vóór 31 maart deadline.",
+      "Innovatie: Whspr pilot-resultaten evalueren en commercieel rollout-plan stedelijke markt voorbereiden.",
+      "Marketing: Conversiecampagne activeren op 100k+ onderhoudspoolklanten met hoge gasrekening als trigger.",
+      "Operaties: ISDE-tools en offertes updaten met nieuwe bedragen; hybride WP 2029-planning opstarten."
+    ]
+  },
+  {
     date: "2026-03-09",
     dateFormatted: "maandag 9 maart 2026",
     samenvatting: "De Iran-blokkade van de Straat van Hormuz heeft de TTF-gasprijs doen exploderen naar €54/MWh (+80% t.o.v. begin maart). Dit creëert acute kansen én risico's voor Eneco in Huis: verwarmingsalternatieven worden urgenter, maar inkoopkosten stijgen. De Eneco-reorganisatie (350 banen, deadline 31 maart) vraagt interne helderheid over impact op EiH. De woningmarkt blijft sterk (+6,6% Rabobank), het ISDE-budget is €509 mln, en de NHG-financieringsruimte biedt een concrete verkoophaak voor warmtepompen.",
