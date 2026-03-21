@@ -143,7 +143,7 @@
 
     /* ── TOPBAR (small nav above header) ──────────────────── */
     .topbar {
-      background: #EDEAEA;
+      background: #F9F7F7;
       border-bottom: 1px solid var(--border);
       padding: 6px 32px;
       display: flex;
@@ -158,7 +158,7 @@
       text-decoration: none;
     }
 
-    .topbar a:hover { color: var(--dark); }
+    .topbar a:hover { color: var(--green); }
 
     /* ── HEADER ────────────────────────────────────────────── */
     header {
@@ -171,8 +171,10 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      box-shadow: var(--shadow);
+      transition: box-shadow 0.2s;
     }
+
+    header.scrolled { box-shadow: 0 4px 20px rgba(47,45,45,0.10); }
 
     .header-logo {
       display: flex;
@@ -283,10 +285,10 @@
       border-radius: 10px;
       margin-bottom: 3px;
       cursor: pointer;
-      transition: background 0.12s;
+      transition: all 0.15s ease;
     }
 
-    .brief-item:hover { background: var(--green-light); }
+    .brief-item:hover { background: var(--green-light); transform: translateX(2px); }
     .brief-item.active { background: var(--green); }
 
     .brief-btn {
@@ -312,11 +314,12 @@
 
     /* Brief header */
     .brief-header {
-      background: var(--coral);
+      background: linear-gradient(135deg, var(--coral) 0%, #C63032 100%);
       border-radius: var(--radius-lg);
-      padding: 32px 36px;
-      margin-bottom: 20px;
+      padding: 36px 40px;
       color: white;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 24px rgba(212, 75, 60, 0.15);
     }
 
     .brief-eyebrow {
@@ -353,18 +356,23 @@
     }
 
     .kpi-card {
-      background: var(--bg);
+      background: white;
       border-radius: var(--radius);
-      padding: 18px 20px;
-      box-shadow: var(--shadow);
+      padding: 20px;
+      text-align: center;
       border-top: 4px solid var(--green);
-      transition: transform 0.15s, box-shadow 0.15s;
+      box-shadow: 0 1px 3px rgba(47, 45, 45, 0.06);
+      transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
 
-    .kpi-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
-    .kpi-card.positive { border-color: var(--green); }
-    .kpi-card.negative { border-color: var(--coral); }
-    .kpi-card.neutral  { border-color: #F5A623; }
+    .kpi-card:hover {
+      box-shadow: 0 8px 24px rgba(47, 45, 45, 0.12);
+      transform: translateY(-2px);
+    }
+
+    .kpi-card.positive { border-top-color: var(--green); }
+    .kpi-card.negative { border-top-color: var(--coral); }
+    .kpi-card.neutral  { border-top-color: #F5A623; }
 
     .kpi-value {
       font-size: 22px;
@@ -427,6 +435,11 @@
       transition: transform 0.2s;
     }
 
+    .section-body {
+      transition: max-height 0.3s ease, opacity 0.2s ease;
+      overflow: hidden;
+    }
+
     .section-card.collapsed .section-chevron { transform: rotate(-90deg); }
     .section-card.collapsed .section-body { display: none; }
 
@@ -434,11 +447,11 @@
     .news-item {
       padding: 16px 20px;
       border-bottom: 1px solid var(--border);
-      transition: background 0.1s;
+      transition: background 0.15s ease;
     }
 
     .news-item:last-child { border-bottom: none; }
-    .news-item:hover { background: var(--bg-page); }
+    .news-item:hover { background: rgba(0, 114, 80, 0.015); }
 
     .news-item-top {
       display: flex;
@@ -495,7 +508,10 @@
       margin-top: 2px;
       background: #FEF3C7;
       color: #92400E;
+      transition: transform 0.15s ease;
     }
+
+    .actie-badge:hover { transform: scale(1.05); }
 
     .actie-badge.strategie   { background: #EDE9FE; color: #4C1D95; }
     .actie-badge.financiën   { background: #FEF3C7; color: #92400E; }
@@ -871,19 +887,24 @@
     }
 
     .source-link {
-      display: inline-block;
-      margin-top: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
       margin-left: 18px;
       font-size: 11px;
       color: var(--green);
       text-decoration: none;
       font-weight: 700;
-      transition: color 0.2s;
+      padding: 3px 10px;
+      border-radius: 12px;
+      background: var(--green-light);
+      transition: all 0.2s;
     }
 
     .source-link:hover {
-      color: var(--green-dark);
-      text-decoration: underline;
+      background: var(--green);
+      color: white;
+      text-decoration: none;
     }
 
     /* ── COMPANY INFO GRID ────────────────────────────────────────── */
@@ -986,6 +1007,18 @@
 
     .priority-item:last-child { border-bottom: none; }
 
+    .priority-item:first-child {
+      background: linear-gradient(90deg, rgba(0, 114, 80, 0.08) 0%, transparent 100%);
+      border-left: 3px solid var(--green);
+      padding-left: 9px;
+    }
+
+    .priority-item:nth-child(2) {
+      background: linear-gradient(90deg, rgba(0, 114, 80, 0.04) 0%, transparent 100%);
+      border-left: 2px solid var(--green);
+      padding-left: 10px;
+    }
+
     .priority-num {
       width: 22px; height: 22px;
       background: var(--green);
@@ -1020,7 +1053,27 @@
     .sidebar-sticky::-webkit-scrollbar-track { background: transparent; }
     .sidebar-sticky::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
 
+    /* Accessibility */
+    *:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+    @media (prefers-reduced-motion: reduce) { * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
+
+    /* Print */
+    @media print {
+      #login-overlay, .topbar, .tab-bar, footer { display: none; }
+      .sidebar { display: none; }
+      .layout { max-width: 100%; }
+      .main { width: 100%; }
+      header { position: static; box-shadow: none; }
+      .section-card.collapsed .section-body { display: block !important; }
+      .section-chevron { display: none; }
+      .source-link::after { content: ' (' attr(href) ')'; font-size: 9px; }
+    }
+
     /* Responsive */
+    @media (max-width: 768px) {
+      .kpi-row { grid-template-columns: repeat(2, 1fr); }
+    }
+
     @media (max-width: 960px) {
       .layout { flex-direction: column; padding: 18px; gap: 18px; }
       .sidebar { width: 100%; }
@@ -1037,6 +1090,7 @@
       .kpi-row { grid-template-columns: 1fr; }
       .brief-header { padding: 24px 20px; }
       .brief-date-full { font-size: 22px; }
+      .tab-btn { padding: 14px 14px; font-size: 13px; }
     }
   </style>
 </head>
@@ -1187,7 +1241,7 @@
     Intern gebruik &nbsp;·&nbsp; Eneco in Huis Management Team &nbsp;·&nbsp; Dagelijks bijgewerkt om 11:00
   </footer>
 
-  <script src="data.js?v=20260319"></script>
+  <script src="data.js?v=20260321"></script>
   <script>
     // ── Wachtwoordbeveiliging ──────────────────────────────────
     (function() {
@@ -1286,7 +1340,7 @@
             </div>
             <p class="news-body">${item.body}`;
           if (item.sourceUrl) {
-            html += `<a href="${item.sourceUrl}" target="_blank" rel="noopener noreferrer" class="source-link">Source →</a>`;
+            html += `<a href="${item.sourceUrl}" target="_blank" rel="noopener noreferrer" class="source-link">Source ↗</a>`;
           }
           html += `</p>`;
           if (item.actie) {
@@ -1570,6 +1624,11 @@
 
       document.getElementById('profileContent').innerHTML = html;
     }
+
+    // Header scroll shadow effect
+    window.addEventListener('scroll', function() {
+      document.querySelector('header').classList.toggle('scrolled', window.scrollY > 10);
+    });
   </script>
 </body>
 </html>
