@@ -1257,6 +1257,48 @@
     }
 
     /* Responsive */
+    /* MT Filter Bar */
+    .mt-filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 16px 24px;
+      background: white;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+    .mt-filter-btn {
+      padding: 6px 14px;
+      border-radius: 20px;
+      border: 1.5px solid #ccc;
+      background: white;
+      color: var(--dark);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: 'Nunito', sans-serif;
+    }
+    .mt-filter-btn:hover { border-color: var(--green); color: var(--green); }
+    .mt-filter-btn.active { background: var(--green); color: white; border-color: var(--green); }
+    .mt-filter-btn.active:hover { background: #005f42; }
+    .news-item.mt-hidden { display: none; }
+    .section-card.mt-section-hidden { display: none; }
+    .mt-tag {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-size: 11px;
+      font-weight: 700;
+      margin-left: 6px;
+      vertical-align: middle;
+      background: #e8f5e9;
+      color: var(--green);
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
     @media (max-width: 768px) {
       .kpi-row { grid-template-columns: repeat(2, 1fr); }
     }
@@ -1433,7 +1475,7 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
-  <script src="data.js?v=20260327b"></script>
+  <script src="data.js?v=20260327c"></script>
   <script>
     // ── Wachtwoordbeveiliging ──────────────────────────────────
     (function() {
@@ -1697,6 +1739,18 @@
         <canvas id="kpiChart" height="220"></canvas>
       </div>`;
 
+      // MT Filter Bar
+      html += `<div class="mt-filter-bar">
+        <button class="mt-filter-btn active" onclick="handleMTFilter('all')">All</button>
+        <button class="mt-filter-btn" onclick="handleMTFilter('HR')">HR</button>
+        <button class="mt-filter-btn" onclick="handleMTFilter('IT & Data')">IT & Data</button>
+        <button class="mt-filter-btn" onclick="handleMTFilter('Finance')">Finance</button>
+        <button class="mt-filter-btn" onclick="handleMTFilter('Customer Ops')">Customer Ops</button>
+        <button class="mt-filter-btn" onclick="handleMTFilter('Field Ops')">Field Ops</button>
+        <button class="mt-filter-btn" onclick="handleMTFilter('Product')">Product</button>
+        <button class="mt-filter-btn" onclick="handleMTFilter('Marketing')">Marketing</button>
+      </div>`;
+
       // Priorities (moved above sections, collapsible, default open)
       if (b.priorities && b.priorities.length) {
         html += `<div class="priorities-card">
@@ -1726,7 +1780,8 @@
           <div class="section-body">`;
         sec.items.forEach(item => {
           const s = sc(item.sentiment);
-          html += `<div class="news-item">
+          const mtTags = (item.mtTags || [item.actieType]).join(',');
+          html += `<div class="news-item" data-mt-tags="${mtTags}">
             <div class="news-item-top">
               <span class="dot ${s}"></span>
               <span class="news-title ${s}">${item.title}</span>
@@ -1745,8 +1800,13 @@
             };
             const cls = badgeMap[item.actieType] || '';
             html += `<div class="news-actie">
-              <span class="actie-badge ${cls}">${item.actieType}</span>
-              <span class="actie-text">${item.actie}</span>
+              <span class="actie-badge ${cls}">${item.actieType}</span>`;
+            if (item.mtTags) {
+              item.mtTags.forEach(tag => {
+                html += `<span class="mt-tag">${tag}</span>`;
+              });
+            }
+            html += `<span class="actie-text">${item.actie}</span>
             </div>`;
           }
           html += `</div>`;
@@ -1759,6 +1819,48 @@
 
     function toggleSec(idx) {
       document.getElementById(`sec-${idx}`).classList.toggle('collapsed');
+    }
+
+    function handleMTFilter(tag) {
+      const buttons = document.querySelectorAll('.mt-filter-btn');
+      const newsItems = document.querySelectorAll('.news-item');
+      const sections = document.querySelectorAll('.section-card');
+
+      // Update button states
+      buttons.forEach(btn => {
+        btn.classList.remove('active');
+      });
+      buttons.forEach(btn => {
+        if (tag === 'all' && btn.textContent.trim() === 'All') {
+          btn.classList.add('active');
+        } else if (btn.textContent.trim() === tag) {
+          btn.classList.add('active');
+        }
+      });
+
+      // Filter news items
+      newsItems.forEach(item => {
+        if (tag === 'all') {
+          item.classList.remove('mt-hidden');
+        } else {
+          const tags = item.getAttribute('data-mt-tags');
+          if (tags && tags.split(',').map(t => t.trim()).includes(tag)) {
+            item.classList.remove('mt-hidden');
+          } else {
+            item.classList.add('mt-hidden');
+          }
+        }
+      });
+
+      // Hide sections with all items hidden
+      sections.forEach(section => {
+        const visibleItems = section.querySelectorAll('.news-item:not(.mt-hidden)');
+        if (visibleItems.length === 0) {
+          section.classList.add('mt-section-hidden');
+        } else {
+          section.classList.remove('mt-section-hidden');
+        }
+      });
     }
 
     if (sorted.length > 0) showBrief(0);
