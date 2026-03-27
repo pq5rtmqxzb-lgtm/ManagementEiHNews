@@ -4,6 +4,166 @@
 
 const briefsData = [
   {
+    date: "2026-03-27",
+    dateFormatted: "Friday 27 March 2026",
+    samenvatting: "REORG D-DAY IN 4 DAYS: Eneco reorganization deadline March 31 — 350 jobs affected. Director Schoon must present EiH strategic positioning paper to CEO Hagens this week. ENERGY MARKETS EASING SLIGHTLY: TTF gas dropped to €55/MWh (down from €74 peak) as US military operations target Hormuz reopening. Brent crude at €97/bbl. Qatar declares force majeure on LNG contracts — 17% capacity offline for 3-5 years, locking in structural supply deficit. ECB holds at 2.15% but Lagarde signals willingness to hike if energy-driven inflation persists. SUPPLY CHAIN: Aluminum hits €3,019/ton (4-year high), copper stabilizes at €11,109/ton. CMA CGM announces €3,220/container FAK rates from April 1. Memory chip shortage ('RAMageddon') drives 40% price surge for smart controllers. Dutch heat pump mandate cancelled — market now subsidy-driven (€509M ISDE). Remeha scales Apeldoorn factory to 140,000 hybrid heat pumps/year. EU Building Renovation Directive must be transposed by May 29.",
+    kpis: [
+      { label: "TTF Gas Price", value: "€55/MWh", sub: "Down from €74 peak — still +83% vs pre-crisis", trend: "positive" },
+      { label: "Brent Crude", value: "€97/bbl", sub: "Volatile — US military ops targeting Hormuz reopening", trend: "negative" },
+      { label: "ECB Rate", value: "2.15%", sub: "Held — Lagarde signals possible hike if inflation persists", trend: "negative" },
+      { label: "Reorg Deadline", value: "4 days", sub: "350 jobs — deadline March 31, 2026", trend: "negative" }
+    ],
+    sections: [
+      {
+        title: "Geopolitics & Energy Crisis",
+        icon: "🌍",
+        items: [
+          {
+            title: "TTF gas eases to €55/MWh but Qatar force majeure locks in 3-5 year supply deficit",
+            sentiment: "negative",
+            body: "Dutch TTF gas futures have moderated from the March 19 peak of €74/MWh to approximately €55/MWh — still 83% above the pre-crisis baseline of €30/MWh. The easing follows improved sentiment around US military operations in the Strait of Hormuz. However, QatarEnergy has declared force majeure on LNG contracts to Italy, Belgium, South Korea, and China after missile damage disabled Trains 4 and 6 at Ras Laffan — removing 17% of Qatar's LNG capacity (12.8 million tonnes/year) for 3-5 years. EU gas storage stands at a critically low 29.4%. This structural supply deficit means TTF is unlikely to return to the €27-32/MWh pre-crisis range for years. For EiH, elevated gas prices strengthen the heat pump conversion case for every customer still running a gas boiler.",
+            actie: "Update all customer-facing heat pump ROI calculators with €55/MWh gas baseline (was €30/MWh). The payback period for hybrid heat pump vs. gas boiler has shortened dramatically — use this in every ServiceGemak® maintenance visit and marketing campaign.",
+            actieType: "Marketing",
+            sourceUrl: "https://www.euronews.com/business/2026/03/27/is-europe-sleepwalking-into-its-worst-gas-crisis-since-2022"
+          },
+          {
+            title: "Strait of Hormuz: US military campaign launched — Iranian navy commander killed in airstrike",
+            sentiment: "negative",
+            body: "The Strait of Hormuz crisis enters its fifth week. Iran maintains effective control through a 'toll booth' system, selectively allowing passage while blocking most commercial traffic. Tanker traffic is down 70% from pre-crisis levels. On March 26, Israeli forces killed Iranian navy commander Alireza Tangsiri in an airstrike — a significant escalation. The US launched military operations on March 19 to reopen the strait. 20,000 seafarers remain stranded according to UN reports. War-risk insurance has surged from 0.15-0.25% to 5-10% of hull value, adding massive costs to any remaining shipping through the region.",
+            actie: "Factor continued Hormuz disruption into all Q2 procurement planning. Asia-sourced components (heat pump parts, electronics) face 4-6 week delays and 20-50% shipping premiums. Prioritize European suppliers (Remeha Apeldoorn, Intergas domestic) where possible.",
+            actieType: "Operations",
+            sourceUrl: "https://www.aljazeera.com/news/2026/3/26/tehranstollbooth-how-iran-picks-who-to-let-through-strait-of-hormuz"
+          },
+          {
+            title: "ECB holds at 2.15% but Lagarde signals readiness to hike rates if energy inflation persists",
+            sentiment: "negative",
+            body: "The ECB maintained all key rates at its March 19 meeting (deposit 2.0%, refinancing 2.15%, marginal lending 2.4%). However, ECB President Christine Lagarde explicitly stated the bank is ready to hike rates 'even if the expected jump is not too persistent.' The 2026 inflation forecast has been revised upward to 2.6% (from 2.0%) driven by energy costs, while the growth forecast was cut to 0.9%. For EiH customers financing heat pump installations through mortgages, sustained or rising rates add borrowing cost pressure — making lease and rental models (ServiceGemak®) more attractive relative to upfront purchase.",
+            actie: "Push ServiceGemak® rental and lease models in all customer conversations. With mortgage rates at 3.4-4.3% and potential ECB hikes ahead, monthly rental (from €79.50/month for hybrid heat pump) is increasingly competitive vs. financed purchase. Develop 0% installment plans with ISDE subsidy integration.",
+            actieType: "Finance",
+            sourceUrl: "https://www.cnbc.com/2026/03/25/ecb-rate-hikes-inflation-forecasts-christine-lagarde-iran-war.html"
+          }
+        ]
+      },
+      {
+        title: "Supply Chain & Materials",
+        icon: "⛓",
+        items: [
+          {
+            title: "Aluminum surges to €3,019/ton — 4-year high driven by geopolitical premium",
+            sentiment: "negative",
+            body: "LME aluminum futures hit €3,019/ton (March 26), the highest since March 2022. The geopolitical premium from the Hormuz crisis and global production constraints are driving the surge. Aluminum is critical for heat pump fin stock, radiators, heat exchangers, and control panel housings. The 10%+ premium vs. Q4 2025 is flowing through to component costs from Vaillant, Remeha, and Intergas. Meanwhile, copper has stabilized at €11,109/ton — down from the January peak of €13,365/ton — as LME stockpiles hit a 22-year high of 1.01 million tonnes.",
+            actie: "Lock aluminum component pricing with suppliers before Q2 contracts reset. Copper procurement window remains favorable — consider forward-buying for Q2-Q3. Budget +10% materials surcharge into all Q2 installation quotes.",
+            actieType: "Operations",
+            sourceUrl: "https://www.lme.com/metals/non-ferrous/lme-aluminium"
+          },
+          {
+            title: "CMA CGM announces €3,220/container FAK rates from April 1 — shipping costs still escalating",
+            sentiment: "negative",
+            body: "CMA CGM has announced new FAK (Freight All Kinds) rates of €3,220 per 40ft container on Asia-Europe routes effective April 1, 2026. Current Shanghai-Rotterdam spot rates are €2,348/40ft (+3% week-over-week). Major carriers (Maersk, CMA CGM, Hapag-Lloyd) have suspended all Hormuz and Red Sea transits, forcing rerouting via Cape of Good Hope — adding weeks to transit times. For EiH, Asia-sourced boiler components, heat pump subassemblies, and electronics face significant cost and delivery time increases.",
+            actie: "Negotiate long-term freight contracts before April 1 rate increases. For critical components, evaluate air freight for small high-value items (inverter boards, control units). Build 6-week buffer stock for Asia-sourced parts.",
+            actieType: "Operations",
+            sourceUrl: "https://www.drewry.co.uk/supply-chain-advisors/supply-chain-expertise/world-container-index-assessed-by-drewry"
+          },
+          {
+            title: "Memory chip shortage ('RAMageddon') hits smart controllers — 40% price surge through Q2",
+            sentiment: "negative",
+            body: "A global memory chip shortage — dubbed 'RAMageddon' — is driving up to 40% price increases for memory products in Q2 2026. Semiconductor fabs are reallocating capacity from traditional electronics to high-bandwidth memory (HBM) for AI data centers. Power semiconductors used in heat pump inverters, smart thermostats, and digital controllers are competing for scarce fab capacity with EV and AI demand. Smart-capable HVAC units from Vaillant and Remeha that require advanced control boards may face extended lead times.",
+            actie: "Stock 6-month buffer of standard control boards and smart thermostats (Intergas, Remeha replacements). Where possible, offer customers standard (non-smart) control options to avoid delays. Communicate 2-4 week extended lead times on smart-capable installations.",
+            actieType: "Operations",
+            sourceUrl: "https://www.cnbc.com/2026/01/26/memory-chip-shortage-synopsys-lenovo-ai-data-centers.html"
+          }
+        ]
+      },
+      {
+        title: "Heat Pump Market & Policy",
+        icon: "🔥",
+        items: [
+          {
+            title: "Dutch hybrid heat pump mandate cancelled — market now fully subsidy-driven with €509M ISDE budget",
+            sentiment: "neutral",
+            body: "The Dutch cabinet has officially cancelled the mandatory hybrid heat pump requirement at boiler replacement that was planned for 2026. The heat pump market now relies entirely on market incentives and subsidies. The ISDE budget stands at €509 million for 2026, covering heat pumps, insulation, solar water heaters, and district heating connections. ISDE subsidies: €2,550 for 4kW hybrid systems, €3,150 for 8kW air-source, €4,425 for 6kW ground-source. For EiH, this means conversion depends on customer economics and marketing effectiveness rather than regulatory compulsion.",
+            actie: "Reframe all marketing from 'compliance' to 'savings opportunity.' With gas at €55/MWh (vs. €30 pre-crisis), the financial case for heat pumps has never been stronger even without a mandate. Lead with: 'Your gas bill just doubled — a heat pump pays for itself faster than ever.' Ensure every quote includes ISDE subsidy calculation.",
+            actieType: "Marketing",
+            sourceUrl: "https://ehpa.org/news-and-resources/press-releases/dutch-heat-pump-industry-responds-to-cancellation-of-2026-legislation/"
+          },
+          {
+            title: "Remeha scales Apeldoorn factory to 140,000 hybrid heat pumps/year — key EiH supplier strengthens",
+            sentiment: "positive",
+            body: "Remeha has completed scaling its Apeldoorn production facility to 140,000 hybrid heat pump units per year (600 units per working day). The company relocated hybrid heat pump production from France to the Netherlands, significantly reducing supply chain exposure to international shipping disruptions. This is strategically important for EiH: Remeha is a core supplier (Elga Ace 4kW and 6kW are key products), and domestic production means shorter lead times and lower logistics costs compared to competitors relying on Asian or Southern European manufacturing.",
+            actie: "Negotiate preferred allocation with Remeha given their expanded capacity. Explore volume discounts for Q2-Q3 orders. The domestic production advantage (no shipping delays, no Hormuz exposure) should be leveraged in procurement negotiations and customer communications.",
+            actieType: "Operations",
+            sourceUrl: "https://www.coolingpost.com/world-news/remeha-opens-largest-dutch-heat-pump-factory/"
+          },
+          {
+            title: "EU Building Renovation Directive must be transposed by May 29, 2026 — renovation wave incoming",
+            sentiment: "positive",
+            body: "The revised EU Energy Performance of Buildings Directive (EPBD, EU/2024/1275) must be transposed into national law by all EU member states by May 29, 2026. Key requirements: renovate 16% of worst-performing buildings by 2030, 26% by 2033. New commercial/public buildings over 250m² must install solar by December 31, 2026. Digital renovation passports become mandatory. The EU Social Climate Fund (€86.7 billion) is now available for energy efficiency upgrades in vulnerable households. For EiH, this directive creates a structural demand floor for heating system upgrades over the next decade.",
+            actie: "Prepare for increased demand from building renovation requirements. Develop a 'renovation-ready' package: hybrid heat pump + insulation assessment + ISDE subsidy application as a single offering. Position EiH as the one-stop partner for EPBD compliance.",
+            actieType: "Strategy",
+            sourceUrl: "https://energy.ec.europa.eu/topics/energy-efficiency/energy-performance-buildings/energy-performance-buildings-directive_en"
+          }
+        ]
+      },
+      {
+        title: "Eneco Group & Leadership",
+        icon: "🏢",
+        items: [
+          {
+            title: "Eneco reorganization deadline March 31 — 4 days to finalize EiH strategic positioning",
+            sentiment: "negative",
+            body: "The Eneco Group reorganization reaches its March 31 deadline in 4 days. 350 positions are being eliminated, primarily through natural attrition and reduced external hiring. CEO Martijn Hagens (started March 1, former Vattenfall SVP) has restructured the Management Board: COO-Assets Karen de Lathouder departed in February, and the Trading & Flexibility and Assets portfolios merged under COO Integrated Energy & Assets Kees-Jan Rameau. For EiH as a separate BV, the critical question is which shared Eneco services (IT, Finance, HR) will be affected by the reorg and what the continuity plan looks like.",
+            actie: "Director Schoon: present the EiH strategic positioning paper to CEO Hagens before March 31. The paper must demonstrate standalone value creation — recurring revenue from ServiceGemak®, heat pump conversion pipeline, and the urban market opportunity. Confirm continuity of all shared Eneco services post-reorg.",
+            actieType: "Strategy",
+            sourceUrl: "https://news.eneco.com/martijn-hagens-appointed-as-chief-executive-officer-of-eneco-effective-1-march-2026/"
+          }
+        ]
+      },
+      {
+        title: "Housing Market & Consumer",
+        icon: "🏠",
+        items: [
+          {
+            title: "Dutch house prices +5.4% YoY in February — average now €487,768",
+            sentiment: "positive",
+            body: "Dutch existing home prices increased 5.4% year-over-year in February 2026, with the average price reaching €487,768. The housing market remains active with strong transaction volumes, though growth is expected to moderate to 3-4.8% for full-year 2026 as increased supply (landlords divesting rental properties due to stricter regulations) balances demand. Mortgage rates remain in the 3.4-4.3% range. For EiH, rising home values support renovation investment — homeowners with appreciating assets are more willing to invest in heating system upgrades.",
+            actie: "Target the 'just bought' segment aggressively. New homeowners with older heating systems are prime conversion candidates. Partner with estate agents and mortgage advisors to include heat pump options in home purchase decisions. Update ROI calculations with current house price appreciation data.",
+            actieType: "Marketing",
+            sourceUrl: "https://nltimes.nl/2026/03/23/dutch-existing-home-prices-increased-54-february"
+          },
+          {
+            title: "Average Dutch energy bill drops to €1,993 in 2026 — but March gas spike may reverse savings",
+            sentiment: "neutral",
+            body: "The average Dutch household energy bill is projected at €1,993 for 2026 — €52 less than 2025, a 2.5% saving. However, this projection was based on pre-crisis gas prices (~€30/MWh). With TTF now at €55/MWh, households on variable-rate contracts will see significantly higher bills. Some energy suppliers have paused offering fixed-rate contracts due to market volatility. Network tariffs are also increasing by €25/year. Gas taxes continue rising while electricity taxes decline — creating a policy-driven price wedge that favors electrification.",
+            actie: "Use the gas-vs-electricity price wedge in customer conversations. Show customers their projected gas bill at €55/MWh vs. heat pump electricity cost. The rising gas tax + falling electricity tax makes the switch economics increasingly favorable even without ISDE subsidy.",
+            actieType: "Finance",
+            sourceUrl: "https://nltimes.nl/2026/02/26/dutch-households-spend-less-gas-electricity-2026"
+          }
+        ]
+      },
+      {
+        title: "Trade & Regulation",
+        icon: "📜",
+        items: [
+          {
+            title: "Trump Section 301 investigation targets EU — tariff decision by July 24, 2026",
+            sentiment: "negative",
+            body: "The Trump administration's Section 301 trade investigation targeting 16+ trade partners including the EU continues, with a July 24, 2026 deadline for remedies. This follows the Supreme Court's 6-3 ruling that Trump's reciprocal tariffs under IEEPA were unconstitutional. Section 301 provides the legal alternative. For EiH, US-origin HVAC components (compressors, refrigerants, control systems) could face retaliatory EU tariffs, while EU-manufactured goods exported to the US face potential new barriers. The investigation focuses on 'structural excess manufacturing capacity.'",
+            actie: "Audit the EiH supply chain for US-origin components. Identify which heat pump and boiler parts come from US manufacturers or pass through US distribution. If retaliatory EU tariffs materialize, ensure procurement is diversified to European and Asian alternatives.",
+            actieType: "Strategy",
+            sourceUrl: "https://www.cnbc.com/2026/03/11/trump-trade-investigations-ieepa-tariffs.html"
+          }
+        ]
+      }
+    ],
+    priorities: [
+      "Strategy: DEADLINE — Director Schoon must present EiH strategic positioning paper to CEO Hagens before March 31. Demonstrate standalone value: ServiceGemak® recurring revenue, heat pump conversion pipeline, urban market opportunity.",
+      "Marketing: Reframe all campaigns from 'mandate compliance' to 'savings opportunity.' Gas at €55/MWh makes heat pump ROI compelling — update all calculators, train technicians on conversion messaging during ServiceGemak® visits.",
+      "Operations: Stock 6-month buffer of control boards and smart thermostats before chip shortage worsens. Lock aluminum pricing before Q2 reset. Negotiate Remeha volume discounts leveraging their expanded Apeldoorn capacity.",
+      "Finance: Push ServiceGemak® rental models as ECB signals potential rate hikes. Monthly rental (from €79.50) increasingly attractive vs. financed purchase at 3.4-4.3% mortgage rates.",
+      "Supply Chain: Negotiate freight contracts before CMA CGM April 1 rate increase (€3,220/container). Prioritize domestic suppliers (Remeha Apeldoorn, Intergas) to avoid Hormuz shipping disruption."
+    ]
+  },
+  {
     date: "2026-03-21",
     dateFormatted: "Saturday 21 March 2026",
     samenvatting: "CRITICAL ENERGY SHOCK: TTF gas surged 50% to €74/MWh after Iranian missile damage to Qatar's Ras Laffan LNG hub — the world's largest, supplying 20% of global LNG. Brent crude at €98/bbl. ECB held rates at 2.15% but raised 2026 inflation forecast to 2.6% and cut growth to 0.9%. The Hormuz crisis enters its fourth week with 21 confirmed vessel attacks and 150+ ships anchored. SUPPLY CHAIN DIVERGENCE: copper falling to €11,270/ton (oversupply) but aluminum surging to €2,983/ton (+5.3% weekly). Shipping rates +15-18% with FAK rates of €5,700-5,900/container effective March 22. Reorg deadline now 10 days away. Nine EU member states call for Green Deal revision — policy uncertainty rising.",
