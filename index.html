@@ -279,6 +279,91 @@
       margin-bottom: 8px;
     }
 
+    /* Search */
+    .search-container {
+      margin-bottom: 12px;
+      padding: 0 8px;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-family: inherit;
+      font-size: 13px;
+      color: var(--dark);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .search-input:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px var(--green-light);
+    }
+
+    .search-input::placeholder {
+      color: var(--medium);
+    }
+
+    .search-results {
+      padding: 16px;
+      margin-bottom: 20px;
+      background: var(--bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .search-result-count {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 8px;
+    }
+
+    .search-result-item {
+      margin-bottom: 14px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .search-result-item:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .search-result-date {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--green);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+    }
+
+    .search-result-title {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 4px;
+    }
+
+    .search-result-text {
+      font-size: 12px;
+      color: var(--medium);
+      line-height: 1.5;
+    }
+
+    .search-highlight {
+      background: #FFEAA7;
+      font-weight: 600;
+      border-radius: 2px;
+      padding: 0 2px;
+    }
+
     .brief-list { list-style: none; }
 
     .brief-item {
@@ -387,6 +472,73 @@
 
     .kpi-label { font-size: 12px; font-weight: 800; color: var(--dark); margin-bottom: 3px; }
     .kpi-sub   { font-size: 11px; font-weight: 500; color: var(--medium); line-height: 1.4; }
+
+    /* KPI Delta & Sparkline */
+    .kpi-delta {
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--medium);
+      margin-top: 6px;
+      padding-top: 6px;
+      border-top: 1px solid var(--border);
+    }
+
+    .kpi-sparkline {
+      margin-top: 8px;
+      max-width: 100%;
+    }
+
+    /* KPI Chart */
+    .kpi-chart-toggle {
+      margin: 16px 0;
+      text-align: center;
+    }
+
+    .chart-toggle-btn {
+      padding: 10px 18px;
+      border: 2px solid var(--green);
+      background: white;
+      color: var(--green);
+      border-radius: var(--radius);
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .chart-toggle-btn:hover {
+      background: var(--green);
+      color: white;
+    }
+
+    .kpi-chart-container {
+      background: white;
+      border-radius: var(--radius);
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    /* Export Button */
+    .export-btn {
+      padding: 10px 14px;
+      background: white;
+      color: var(--green);
+      border: 2px solid var(--green);
+      border-radius: var(--radius);
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .export-btn:hover {
+      background: var(--green);
+      color: white;
+    }
 
     /* Section cards */
     .section-card {
@@ -984,13 +1136,48 @@
       border-left: 4px solid var(--green);
     }
 
+    .priorities-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      user-select: none;
+      margin-bottom: 14px;
+    }
+
+    .priorities-toggle-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+      padding: 0;
+      color: var(--green);
+      transition: transform 0.2s;
+    }
+
+    .priorities-toggle-btn.collapsed {
+      transform: rotate(-90deg);
+    }
+
     .priorities-title {
       font-size: 11px;
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.10em;
       color: var(--green);
-      margin-bottom: 14px;
+      margin: 0;
+      flex: 1;
+    }
+
+    .priorities-body {
+      max-height: 500px;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .priorities-body.collapsed {
+      max-height: 0;
+      overflow: hidden;
     }
 
     .priority-item {
@@ -1203,6 +1390,7 @@
     <div class="header-divider"></div>
     <span class="header-pagetitle">Management Nieuwsoverzicht</span>
     <div class="header-right">
+      <button class="export-btn" onclick="exportBrief()">📄 Export PDF</button>
       <span class="intern-badge">Intern</span>
       <span class="edition-badge" id="briefCount">0 edities</span>
     </div>
@@ -1219,6 +1407,9 @@
     <aside class="sidebar">
       <div class="sidebar-sticky">
         <div class="sidebar-label">Edities</div>
+        <div class="search-container">
+          <input type="text" id="searchInput" placeholder="Zoek in alle edities..." class="search-input" oninput="handleSearch()" />
+        </div>
         <ul class="brief-list" id="briefList"></ul>
       </div>
     </aside>
@@ -1241,7 +1432,8 @@
     Intern gebruik &nbsp;·&nbsp; Eneco in Huis Management Team &nbsp;·&nbsp; Dagelijks bijgewerkt om 11:00
   </footer>
 
-  <script src="data.js?v=20260321"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="data.js?v=20260325"></script>
   <script>
     // ── Wachtwoordbeveiliging ──────────────────────────────────
     (function() {
@@ -1296,9 +1488,148 @@
       return s === 'positive' ? 'positive' : s === 'negative' ? 'negative' : 'neutral';
     }
 
+    function extractNum(val) {
+      return parseFloat(val.replace(/[^0-9.-]/g, ''));
+    }
+
+    function renderKpiTimeline() {
+      const canvas = document.getElementById('kpiChart');
+      if (!canvas || !window.Chart) return;
+
+      const kpiIndexes = [0, 1]; // TTF Gas and Brent
+      const labels = sorted.map(b => b.date);
+      const datasets = [];
+
+      kpiIndexes.forEach((kidx, i) => {
+        if (kidx >= sorted[0].kpis.length) return;
+        const values = sorted.map(b => b.kpis[kidx] ? extractNum(b.kpis[kidx].value) : null).reverse();
+        const label = sorted[0].kpis[kidx] ? sorted[0].kpis[kidx].label : '';
+        const color = i === 0 ? 'rgb(0, 114, 80)' : 'rgb(212, 75, 60)';
+        const bgColor = i === 0 ? 'rgba(0, 114, 80, 0.1)' : 'rgba(212, 75, 60, 0.1)';
+        datasets.push({
+          label: label,
+          data: values,
+          borderColor: color,
+          backgroundColor: bgColor,
+          tension: 0.3,
+          fill: false,
+          borderWidth: 2,
+          pointRadius: 4,
+          pointBackgroundColor: color,
+          pointBorderColor: 'white',
+          pointBorderWidth: 2
+        });
+      });
+
+      const reversedLabels = [...labels].reverse();
+
+      if (window.kpiChartInstance) {
+        window.kpiChartInstance.destroy();
+      }
+
+      window.kpiChartInstance = new Chart(canvas, {
+        type: 'line',
+        data: {
+          labels: reversedLabels,
+          datasets: datasets
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              position: 'top',
+              labels: {
+                font: { family: "'Nunito', sans-serif", weight: 600, size: 12 },
+                color: 'rgb(47, 45, 45)',
+                padding: 15,
+                usePointStyle: true
+              }
+            }
+          },
+          scales: {
+            x: {
+              title: { display: true, text: 'Date', font: { weight: 600, size: 12 } },
+              ticks: { font: { family: "'Nunito', sans-serif", size: 11 }, color: 'rgb(110, 107, 107)' },
+              grid: { color: 'rgba(229, 225, 225, 0.5)' }
+            },
+            y: {
+              title: { display: true, text: 'Value', font: { weight: 600, size: 12 } },
+              ticks: { font: { family: "'Nunito', sans-serif", size: 11 }, color: 'rgb(110, 107, 107)' },
+              grid: { color: 'rgba(229, 225, 225, 0.5)' }
+            }
+          }
+        }
+      });
+    }
+
+    function toggleKpiChart() {
+      const container = document.getElementById('kpiChartContainer');
+      const btn = document.querySelector('.chart-toggle-btn');
+      if (container.style.display === 'none') {
+        container.style.display = 'block';
+        btn.textContent = '📈 KPI Trend Over Time ▼';
+        setTimeout(() => renderKpiTimeline(), 50);
+      } else {
+        container.style.display = 'none';
+        btn.textContent = '📈 KPI Trend Over Time';
+      }
+    }
+
+    function togglePriorities() {
+      const body = document.querySelector('.priorities-body');
+      const btn = document.querySelector('.priorities-toggle-btn');
+      body.classList.toggle('collapsed');
+      btn.classList.toggle('collapsed');
+    }
+
+    function exportBrief() {
+      const sections = document.querySelectorAll('.section-card');
+      const chartContainer = document.getElementById('kpiChartContainer');
+      const prioritiesBody = document.querySelector('.priorities-body');
+      const collapsedSections = [];
+      const chartWasHidden = chartContainer && chartContainer.style.display === 'none';
+      const prioritiesWasCollapsed = prioritiesBody && prioritiesBody.classList.contains('collapsed');
+
+      // Expand all sections and chart
+      sections.forEach((sec, idx) => {
+        if (sec.classList.contains('collapsed')) {
+          sec.classList.remove('collapsed');
+          collapsedSections.push(idx);
+        }
+      });
+
+      if (chartContainer && chartWasHidden) {
+        chartContainer.style.display = 'block';
+        setTimeout(() => renderKpiTimeline(), 50);
+      }
+
+      if (prioritiesBody && prioritiesWasCollapsed) {
+        prioritiesBody.classList.remove('collapsed');
+        document.querySelector('.priorities-toggle-btn').classList.remove('collapsed');
+      }
+
+      // Print after a short delay to ensure chart is rendered
+      setTimeout(() => {
+        window.print();
+        // Restore state
+        collapsedSections.forEach(idx => {
+          document.getElementById(`sec-${idx}`).classList.add('collapsed');
+        });
+        if (chartContainer && chartWasHidden) {
+          chartContainer.style.display = 'none';
+        }
+        if (prioritiesBody && prioritiesWasCollapsed) {
+          prioritiesBody.classList.add('collapsed');
+          document.querySelector('.priorities-toggle-btn').classList.add('collapsed');
+        }
+      }, 1000);
+    }
+
     function showBrief(idx) {
       document.querySelectorAll('.brief-item').forEach(el => el.classList.remove('active'));
       document.querySelector(`[data-idx="${idx}"]`).classList.add('active');
+      document.getElementById('searchInput').value = '';
 
       const b = sorted[idx];
       let html = '';
@@ -1310,16 +1641,78 @@
         <p class="brief-summary">${b.samenvatting}</p>
       </div>`;
 
-      // KPIs
+      // KPIs with deltas and sparklines
       html += `<div class="kpi-row">`;
-      b.kpis.forEach(k => {
+      b.kpis.forEach((k, ki) => {
+        let deltaHtml = '';
+        let sparklineHtml = '';
+
+        // Compare with previous edition (idx+1 in sorted array)
+        if (idx + 1 < sorted.length && sorted[idx + 1].kpis[ki]) {
+          const prev = sorted[idx + 1].kpis[ki];
+          const curr = extractNum(k.value);
+          const prevVal = extractNum(prev.value);
+          const diff = curr - prevVal;
+          const isPositive = diff > 0;
+          const icon = isPositive ? '↑' : diff < 0 ? '↓' : '→';
+          deltaHtml = `<div class="kpi-delta">${icon} from ${prev.value}</div>`;
+        }
+
+        // Mini sparkline (last 4-5 editions)
+        const sparklineData = [];
+        for (let i = Math.max(0, idx - 4); i <= idx; i++) {
+          if (sorted[i].kpis[ki]) {
+            sparklineData.push(extractNum(sorted[i].kpis[ki].value));
+          }
+        }
+        if (sparklineData.length > 1) {
+          const minVal = Math.min(...sparklineData);
+          const maxVal = Math.max(...sparklineData);
+          const range = maxVal - minVal || 1;
+          const points = sparklineData.map((v, i) => {
+            const x = (i / (sparklineData.length - 1)) * 80 + 10;
+            const y = 50 - ((v - minVal) / range) * 40;
+            return `${x},${y}`;
+          }).join(' ');
+          sparklineHtml = `<svg class="kpi-sparkline" viewBox="0 0 100 60" height="40">
+            <polyline points="${points}" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>`;
+        }
+
         html += `<div class="kpi-card ${sc(k.trend)}">
           <div class="kpi-value">${k.value}</div>
           <div class="kpi-label">${k.label}</div>
           <div class="kpi-sub">${k.sub}</div>
+          ${deltaHtml}
+          ${sparklineHtml}
         </div>`;
       });
       html += `</div>`;
+
+      // KPI Chart Toggle
+      html += `<div class="kpi-chart-toggle">
+        <button onclick="toggleKpiChart()" class="chart-toggle-btn">📈 KPI Trend Over Time</button>
+      </div>
+      <div id="kpiChartContainer" class="kpi-chart-container" style="display:none;">
+        <canvas id="kpiChart" height="220"></canvas>
+      </div>`;
+
+      // Priorities (moved above sections, collapsible, default open)
+      if (b.priorities && b.priorities.length) {
+        html += `<div class="priorities-card">
+          <div class="priorities-header" onclick="togglePriorities()">
+            <button class="priorities-toggle-btn">▼</button>
+            <div class="priorities-title">⚡ Top prioriteiten management team</div>
+          </div>
+          <div class="priorities-body">`;
+        b.priorities.forEach((p, i) => {
+          html += `<div class="priority-item">
+            <span class="priority-num">${i + 1}</span>
+            <span>${p}</span>
+          </div>`;
+        });
+        html += `</div></div>`;
+      }
 
       // Sections
       b.sections.forEach((sec, si) => {
@@ -1360,19 +1753,6 @@
         });
         html += `</div></div>`;
       });
-
-      // Priorities
-      if (b.priorities && b.priorities.length) {
-        html += `<div class="priorities-card">
-          <div class="priorities-title">⚡ Top prioriteiten management team</div>`;
-        b.priorities.forEach((p, i) => {
-          html += `<div class="priority-item">
-            <span class="priority-num">${i + 1}</span>
-            <span>${p}</span>
-          </div>`;
-        });
-        html += `</div>`;
-      }
 
       document.getElementById('mainContent').innerHTML = html;
     }
@@ -1629,6 +2009,106 @@
     window.addEventListener('scroll', function() {
       document.querySelector('header').classList.toggle('scrolled', window.scrollY > 10);
     });
+
+    // Search functionality
+    function handleSearch() {
+      const query = document.getElementById('searchInput').value.toLowerCase().trim();
+      const mainContent = document.getElementById('mainContent');
+
+      if (!query) {
+        // Show normal brief list
+        if (sorted.length > 0) showBrief(0);
+        return;
+      }
+
+      // Search across all briefs
+      const results = [];
+      sorted.forEach((brief, bIdx) => {
+        const briefResults = [];
+
+        // Search in sections
+        brief.sections.forEach(sec => {
+          sec.items.forEach(item => {
+            const titleMatch = item.title.toLowerCase().includes(query);
+            const bodyMatch = item.body.toLowerCase().includes(query);
+            const actieMatch = item.actie && item.actie.toLowerCase().includes(query);
+
+            if (titleMatch || bodyMatch || actieMatch) {
+              briefResults.push({
+                type: 'section',
+                title: item.title,
+                body: item.body,
+                actie: item.actie,
+                section: sec.title,
+                sentiment: item.sentiment,
+                sourceUrl: item.sourceUrl,
+                actieType: item.actieType
+              });
+            }
+          });
+        });
+
+        // Search in priorities
+        if (brief.priorities) {
+          brief.priorities.forEach(p => {
+            if (p.toLowerCase().includes(query)) {
+              briefResults.push({
+                type: 'priority',
+                text: p
+              });
+            }
+          });
+        }
+
+        if (briefResults.length > 0) {
+          results.push({
+            date: brief.date,
+            dateFormatted: brief.dateFormatted,
+            items: briefResults
+          });
+        }
+      });
+
+      // Render search results
+      let html = `<div class="search-results">
+        <div class="search-result-count">${results.length} editie(s) met resultaten (${results.reduce((sum, r) => sum + r.items.length, 0)} items)</div>`;
+
+      results.forEach(brief => {
+        html += `<div class="search-result-group">
+          <div style="font-size: 12px; font-weight: 700; color: var(--green); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px; padding-bottom: 8px; border-bottom: 1px solid var(--border);">${brief.date}</div>`;
+
+        brief.items.forEach(item => {
+          if (item.type === 'priority') {
+            html += `<div class="search-result-item">
+              <div style="font-size: 12px; font-weight: 700; color: var(--green); margin-bottom: 4px;">⚡ Priority</div>
+              <div class="search-result-text">${highlightMatch(item.text, query)}</div>
+            </div>`;
+          } else {
+            html += `<div class="search-result-item">
+              <div class="search-result-title">${highlightMatch(item.title, query)}</div>
+              <div style="font-size: 11px; color: var(--medium); margin-bottom: 4px; font-weight: 600;">${item.section}</div>
+              <div class="search-result-text">${highlightMatch(item.body, query)}</div>`;
+            if (item.actie) {
+              html += `<div style="font-size: 11px; margin-top: 6px; padding-top: 6px; border-top: 1px solid var(--border);">
+                <strong style="color: var(--green);">${item.actieType}:</strong> ${highlightMatch(item.actie, query)}
+              </div>`;
+            }
+            html += `</div>`;
+          }
+        });
+
+        html += `</div>`;
+      });
+
+      html += `</div>`;
+      mainContent.innerHTML = html;
+    }
+
+    function highlightMatch(text, query) {
+      if (!query) return text;
+      const regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+      return text.replace(regex, '<span class="search-highlight">$1</span>');
+    }
   </script>
 </body>
 </html>

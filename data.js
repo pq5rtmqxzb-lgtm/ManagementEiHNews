@@ -6,10 +6,10 @@ const briefsData = [
   {
     date: "2026-03-21",
     dateFormatted: "Saturday 21 March 2026",
-    samenvatting: "CRITICAL ENERGY SHOCK: TTF gas surged 50% to €74/MWh after Iranian missile damage to Qatar's Ras Laffan LNG hub — the world's largest, supplying 20% of global LNG. Brent crude at $107/bbl. ECB held rates at 2.15% but raised 2026 inflation forecast to 2.6% and cut growth to 0.9%. The Hormuz crisis enters its fourth week with 21 confirmed vessel attacks and 150+ ships anchored. SUPPLY CHAIN DIVERGENCE: copper falling to $12,250/ton (oversupply) but aluminum surging to $3,242/ton (+5.3% weekly). Shipping rates +15-18% with FAK rates of $6,200-6,400/container effective March 22. Reorg deadline now 10 days away. Nine EU member states call for Green Deal revision — policy uncertainty rising.",
+    samenvatting: "CRITICAL ENERGY SHOCK: TTF gas surged 50% to €74/MWh after Iranian missile damage to Qatar's Ras Laffan LNG hub — the world's largest, supplying 20% of global LNG. Brent crude at €98/bbl. ECB held rates at 2.15% but raised 2026 inflation forecast to 2.6% and cut growth to 0.9%. The Hormuz crisis enters its fourth week with 21 confirmed vessel attacks and 150+ ships anchored. SUPPLY CHAIN DIVERGENCE: copper falling to €11,270/ton (oversupply) but aluminum surging to €2,983/ton (+5.3% weekly). Shipping rates +15-18% with FAK rates of €5,700-5,900/container effective March 22. Reorg deadline now 10 days away. Nine EU member states call for Green Deal revision — policy uncertainty rising.",
     kpis: [
       { label: "TTF Gas Price", value: "€74/MWh", sub: "+50% — Qatar Ras Laffan LNG hub damaged", trend: "negative" },
-      { label: "Brent Crude", value: "$107/bbl", sub: "Up from $92 — Hormuz 4th week, 21 vessel attacks", trend: "negative" },
+      { label: "Brent Crude", value: "€98/bbl", sub: "Up from €85 — Hormuz 4th week, 21 vessel attacks", trend: "negative" },
       { label: "ECB Rate", value: "2.15%", sub: "Held — inflation raised to 2.6%, growth cut to 0.9%", trend: "negative" },
       { label: "Reorg Deadline", value: "10 days", sub: "350 jobs — deadline March 31, 2026", trend: "negative" }
     ],
@@ -29,7 +29,7 @@ const briefsData = [
           {
             title: "Strait of Hormuz enters 4th week closed — 21 vessel attacks, 150+ ships anchored, no negotiations",
             sentiment: "negative",
-            body: "Following US-Israeli strikes that killed Iran's Supreme Leader, the IRGC has confirmed 21 attacks on merchant vessels transiting the Strait of Hormuz. Approximately 150 ships remain anchored awaiting safe passage. Iran explicitly stated it is unwilling to negotiate reopening while under military pressure. Hormuz normally carries 20 million barrels of oil per day (20% of global seaborne trade). Brent crude trades at $107/bbl — up from $72/bbl pre-crisis. No diplomatic resolution is expected near-term.",
+            body: "Following US-Israeli strikes that killed Iran's Supreme Leader, the IRGC has confirmed 21 attacks on merchant vessels transiting the Strait of Hormuz. Approximately 150 ships remain anchored awaiting safe passage. Iran explicitly stated it is unwilling to negotiate reopening while under military pressure. Hormuz normally carries 20 million barrels of oil per day (20% of global seaborne trade). Brent crude trades at €98/bbl — up from €66/bbl pre-crisis. No diplomatic resolution is expected near-term.",
             actie: "Position EiH as an energy independence solution provider. Customer messaging: 'Every day on gas costs you more — switch to a heat pump and insulate from global crises.'",
             actieType: "Marketing",
             sourceUrl: "https://en.wikipedia.org/wiki/2026_Strait_of_Hormuz_crisis"
@@ -67,23 +67,23 @@ const briefsData = [
           {
             title: "Shipping rates surge further — FAK rates of €6,200-6,400/container from March 22, Hormuz traffic down 70%",
             sentiment: "negative",
-            body: "Shanghai-Rotterdam spot rate: $2,478/40ft (+19% WoW). Drewry WCI at $2,172/40ft (+2%, 3rd consecutive weekly rise). MSC and CMA CGM announced new FAK rates of $6,200-$6,400 per container effective March 22 — nearly triple pre-crisis levels. War Risk Surcharges of $1,500-$3,500 per container for Gulf routes. Hormuz tanker traffic down 70%. Intergas and Remeha components sourced from Asia face 8-10 week lead times at premium rates.",
+            body: "Shanghai-Rotterdam spot rate: €2,280/40ft (+19% WoW). Drewry WCI at €2,000/40ft (+2%, 3rd consecutive weekly rise). MSC and CMA CGM announced new FAK rates of €5,700-€5,900 per container effective March 22 — nearly triple pre-crisis levels. War Risk Surcharges of €1,400-€3,200 per container for Gulf routes. Hormuz tanker traffic down 70%. Intergas and Remeha components sourced from Asia face 8-10 week lead times at premium rates.",
             actie: "URGENT: Budget +15-18% container costs for Q2 Asia deliveries. Negotiate long-term logistics contracts. Reroute non-urgent shipments via Suez alternatives (longer transit, lower surcharge). Prioritize air freight for critical-path orders only.",
             actieType: "Operations",
             sourceUrl: "https://www.drewry.co.uk/supply-chain-advisors/supply-chain-expertise/world-container-index-assessed-by-drewry"
           },
           {
-            title: "GOOD NEWS: Copper falls to $12,250/ton — LME stockpiles at 6-year high of 330,375 tons",
+            title: "GOOD NEWS: Copper falls to €11,270/ton — LME stockpiles at 6-year high of 330,375 tons",
             sentiment: "positive",
-            body: "LME copper dropped to $12,250/ton (March 18), down from the January record of $14,527/ton. LME stockpiles surged to 330,375 tons — the highest in 6+ years. Weak Chinese physical demand and bearish sentiment are driving prices down. For EiH, copper is critical for piping, wiring, and heat exchangers in every installation. The price decline creates a window to lock in favorable procurement terms for Q2-Q3.",
+            body: "LME copper dropped to €11,270/ton (March 18), down from the January record of €13,365/ton. LME stockpiles surged to 330,375 tons — the highest in 6+ years. Weak Chinese physical demand and bearish sentiment are driving prices down. For EiH, copper is critical for piping, wiring, and heat exchangers in every installation. The price decline creates a window to lock in favorable procurement terms for Q2-Q3.",
             actie: "Lock in copper component pricing for Q3 deliveries while markets are favorable. No urgency to forward-buy at current levels — monitor for further downside. Negotiate better margins with installation materials suppliers.",
             actieType: "Operations",
             sourceUrl: "https://www.lme.com/metals/non-ferrous/lme-copper"
           },
           {
-            title: "Aluminum surges to $3,242/ton — highest since 2021, +5.3% weekly gain on supply tightness",
+            title: "Aluminum surges to €2,983/ton — highest since 2021, +5.3% weekly gain on supply tightness",
             sentiment: "negative",
-            body: "LME aluminum futures hit $3,242/ton (March 19), with 3-month contracts at $3,306/ton — a 5.3% weekly gain and the highest level since 2021. Geopolitical supply premium and global production constraints are driving the surge. Aluminum is used in heat pump fin stock, radiators, heat exchangers, and control panel housings. The 8-10% premium vs. Q4 2025 will flow through to heat pump and boiler component costs within 60-90 days.",
+            body: "LME aluminum futures hit €2,983/ton (March 19), with 3-month contracts at €3,042/ton — a 5.3% weekly gain and the highest level since 2021. Geopolitical supply premium and global production constraints are driving the surge. Aluminum is used in heat pump fin stock, radiators, heat exchangers, and control panel housings. The 8-10% premium vs. Q4 2025 will flow through to heat pump and boiler component costs within 60-90 days.",
             actie: "Lock aluminum component pricing NOW — within 14 days before Q2 contracts reset. Budget +8% aluminum surcharges into Q3 customer quotes. Explore alloy substitutions (6063 vs 6061) with suppliers.",
             actieType: "Operations",
             sourceUrl: "https://www.lme.com/metals/non-ferrous/lme-aluminium"
@@ -163,7 +163,7 @@ const briefsData = [
           {
             title: "80% of Dutch & German HVAC firms report severe labor shortage — EiH Bedrijfsschool is a strategic moat",
             sentiment: "negative",
-            body: "Nearly 80% of HVAC installers in the Netherlands and Germany report severe labor shortages. The industry faces significant loss of experienced technicians through retirement and an influx of unqualified personnel creating a critical training gap. The Dutch HVAC market grows at 4.6% CAGR to $3.05B by 2030 but labor constraints threaten to cap growth. EiH's Bedrijfsschool, combined with 300 daily customer visits, creates both a competitive moat and a scaling ceiling that must be expanded to capture growth.",
+            body: "Nearly 80% of HVAC installers in the Netherlands and Germany report severe labor shortages. The industry faces significant loss of experienced technicians through retirement and an influx of unqualified personnel creating a critical training gap. The Dutch HVAC market grows at 4.6% CAGR to €2.81B by 2030 but labor constraints threaten to cap growth. EiH's Bedrijfsschool, combined with 300 daily customer visits, creates both a competitive moat and a scaling ceiling that must be expanded to capture growth.",
             actie: "Launch 'career switcher' campaign targeting plumbers, automotive mechanics, and electricians. Partner with ROC institutions for structured apprenticeship pipeline. Introduce retention bonuses for certified heat pump technicians. Consider wage competitiveness review against Feenstra/Breman.",
             actieType: "HR",
             sourceUrl: "https://www.servicetitan.com/blog/hvac-technician-shortage"
@@ -196,11 +196,11 @@ const briefsData = [
   {
     date: "2026-03-19",
     dateFormatted: "Thursday 19 March 2026",
-    samenvatting: "ECB holds rates at 2% on March 19, reflecting continued inflation caution amid the Strait of Hormuz crisis. TTF gas stabilizes at €49.80/MWh but Brent crude remains elevated at ~$92/bbl after peaking at $126 in early March. The Eneco reorganization deadline (350 jobs) is now 12 days away — Director Schoon must clarify EiH positioning with new CEO Hagens urgently. NEW THIS EDITION: Supply chain risk assessment reveals critical exposure — Maersk levies +€1,800–3,000/container emergency surcharges, copper hits record €14,527/ton, and EU imposes 79% anti-dumping duties on Chinese HVAC imports. F-gas quota phase-down will halve refrigerant supply by 2027. Technician shortage (80% of EU HVAC firms affected) remains EiH's binding constraint.",
+    samenvatting: "ECB holds rates at 2% on March 19, reflecting continued inflation caution amid the Strait of Hormuz crisis. TTF gas stabilizes at €49.80/MWh but Brent crude remains elevated at ~€85/bbl after peaking at €116 in early March. The Eneco reorganization deadline (350 jobs) is now 12 days away — Director Schoon must clarify EiH positioning with new CEO Hagens urgently. NEW THIS EDITION: Supply chain risk assessment reveals critical exposure — Maersk levies +€1,800–3,000/container emergency surcharges, copper hits record €14,527/ton, and EU imposes 79% anti-dumping duties on Chinese HVAC imports. F-gas quota phase-down will halve refrigerant supply by 2027. Technician shortage (80% of EU HVAC firms affected) remains EiH's binding constraint.",
     kpis: [
       { label: "TTF Gas Price", value: "€49.80/MWh", sub: "Stabilized — Hormuz risk priced in", trend: "negative" },
       { label: "ECB Rate", value: "2.00%", sub: "Held steady March 19 — 5th consecutive pause", trend: "negative" },
-      { label: "Brent Crude", value: "$92/bbl", sub: "Down from $126 peak — Hormuz disruption ongoing", trend: "negative" },
+      { label: "Brent Crude", value: "€85/bbl", sub: "Down from €116 peak — Hormuz disruption ongoing", trend: "negative" },
       { label: "Reorg Deadline", value: "12 days", sub: "350 jobs — deadline March 31, 2026", trend: "negative" }
     ],
     sections: [
@@ -217,17 +217,17 @@ const briefsData = [
             sourceUrl: "https://www.ecb.europa.eu/press/pr/date/2026/html/ecb.mp260319~a1b2c3d4e5.en.html"
           },
           {
-            title: "Strait of Hormuz crisis: 20% of global oil supply disrupted — Brent peaked at $126/bbl, now ~$92",
+            title: "Strait of Hormuz crisis: 20% of global oil supply disrupted — Brent peaked at €116/bbl, now ~€85",
             sentiment: "negative",
-            body: "Following coordinated US-Israel strikes on Iran (Feb 28), Iran's IRGC blocked Strait of Hormuz traffic. About 150 ships remain anchored awaiting passage. Brent crude surged from ~$70 to a $126 peak before easing to ~$92/bbl. TTF gas stabilized at €49.80/MWh. Maersk has levied emergency surcharges of +$1,800/TEU and +$3,000 per 40ft container for Persian Gulf cargo. War-risk insurance premiums doubled. For EiH, this drives both customer energy costs (favoring heat pump conversion) and supply chain cost inflation (imported components).",
+            body: "Following coordinated US-Israel strikes on Iran (Feb 28), Iran's IRGC blocked Strait of Hormuz traffic. About 150 ships remain anchored awaiting passage. Brent crude surged from ~€64 to a €116 peak before easing to ~€85/bbl. TTF gas stabilized at €49.80/MWh. Maersk has levied emergency surcharges of +€1,650/TEU and +€2,760 per 40ft container for Persian Gulf cargo. War-risk insurance premiums doubled. For EiH, this drives both customer energy costs (favoring heat pump conversion) and supply chain cost inflation (imported components).",
             actie: "Dual messaging: (1) Use elevated gas costs in customer conversion campaigns for heat pumps, (2) Initiate procurement review of Asia-sourced components to identify European alternatives and lock freight contracts.",
             actieType: "Strategy",
             sourceUrl: "https://en.wikipedia.org/wiki/2026_Strait_of_Hormuz_crisis"
           },
           {
-            title: "US suspends Russian oil embargo until April 11 — Russia earns ~$150M/day windfall from energy prices",
+            title: "US suspends Russian oil embargo until April 11 — Russia earns ~€138M/day windfall from energy prices",
             sentiment: "negative",
-            body: "The Trump administration suspended the Russian oil embargo, allowing 30 Russian-connected petroleum tankers to carry 19 million barrels. Combined with Hormuz-driven price spikes, Russia generates record energy windfall profits (~$150M/day per Financial Times). European energy security remains uncertain as sanctions weaken. The widening gap between fossil fuel volatility and renewable energy stability strengthens the strategic argument for electrification.",
+            body: "The Trump administration suspended the Russian oil embargo, allowing 30 Russian-connected petroleum tankers to carry 19 million barrels. Combined with Hormuz-driven price spikes, Russia generates record energy windfall profits (~€138M/day per Financial Times). European energy security remains uncertain as sanctions weaken. The widening gap between fossil fuel volatility and renewable energy stability strengthens the strategic argument for electrification.",
             actie: "Reinforce customer messaging on energy independence through heat pumps and e-boilers. Position EiH as reducing household vulnerability to geopolitical energy shocks.",
             actieType: "Marketing",
             sourceUrl: "https://www.aljazeera.com/news/2026/3/13/ukraine-eu-allies-slam-us-decision-to-roll-back-russia-oil-sanctions"
@@ -249,7 +249,7 @@ const briefsData = [
           {
             title: "CRITICAL: Shipping costs surge — Maersk levies +€3,000/container surcharge on Persian Gulf routes",
             sentiment: "negative",
-            body: "Strait of Hormuz traffic collapsed to 8 ships/day (vs. normal ~40/day). Maersk, Hapag-Lloyd and CMA CGM have imposed emergency conflict surcharges. Shanghai-Rotterdam container rates hit $2,443/40ft (+19% WoW). Alternative routing via Cape of Good Hope adds 10-14 days to voyage times. Drewry World Container Index: $2,123/40ft (+8% WoW). For EiH, Asia-sourced boiler components, heat pump subassemblies, refrigerants and copper face significant cost and delivery time increases.",
+            body: "Strait of Hormuz traffic collapsed to 8 ships/day (vs. normal ~40/day). Maersk, Hapag-Lloyd and CMA CGM have imposed emergency conflict surcharges. Shanghai-Rotterdam container rates hit €2,250/40ft (+19% WoW). Alternative routing via Cape of Good Hope adds 10-14 days to voyage times. Drewry World Container Index: €1,950/40ft (+8% WoW). For EiH, Asia-sourced boiler components, heat pump subassemblies, refrigerants and copper face significant cost and delivery time increases.",
             actie: "URGENT: Lock long-term freight contracts before further escalation. Shift procurement to European suppliers where possible. Build 4-6 week buffer inventory for Asia-sourced critical components.",
             actieType: "Operations",
             sourceUrl: "https://www.drewry.co.uk/supply-chain-advisors/supply-chain-expertise/world-container-index-assessed-by-drewry"
@@ -257,7 +257,7 @@ const briefsData = [
           {
             title: "Copper hits record €14,527/ton — AI data center demand and geopolitical risk drive 22% YoY surge",
             sentiment: "negative",
-            body: "LME copper surged to a record €14,527/ton (Jan 29, 2026), with analysts forecasting a 2026 range of $11,000-$14,000/ton. AI infrastructure alone demands ~475,000 metric tons in 2026 (+110k vs. prior year). Copper is critical for EiH installation work: piping, wiring, heat exchangers. At these levels, materials cost per installation rises significantly — potentially €200-400 per heat pump job on copper alone.",
+            body: "LME copper surged to a record €14,527/ton (Jan 29, 2026), with analysts forecasting a 2026 range of €10,100-€12,900/ton. AI infrastructure alone demands ~475,000 metric tons in 2026 (+110k vs. prior year). Copper is critical for EiH installation work: piping, wiring, heat exchangers. At these levels, materials cost per installation rises significantly — potentially €200-400 per heat pump job on copper alone.",
             actie: "Forward-contract copper supply for Q2-Q3. Evaluate PEX piping as alternative for lower-cost installations. Review installation pricing to reflect materials inflation.",
             actieType: "Operations",
             sourceUrl: "https://carboncredits.com/copper-prices-surge-above-13000-best-copper-stocks-to-watch-in-2026/"
@@ -281,7 +281,7 @@ const briefsData = [
           {
             title: "European steel at 2-year high (€815/ton HRB) — CBAM regulation adds compliance costs from January 2026",
             sentiment: "negative",
-            body: "Western European hot-rolled band at $815/ton (March 9), up for the 4th consecutive period. Flat steel: hot-rolled coil ~€750/ton, cold-rolled coil ~€880/ton. The EU's Cross-Border Carbon Adjustment Mechanism (CBAM), effective January 2026, adds regulatory compliance costs to all imported steel. Steel is used in boiler bodies, radiators, mounting brackets, and structural supports — directly impacting EiH's installation materials cost.",
+            body: "Western European hot-rolled band at €750/ton (March 9), up for the 4th consecutive period. Flat steel: hot-rolled coil ~€750/ton, cold-rolled coil ~€880/ton. The EU's Cross-Border Carbon Adjustment Mechanism (CBAM), effective January 2026, adds regulatory compliance costs to all imported steel. Steel is used in boiler bodies, radiators, mounting brackets, and structural supports — directly impacting EiH's installation materials cost.",
             actie: "Monitor ArcelorMittal and regional mill pricing quarterly. Factor 5-8% steel cost increase into installation quotes for H2 2026.",
             actieType: "Finance",
             sourceUrl: "https://www.spglobal.com/energy/en/news-research/latest-news/metals/010726-europes-steel-industry-faces-its-2026-reckoning-with-cbam"
@@ -353,7 +353,7 @@ const briefsData = [
           {
             title: "80% of Dutch & German HVAC firms report severe labor shortage — 250,000+ skilled workers needed by 2026",
             sentiment: "negative",
-            body: "Nearly 80% of HVAC installers in Germany and the Netherlands report severe labor shortages. The industry expects significant loss of experienced technicians through retirement and an influx of unqualified personnel, creating a critical training gap. The Netherlands HVAC market is growing (4.6% CAGR to $3.05B by 2030) but labor constraints threaten to cap growth. EiH's Bedrijfsschool and 300 daily customer visits create both a competitive moat and a scaling ceiling.",
+            body: "Nearly 80% of HVAC installers in Germany and the Netherlands report severe labor shortages. The industry expects significant loss of experienced technicians through retirement and an influx of unqualified personnel, creating a critical training gap. The Netherlands HVAC market is growing (4.6% CAGR to €2.81B by 2030) but labor constraints threaten to cap growth. EiH's Bedrijfsschool and 300 daily customer visits create both a competitive moat and a scaling ceiling.",
             actie: "Launch 'career switcher' campaign targeting adjacent trades (plumbers, automotive mechanics). Partner with ROC institutions for structured apprenticeship pipeline. Consider wage/benefits incentive programs for retention of certified heat pump technicians.",
             actieType: "HR",
             sourceUrl: "https://www.servicetitan.com/blog/hvac-technician-shortage"
@@ -367,7 +367,7 @@ const briefsData = [
           {
             title: "Warmteservice leads online traffic (655k visits) — CVtotaal growing at 40% — market fragmenting by specialization",
             sentiment: "neutral",
-            body: "Feenstra's top online competitors by traffic: Warmteservice (655.7K monthly visits), CVtotaal (204.3K visits). Warmteservice positions as a cost-leader wholesaler selling all major CV boiler brands at fixed low prices. CVtotaal continues 40% annual growth. The market is fragmenting by specialization: wholesalers (price), manufacturers (tech), and service providers (relationship). Quatt remains an emerging threat with $32M funding and AI-driven optimization. EiH's differentiation lies in service quality, maintenance contracts, and the full customer lifecycle.",
+            body: "Feenstra's top online competitors by traffic: Warmteservice (655.7K monthly visits), CVtotaal (204.3K visits). Warmteservice positions as a cost-leader wholesaler selling all major CV boiler brands at fixed low prices. CVtotaal continues 40% annual growth. The market is fragmenting by specialization: wholesalers (price), manufacturers (tech), and service providers (relationship). Quatt remains an emerging threat with €29M funding and AI-driven optimization. EiH's differentiation lies in service quality, maintenance contracts, and the full customer lifecycle.",
             actie: "Strengthen digital customer interface to match competitors' online traffic. Differentiate on service quality and lifecycle value — not price. Monitor Quatt's AI heat pump optimization as potential technology risk.",
             actieType: "Strategy",
             sourceUrl: "https://www.similarweb.com/website/feenstra.com/competitors/"
@@ -386,7 +386,7 @@ const briefsData = [
   {
     date: "2026-03-13",
     dateFormatted: "Thursday 13 March 2026",
-    samenvatting: "Eneco Group's new CEO Martijn Hagens (ex-Vattenfall) took office March 1 — the reorganization deadline (350 jobs) is now 18 days away. The TTF gas price holds at €50/MWh (+57% since Feb) as Iran's Hormuz blockade escalates. The Dutch heat pump market dropped 30% in 2024 (125k units) but the 2026 hybrid mandate and €511M ISDE budget create a recovery runway. Competitor consolidation accelerates: Feenstra-Breman territorial partnership and Quatt's $32M raise signal the market is maturing. ECB rate decision March 19 may unlock renovation financing. Technician shortage (250k+ by 2026) remains EiH's binding constraint.",
+    samenvatting: "Eneco Group's new CEO Martijn Hagens (ex-Vattenfall) took office March 1 — the reorganization deadline (350 jobs) is now 18 days away. The TTF gas price holds at €50/MWh (+57% since Feb) as Iran's Hormuz blockade escalates. The Dutch heat pump market dropped 30% in 2024 (125k units) but the 2026 hybrid mandate and €511M ISDE budget create a recovery runway. Competitor consolidation accelerates: Feenstra-Breman territorial partnership and Quatt's €29M raise signal the market is maturing. ECB rate decision March 19 may unlock renovation financing. Technician shortage (250k+ by 2026) remains EiH's binding constraint.",
     kpis: [
       { label: "TTF Gas Price", value: "€50/MWh", sub: "+57% since Feb — Hormuz escalation", trend: "negative" },
       { label: "Heat Pump Market", value: "125k units", sub: "-30% in 2024; hybrid mandate 2026", trend: "negative" },
@@ -467,7 +467,7 @@ const briefsData = [
           {
             title: "Feenstra and Breman form territorial partnership — market consolidation accelerating",
             sentiment: "negative",
-            body: "Feenstra (owned by Vattenfall, 800k+ households) and Breman Installatiegroep (450k homes) have established an operational partnership dividing service territories by postal code. This creates a formidable combined footprint. Meanwhile, Quatt — an Amsterdam-based heat pump startup — closed a $32.3M Series A, funding AI-driven heat pump optimization with 7,500+ installations. The market is consolidating around scale players while tech-enabled newcomers capture the innovation narrative.",
+            body: "Feenstra (owned by Vattenfall, 800k+ households) and Breman Installatiegroep (450k homes) have established an operational partnership dividing service territories by postal code. This creates a formidable combined footprint. Meanwhile, Quatt — an Amsterdam-based heat pump startup — closed a €29.7M Series A, funding AI-driven heat pump optimization with 7,500+ installations. The market is consolidating around scale players while tech-enabled newcomers capture the innovation narrative.",
             actie: "Conduct competitive analysis of Feenstra-Breman territorial coverage vs. EiH service area. Identify postal code gaps where EiH can capture market share. Evaluate Quatt's smart technology as potential differentiator risk.",
             actieType: "Strategie",
             sourceUrl: "https://tracxn.com/d/companies/quatt/__IXu1vVk_eElBC9mAc1kQ053k3QlGFQ38ojzgd8jzSGI"
@@ -1103,10 +1103,10 @@ const companyProfile = {
 
   // Market Context
   market: {
-    hvacSize: "$2.43B (2025)",
-    hvacGrowth: "4.6% CAGR to $3.05B (2030)",
-    heatPumpSize: "$505M (2025)",
-    heatPumpGrowth: "→ $628M by 2030",
+    hvacSize: "€2.24B (2025)",
+    hvacGrowth: "4.6% CAGR to €2.81B (2030)",
+    heatPumpSize: "€465M (2025)",
+    heatPumpGrowth: "→ €578M by 2030",
     installationsPerYear: "125,000 (2024, -30% vs 2023)",
     installedBase: "752,000 heat pumps / 6.9 GW",
     technicianShortage: "120,000+ needed by 2030"
@@ -1118,7 +1118,7 @@ const companyProfile = {
     { name: "Breman Installatiegroep", owner: "Independent", strength: "450k homes, full-service", threat: "High" },
     { name: "CVtotaal", owner: "Independent", strength: "40% annual growth, data-driven", threat: "Medium" },
     { name: "Warmteservice", owner: "Independent", strength: "Equipment retail + installation", threat: "Medium" },
-    { name: "Quatt", owner: "VC-backed ($32M)", strength: "AI-driven, 7,500 installations", threat: "Emerging" },
+    { name: "Quatt", owner: "VC-backed (€29M)", strength: "AI-driven, 7,500 installations", threat: "Emerging" },
     { name: "Warmgarant", owner: "Network model", strength: "Franchise approach", threat: "Low" }
   ],
 
