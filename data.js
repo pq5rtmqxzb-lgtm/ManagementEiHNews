@@ -22,7 +22,7 @@ const briefsData = [
             title: "CRITICAL: Qatar Ras Laffan LNG hub hit by Iranian missiles — 20% of global LNG supply disrupted",
             sentiment: "negative",
             body: "Iran's IRGC struck Ras Laffan, the world's largest LNG processing complex in Qatar, with missiles in early March. The facility handles approximately 20% of global LNG supply. TTF gas futures spiked 50% to €74/MWh on March 19 before moderating to €62/MWh on March 20. EU gas storage stands at 29.4% — down 20.5 percentage points year-over-year. For EiH customers on gas boilers, heating costs are now structurally higher. This accelerates the economic case for heat pump conversion but also raises operating costs for gas-dependent maintenance operations.",
-            actie: "URGENT: Reprice all fixed-cost service contracts with gas cost escalation clauses for Q2-Q4. Accelerate heat pump marketing — use €74/MWh gas cost as conversion trigger. Model impact on ServiceGemak® maintenance margins.",
+            actie: "URGENT: Review ServiceGemak® subscription pricing — rising component and parts costs will squeeze maintenance margins. Accelerate heat pump marketing — use €74/MWh gas cost as conversion trigger for customers still on gas boilers. Model margin impact of supplier price increases on fixed-fee maintenance contracts.",
             actieType: "Finance",
             sourceUrl: "https://www.euronews.com/business/2026/03/02/european-gas-prices-jump-by-as-much-as-45-as-qatar-stops-lng-production"
           },
@@ -89,10 +89,10 @@ const briefsData = [
             sourceUrl: "https://www.lme.com/metals/non-ferrous/lme-aluminium"
           },
           {
-            title: "Natural gas at €60-65/MWh impacts boiler manufacturing costs — request escalation clauses from suppliers",
+            title: "Natural gas at €60-65/MWh impacts boiler manufacturing costs — negotiate supplier pricing for Q2",
             sentiment: "negative",
             body: "Dutch TTF wholesale gas, after peaking at €74/MWh, trades in the €60-65/MWh range — more than double the pre-crisis €27-32/MWh baseline. EU gas storage at 29.4% (down 20.5% YoY) with Groningen permanently closed. Boiler manufacturing at Intergas and Remeha relies on gas for test burns, heat treatment, and welding. The energy cost surge translates to an estimated €200-400/unit manufacturing cost increase for gas boilers.",
-            actie: "Request Q2 cost escalation clauses from Intergas and Remeha immediately. Brief ServiceGemak® customers on potential maintenance cost increases. Hedge exposure through energy surcharge allowances in contracts.",
+            actie: "Negotiate Q2 procurement pricing with Intergas and Remeha — push back on energy surcharges and secure volume discounts. Assess impact on ServiceGemak® maintenance margins. If needed, adjust installation quotes to reflect higher equipment costs.",
             actieType: "Finance",
             sourceUrl: "https://globallnghub.com/natural-gas-prices-weekly-update-jkm-ttm-and-henry-hub-9-march-2026.html"
           },
@@ -186,7 +186,7 @@ const briefsData = [
       }
     ],
     priorities: [
-      "Finance: URGENT — Reprice service contracts with gas cost escalation clauses. TTF at €74/MWh changes the economics of every gas-dependent contract.",
+      "Finance: URGENT — Review ServiceGemak® pricing and installation quotes. TTF at €74/MWh drives up supplier costs (Intergas, Remeha) and strengthens the heat pump conversion case for customers.",
       "Supply Chain: Lock aluminum pricing within 14 days. Budget +15-18% shipping costs for Q2. Take advantage of copper price decline.",
       "Leadership: Director Schoon to finalize strategic positioning paper for CEO Hagens before March 31 reorg deadline — 10 days remaining.",
       "Operations: Start R290 technician certification via Bedrijfsschool. Stock R32 refrigerant and standard control boards before supply tightens.",
