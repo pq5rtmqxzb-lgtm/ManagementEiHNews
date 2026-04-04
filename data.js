@@ -4,6 +4,457 @@
 
 const briefsData = [
   {
+    date: "2026-04-04",
+    dateFormatted: "Saturday 4 April 2026",
+    samenvatting: "LIBERATION DAY TARIFF SHOCK: Trump's April 2 'reciprocal tariffs' impose 20% baseline on ALL EU exports plus 25% on steel and aluminum — critical HVAC materials. EU announces €21B retaliatory package. Immediate impact: component cost escalation on Asian-sourced parts, aluminum/copper repricing, and potential Vaillant/Remeha supply chain disruption through transatlantic exposure. HORMUZ STALEMATE: UK convenes 40-nation coalition to reopen Strait; Iran limits passage to 7 allied nations only. Brent crude at €97/bbl, TTF gas easing to €50/MWh but Goldman Sachs raises Q2 forecast to €55/MWh. EU storage stuck at 28% with Russian LNG ban April 25 approaching. DEMAND SUSTAINED: Heat pump inquiry surge continues at +100% from Iran war fuel price shock — but consumer confidence at -30 (4-year low) and Dutch inflation rising to 2.7% create affordability tension. PRODUCT LAUNCHES: Remeha Confida R290 (SCOP 5.34) now available; Vaillant aroTHERM pro shipping in April. VCA 2026/6.1 safety standard announced — all audits transition July 1. CYBER ALERT: Dutch Ministry of Finance hacked; Odido telecom breach exposes 6M accounts; Mitsubishi AC critical vulnerability (CVSS 9.8) discovered. NIS2/Cyberbeveiligingswet implementation slides to Q2. EPBD transposition deadline May 29 — mandatory renovation of 16% worst buildings by 2030 creates multi-year installation pipeline.",
+    kpis: [
+      { label: "TTF Gas Price", value: "€50/MWh", sub: "Easing but Goldman raises Q2 forecast to €55 — storage 28%", trend: "neutral" },
+      { label: "Brent Crude", value: "€97/bbl", sub: "Hormuz blockade Day 35 — 40-nation coalition forming", trend: "negative" },
+      { label: "ECB Rate", value: "2.15%", sub: "Decision April 30 — 50% chance of hike, inflation 2.7%", trend: "negative" },
+      { label: "US-EU Tariffs", value: "20%+", sub: "Liberation Day: 25% on steel/aluminum, EU retaliates €21B", trend: "negative" }
+    ],
+    sections: [
+      {
+        title: "Geopolitics & Energy Crisis",
+        icon: "🌍",
+        items: [
+          {
+            title: "Liberation Day tariff shock: 20% baseline on EU, 25% on steel and aluminum — EU retaliates with €21B package",
+            sentiment: "negative",
+            body: "On April 2, Trump implemented sweeping 'reciprocal tariffs' — a 20% baseline on all EU exports plus targeted 25% on steel and aluminum, materials critical to HVAC manufacturing. The EU immediately announced €21B in retaliatory tariffs. For EiH, this creates multi-layered risk: Vaillant and Remeha source components globally, aluminum heat exchangers and copper wiring face direct cost pressure, and Asian-sourced parts routed through US supply chains may face re-pricing. Container shipping rates already up 30% now face additional trade friction. The tariff war adds a second structural cost shock on top of the Iran-driven energy crisis.",
+            actie: "Product: URGENT — contact Vaillant, Remeha, and Intergas procurement teams to assess transatlantic supply chain exposure. Map which components transit US or use US-origin aluminum/steel. Finance: model +5-10% component cost increase for Q3 quotes. Field Ops: accelerate orders for aluminum-heavy parts (heat exchangers, radiator panels) before tariff pass-through hits supplier pricing.",
+            actieType: "Operations",
+            sourceUrl: "https://taxfoundation.org/research/all/federal/trump-tariffs-trade-war/",
+            mtTags: ["Product", "Finance", "Field Ops"]
+          },
+          {
+            title: "UK convenes 40-nation coalition to reopen Strait of Hormuz — Iran limits passage to 7 allied nations",
+            sentiment: "negative",
+            body: "The Strait of Hormuz remains effectively closed following US-Israeli strikes on Iran. A UK-led coalition of 40 nations is coordinating diplomatic efforts, but Iran maintains a selective toll system granting passage only to China, Russia, India, Iraq, Pakistan, Malaysia, and Thailand. This locks out 70% of global tanker traffic. Brent crude at €97/bbl reflects the ongoing supply shock. The conflict has created the worst global oil market disruption on record, with 25-30% of global oil exports and 20% of LNG supplies cut. Aviation kerosene supplies from the Middle East to Europe will halt entirely — last tanker reaches Rotterdam April 9.",
+            actie: "Strategy: the coalition approach suggests diplomatic resolution may take weeks, not days — plan for Hormuz disruption through Q2 minimum. Marketing: sustain 'energy independence' messaging — this crisis validates long-term heat pump investment. Finance: maintain dual scenario planning (ceasefire vs. escalation) from previous brief.",
+            actieType: "Strategy",
+            sourceUrl: "https://www.aljazeera.com/news/2026/4/2/can-starmers-40-nation-coalition-open-the-strait-of-hormuz",
+            mtTags: ["Marketing", "Finance"]
+          },
+          {
+            title: "Goldman Sachs raises European gas price forecast to €55/MWh — triple supply squeeze intensifies",
+            sentiment: "negative",
+            body: "Goldman Sachs raised its April European gas price forecast from €36 to €55/MWh, reflecting the convergence of three supply crises: Qatar's Ras Laffan offline 3-5 years, Hormuz blockade cutting 20% of global LNG, and the EU Russian LNG import ban taking effect April 25. EU storage at 28% is below seasonal average. Golden Pass LNG (QatarEnergy-ExxonMobil JV) began production at 18 Mtpa capacity with exports expected Q2, offering marginal relief. However, the injection season (April-October) will be the most challenging since 2022. Dutch gas storage (5 bcm) among the most depleted in Europe.",
+            actie: "Finance: update all gas price models to €55/MWh baseline for Q2-Q3 — previous €50/MWh assumption is now conservative. Marketing: refresh heat pump ROI calculators with €55/MWh gas price — payback periods shorten significantly. Customer Ops: proactively contact high-consumption ServiceGemak® boiler customers with updated savings projections.",
+            actieType: "Finance",
+            sourceUrl: "https://www.thenationalnews.com/business/energy/2026/04/01/lng-start-by-us-qatari-jv-to-boost-gas-market-amid-war-disruption/",
+            mtTags: ["Finance", "Marketing", "Customer Ops"]
+          },
+          {
+            title: "EU extends Iran sanctions through April 2027 — 262 individuals and 53 entities targeted",
+            sentiment: "neutral",
+            body: "The European Union extended comprehensive sanctions on Iran on April 1, maintaining travel bans, asset freezes, and equipment export restrictions. The expanded list covers 262 individuals and 53 entities. While primarily targeting missile and nuclear programs, the sanctions signal EU commitment to sustained pressure — reducing probability of a quick diplomatic resolution that would ease energy markets. Combined with the UK coalition effort, the diplomatic track is active but progress is slow.",
+            actie: "Strategy: EU sanctions extension confirms this is not a short-term crisis — integrate prolonged Iran confrontation into H2 2026 business planning. No immediate operational action required beyond maintaining existing scenario planning.",
+            actieType: "Strategy",
+            sourceUrl: "https://www.jurist.org/news/2026/04/eu-extends-iran-sanctions-citing-human-rights-concerns/",
+            mtTags: ["Finance"]
+          }
+        ]
+      },
+      {
+        title: "Trade War & Supply Chain",
+        icon: "⛓",
+        items: [
+          {
+            title: "Container rates surge 30% since February — Shanghai-Rotterdam at €2,543/FEU with emergency fuel surcharges",
+            sentiment: "negative",
+            body: "Spot rates on the Asia-Europe route jumped approximately 30% from late February, with Shanghai-Rotterdam at €2,543/40ft and Shanghai-Genoa at €3,529/40ft. Maersk proposed emergency bunker fuel surcharges of €200/TEU on top of existing rates. Cape of Good Hope routing remains default (Suez suspended), adding 10-14 days transit. Combined with the new US tariffs creating trade diversion, shipping costs for HVAC components are at their highest since the 2022 supply chain crisis. CMA CGM FAK rates at €3,220/container remain the ceiling rate.",
+            actie: "Field Ops: maintain 8-week safety stock for Asia-sourced parts. Evaluate consolidating orders with fewer carriers to negotiate volume discounts. Finance: factor +€500-800/container into Q2-Q3 landed cost calculations. Product: prioritize Dutch/European-manufactured components (Intergas Coevorden, Remeha Apeldoorn) to reduce shipping exposure.",
+            actieType: "Operations",
+            sourceUrl: "https://www.drewry.co.uk/supply-chain-advisors/supply-chain-expertise/world-container-index-assessed-by-drewry",
+            mtTags: ["Field Ops", "Finance", "Product"]
+          },
+          {
+            title: "Aluminum falls to €3,010/ton, copper steady at €10,536/ton — tariff repricing expected",
+            sentiment: "neutral",
+            body: "LME aluminum declined to €3,010/ton, easing from the €3,245/ton peak two days ago, as markets digest the tariff shock. Copper holds steady at €10,536/ton. However, the 25% US tariff on aluminum and steel will trigger global repricing as displaced supply seeks new markets. European aluminum premiums may initially ease (US tariffs attract Asian supply away from Europe) but will likely rebound as trade flows adjust. Copper remains structurally elevated on energy transition demand. Both metals remain well above 2024 levels.",
+            actie: "Finance: the aluminum dip is a potential buying window — consider locking Q2-Q3 forward contracts at current €3,010/ton before tariff-driven repricing. Monitor European aluminum premium (Midwest premium may shift). Copper positions from previous guidance remain appropriate. Product: assess aluminum content by product line to quantify exposure.",
+            actieType: "Finance",
+            sourceUrl: "https://www.lme.com/metals/non-ferrous/lme-aluminium",
+            mtTags: ["Finance", "Product", "Field Ops"]
+          },
+          {
+            title: "Semiconductor shortage persists — memory chips and microcontrollers constrained through 2027",
+            sentiment: "negative",
+            body: "The semiconductor shortage continues into 2026 with mature-node chips (used in HVAC thermostats and controllers) constrained as capacity is diverted to AI infrastructure. Nexperia's Netherlands-China governance dispute remains unresolved — the Dutch Enterprise Chamber investigation continues. Combined with US tariffs potentially disrupting chip supply chains, HVAC thermostat manufacturers face delayed deliveries and elevated component costs through 2027. The Nexperia crisis directly threatens EiH's controller board supply given Nexperia's 40% share of global discrete semiconductors.",
+            actie: "IT & Data: continue auditing Nexperia component exposure across all product lines. Product: accelerate qualification of alternate suppliers (Infineon, Vishay, STMicroelectronics) — target completion by end of April. Field Ops: maintain 6-month controller board buffer stock. Consider pre-ordering Q3-Q4 requirements now.",
+            actieType: "IT & Data",
+            sourceUrl: "https://hotowell.com/news/en/impact-of-chips-shortage-on-HVAC.html",
+            mtTags: ["IT & Data", "Product", "Field Ops"]
+          }
+        ]
+      },
+      {
+        title: "Heat Pump Market & Products",
+        icon: "🔥",
+        items: [
+          {
+            title: "Heat pump demand surge sustained at +100% — but consumer confidence at -30 creates affordability tension",
+            sentiment: "positive",
+            body: "The Iran war-driven fuel price spike continues to drive unprecedented heat pump demand across the Netherlands. Installers report inquiry volumes double pre-crisis levels. However, a critical tension is emerging: while energy cost anxiety drives demand, consumer confidence sits at -30 (4-year low) and Dutch inflation rose to 2.7% in March. Mortgage rates at 4.3% further constrain household budgets. This means demand is strong but conversion rates may face headwinds — customers want heat pumps but may struggle to finance them. ISDE subsidies (€2,550 for 4kW hybrid, €3,150 for 8kW air-source) provide critical bridging support.",
+            actie: "Marketing: develop 'affordability-first' campaign — lead with monthly rental pricing (€79.50/month hybrid heat pump) rather than purchase prices. Emphasize ServiceGemak® as removing upfront cost barrier. Finance: model rental conversion economics at current demand levels. Customer Ops: train advisors on financing options and ISDE subsidy guidance — every converted inquiry at current demand levels is high-margin revenue.",
+            actieType: "Marketing",
+            sourceUrl: "https://nltimes.nl/2026/04/01/iran-war-fuel-price-surge-drives-heat-pump-solar-panel-demand-netherlands",
+            mtTags: ["Marketing", "Finance", "Customer Ops"]
+          },
+          {
+            title: "Remeha Confida R290 launched — SCOP 5.34, patented freeze prevention, immediately available",
+            sentiment: "positive",
+            body: "Remeha introduced the Confida heat pump featuring R290 refrigerant, achieving a SCOP of 5.34 for the 4kW model — among the highest efficiency ratings in the Dutch market. A patented check valve prevents freezing at low outdoor temperatures, addressing a key reliability concern for Dutch winters. The Confida MB 400 is immediately available; the Confida 10 launches later in Q1. Combined with the ongoing Apeldoorn factory restructuring, Remeha is simultaneously launching new products and managing operational transition — supply reliability remains a watch point.",
+            actie: "Product: request Remeha Confida demo units and technical specifications for EiH portfolio evaluation. Compare SCOP 5.34 vs. Intergas Xtend Eco and Vaillant aroTHERM pro. Field Ops: schedule Confida-specific installation training if product is added to portfolio. Monitor Apeldoorn factory situation — confirm delivery commitments before placing large orders.",
+            actieType: "Product",
+            sourceUrl: "https://www.remeha.nl/actueel/remeha-introduceert-confida-warmtepomp-op-vsk-e-2026",
+            mtTags: ["Product", "Field Ops"]
+          },
+          {
+            title: "Vaillant expands R290 portfolio at SHK+E — aroTHERM pro, perform, and first brine/water models",
+            sentiment: "positive",
+            body: "Vaillant presented its broadest R290 product range at SHK+E (March 17-20), including the aroTHERM pro (compact, zero-safety-zone, 65°C flow), aroTHERM perform for multi-family homes (iF Design Award 2026 winner), and its first indoor brine/water heat pumps (geoCOMPACT and geoTHERM exclusive). The aroTHERM pro is now shipping in April as previously announced. Vaillant's expanding R290 lineup strengthens the competitive landscape and creates procurement leverage for installers with multi-brand capabilities like EiH.",
+            actie: "Product: evaluate the full Vaillant R290 portfolio — the geoCOMPACT brine/water unit may open new market segments (ground-source installations). Marketing: use multi-brand capability as competitive differentiator vs. single-brand competitors. Field Ops: ensure R290 training covers all Vaillant models, not just aroTHERM pro.",
+            actieType: "Product",
+            sourceUrl: "https://www.vaillant-group.com/news-stories/new-arotherm-plus-heat-pump-more-efficient-quieter-and-flexible-installation-options.html",
+            mtTags: ["Product", "Marketing", "Field Ops"]
+          },
+          {
+            title: "EPBD transposition deadline May 29 — mandatory renovation of 16% worst buildings by 2030",
+            sentiment: "positive",
+            body: "The revised Energy Performance of Buildings Directive must be transposed into Dutch law by May 29, 2026. The directive mandates renovation of the 16% worst-performing non-residential buildings by 2030 and 26% by 2033. On March 10, the EU Commission released guidance on establishing one-stop-shops for building energy renovations. This creates a massive multi-year installation pipeline for heating system upgrades. Combined with the current demand surge, EiH is entering the strongest market environment since its formation.",
+            actie: "Strategy: the EPBD creates a structural 5+ year demand pipeline beyond the current cyclical surge. Position EiH as a preferred renovation partner for building owners and housing corporations. Product: develop commercial building heating solutions (larger capacity heat pumps, cascade systems). Marketing: create EPBD-focused content targeting property managers and woningcorporaties.",
+            actieType: "Strategy",
+            sourceUrl: "https://energy.ec.europa.eu/topics/energy-efficiency/energy-performance-buildings/energy-performance-buildings-directive_en",
+            mtTags: ["Product", "Marketing"]
+          }
+        ]
+      },
+      {
+        title: "Workforce & Compliance",
+        icon: "👷",
+        items: [
+          {
+            title: "VCA 2026/6.1 safety standard announced — all audits transition July 1, 2026",
+            sentiment: "neutral",
+            body: "SSVV introduced VCA 2026/6.1, the renewed workplace safety certification standard. Key improvements include sharpened formulations, stronger focus on practical application, fewer interpretation differences, and greater clarity for organizations and auditors. All audits will use the new standard from July 1, 2026. Existing certifications automatically transition — no re-certification required. The new schema is available for free download from the SSVV website. For EiH with 250+ employees and 300 daily customer visits, VCA compliance is foundational to operational risk management.",
+            actie: "HR: download VCA 2026/6.1 schema from SSVV website and brief safety coordinator by April 18. Identify any changes that require updated procedures or training materials. Field Ops: schedule team briefings on VCA 2026/6.1 changes before July 1 transition. No emergency action required — this is an orderly transition.",
+            actieType: "HR",
+            sourceUrl: "https://www.klusvisie.nl/regelgeving/ssvv-introduceert-vca-2026-6-1/20577/",
+            mtTags: ["HR", "Field Ops"]
+          },
+          {
+            title: "Technical sector needs 121,000 new workers in 5 years — zij-instromers must fill 70% of gap",
+            sentiment: "negative",
+            body: "The Dutch technical sector faces a structural deficit of 121,000 workers over the next five years, with career switchers (zij-instromers) expected to fill 70% of the gap. The Netherlands faces a broader shortage of 250,000+ skilled workers by 2026. In the installation sector specifically, 80% of companies report serious recruitment difficulties. Average HVAC technician salary at €55,854/year (€27/hour) reflects upward wage pressure. Programs like House of Bèta, Technisi, and De Switchers provide learn-while-you-work pathways. Temporary agency worker rights equalized as of January 1, 2026.",
+            actie: "HR: establish formal zij-instromers partnership with at least one training provider (House of Bèta, Technisi) by end of Q2. Target 10-15 career switchers per year as pipeline supplement to traditional recruitment. Budget for 1-2 day/week training release. Finance: model fully loaded cost of zij-instromers vs. experienced hires — the salary differential (€40-45K vs. €55K) may offset slower initial productivity.",
+            actieType: "HR",
+            sourceUrl: "https://www.nationaleonderwijsgids.nl/mbo/nieuws/73809-technieksector-zoekt-121-000-nieuwe-medewerkers-zij-instromers-essentieel.html",
+            mtTags: ["HR", "Finance"]
+          },
+          {
+            title: "Right-to-Repair directive takes effect July 31 — 12-month warranty extension on repairs",
+            sentiment: "neutral",
+            body: "The EU Right-to-Repair directive enters force July 31, 2026, requiring manufacturers to repair defective products within reasonable time and cost. Consumers choosing repair over replacement receive an automatic 12-month warranty extension. Manufacturers cannot block repairs through software locks or refuse service based on prior repair history. For EiH, this creates both an opportunity (more repair revenue, extended customer relationships) and a compliance obligation (spare parts availability, transparent repair pricing).",
+            actie: "Customer Ops: prepare Right-to-Repair compliance procedures by June 30 — ensure spare parts availability for all installed product lines. Finance: model revenue impact of mandatory 12-month warranty extensions on repair work. Legal: review current service terms for compatibility with directive requirements. Marketing: position EiH's ServiceGemak® as already aligned with Right-to-Repair principles — proactive maintenance reduces need for reactive repairs.",
+            actieType: "Customer Ops",
+            sourceUrl: "https://eur-lex.europa.eu/EN/legal-content/summary/common-rules-promoting-the-repair-of-goods-and-amending-related-eu-legislation.html",
+            mtTags: ["Customer Ops", "Finance", "Marketing"]
+          }
+        ]
+      },
+      {
+        title: "IT, Data & Cybersecurity",
+        icon: "🔒",
+        items: [
+          {
+            title: "Dutch Ministry of Finance hacked — 1,600 institutions affected; Odido breach exposes 6M accounts",
+            sentiment: "negative",
+            body: "Two major Dutch cybersecurity incidents in the past week. The Ministry of Finance's 'Mijn Schatkist' portal remains offline after unauthorized access, affecting 1,600 financial institutions. Separately, telecom company Odido confirmed a breach exposing names, phone numbers, emails, bank account numbers, and passport numbers of over 6 million customers. These incidents highlight systemic vulnerabilities in Dutch digital infrastructure. Finance Minister Heinen briefed parliament, revealing detection gaps in public-sector systems. For EiH, these breaches underscore the urgency of NIS2/Cyberbeveiligingswet compliance.",
+            actie: "IT & Data: use these incidents as executive-level justification for accelerating cybersecurity investments. Present cost-of-breach analysis to MT — average Dutch data breach cost exceeds €4M. Verify EiH customer database security posture, especially ServiceGemak® payment data. Ensure MFA deployment timeline is on track.",
+            actieType: "IT & Data",
+            sourceUrl: "https://www.techzine.eu/news/security/140090/dutch-financy-ministry-portal-offline-following-cyber-incident/",
+            mtTags: ["IT & Data", "Finance"]
+          },
+          {
+            title: "Mitsubishi AC critical vulnerability (CVSS 9.8) — full authentication bypass on 27 models",
+            sentiment: "negative",
+            body: "Mitsubishi Electric disclosed CVE-2025-3699, a critical flaw (CVSS 9.8) affecting 27 air conditioning models allowing complete authentication bypass and remote system takeover. AI-powered IoT scanning tools now enable automated exploitation of HVAC vulnerabilities. Smart thermostat compromises have been documented enabling lateral network movement within 72 hours. With EiH managing 100,000+ devices under maintenance, IoT security of installed equipment is a material operational risk. The Dutch Data Protection Authority (AP) has flagged smart home data collection as a key enforcement priority.",
+            actie: "IT & Data: URGENT — assess whether any EiH-installed Mitsubishi AC equipment is among the 27 affected models. If so, coordinate firmware updates with Field Ops. Conduct security audit of all IoT-connected devices in EiH's installed base (smart thermostats, connected boilers). Field Ops: enforce strong default password changes on all new smart device installations.",
+            actieType: "IT & Data",
+            sourceUrl: "https://secureiot.house/ai-driven-iot-attacks-why-enterprise-smart-devices-are-10x-more-dangerous-in-2026/",
+            mtTags: ["IT & Data", "Field Ops"]
+          },
+          {
+            title: "Cyberbeveiligingswet (NIS2) slides to Q2 — Cyber Resilience Act adds parallel compliance burden",
+            sentiment: "negative",
+            body: "The Dutch NIS2 transposition (Cyberbeveiligingswet) implementation has been further postponed to Q2 2026. When enacted, it expands compliance scope from 1,000 to 8,000 companies across 18 sectors. In parallel, the EU Cyber Resilience Act enters force, requiring cybersecurity certification for connected products. Suppliers to vital businesses must now prove their systems are cybersecure. EiH, as part of Eneco Group (a vital sector company), will face direct NIS2 obligations. The dual CRA/NIS2 requirements create a significant compliance workload.",
+            actie: "IT & Data: maintain NIS2 readiness plan with July 1 target date despite parliamentary delays — being ahead of compliance is a competitive advantage. Map CRA requirements for connected HVAC products (smart thermostats, IoT controllers). Budget: allocate €50-100K for combined NIS2/CRA compliance (security audit, MFA deployment, incident response plan, staff training).",
+            actieType: "IT & Data",
+            sourceUrl: "https://www.kvk.nl/en/secure-business/new-cyberlaws-in-2026-what-you-must-know/",
+            mtTags: ["IT & Data", "Finance"]
+          }
+        ]
+      },
+      {
+        title: "Finance & Consumer",
+        icon: "💰",
+        items: [
+          {
+            title: "ECB rate decision April 30 — markets price 50% chance of hike as inflation rises to 2.7%",
+            sentiment: "negative",
+            body: "The ECB April 30 rate decision carries elevated uncertainty. Markets price a 50% probability of a 25bp increase, with Barclays and J.P. Morgan expecting three hikes this year (April, June, July). Dutch inflation rose to 2.7% in March (from 2.4% in February) driven by energy price surges including motor fuels (+6.5%). Dutch mortgage rates sit at 4.3% for 10-year fixed, having jumped from 3.6% to 4.1% in March alone. Higher rates directly constrain household capacity for heat pump investments, making EiH's rental model (no upfront capital) strategically more important.",
+            actie: "Finance: stress-test EiH rental model margins under a 2.40-2.65% ECB rate range. Marketing: if rate hike materializes, pivot messaging harder toward rental/ServiceGemak® — 'no upfront cost, no mortgage needed.' Customer Ops: ensure finance team can explain rental vs. purchase economics to hesitant customers in a rising rate environment.",
+            actieType: "Finance",
+            sourceUrl: "https://www.dutchnews.nl/2026/04/dutch-housing-update-ai-interest-rates-and-do-you-buy-or-rent/",
+            mtTags: ["Finance", "Marketing", "Customer Ops"]
+          },
+          {
+            title: "Dutch house prices forecast +4-5% in 2026 — median at €470,000, 233K transactions expected",
+            sentiment: "positive",
+            body: "The Dutch housing market continues its recovery with Rabobank projecting 5.5% price growth in 2026. Median prices at €470,000 with 233,000 expected transactions signal sustained residential market activity. Growth is shifting to northern regions (Groningen, Drenthe) while major cities show stagnation. For EiH, rising house values increase homeowner willingness to invest in property improvements including heating upgrades. The active transaction volume also creates a steady stream of new homeowners needing boiler servicing or heating system assessments.",
+            actie: "Marketing: develop 'new homeowner' targeted campaigns — 233K transactions means 233K potential new customers needing heating assessments. Customer Ops: create streamlined onboarding process for recently-moved homeowners. Target northern provinces (Groningen, Drenthe) where growth is strongest and heat pump penetration is lower.",
+            actieType: "Marketing",
+            sourceUrl: "https://www.ohao.nl/expats/library/housing-prices-in-the-netherlands-2026/",
+            mtTags: ["Marketing", "Customer Ops"]
+          },
+          {
+            title: "Average energy bill drops 2.5% to €1,993 — but net metering phase-out adds €180-470 for solar households",
+            sentiment: "neutral",
+            body: "Average Dutch household energy costs decreased to €1,993 in 2026 (down €52), driven by lower gas consumption. However, individual cost components show mixed trends: electricity tax fell 10%, but gas tax rose 4% to €0.7267/m³ and network tariffs increased 3.4%. The net metering (salderingsregeling) phase-out means solar panel owners face additional annual costs of €180-470. Energy costs dropping from 4.4% to 4.1% of disposable income provides modest relief, but the gas tax increase reinforces the economic case for reducing gas dependency through heat pump adoption.",
+            actie: "Marketing: frame gas tax increase (+4%) as a hidden recurring cost that heat pumps eliminate. Target solar panel owners losing net metering — hybrid heat pumps maximize self-consumption of solar electricity. Customer Ops: develop cross-sell playbook for ServiceGemak® customers with solar panels — these households are ideal heat pump conversion candidates.",
+            actieType: "Marketing",
+            sourceUrl: "https://nltimes.nl/2026/02/26/household-energy-bills-fall-25-percent-around-eu1993-2026",
+            mtTags: ["Marketing", "Customer Ops"]
+          }
+        ]
+      },
+      {
+        title: "Eneco Group & Strategy",
+        icon: "🏢",
+        items: [
+          {
+            title: "Eneco new CEO Hagens settles in — Equinor gas deal, Gulf G+P acquisition completed, flat heating rates",
+            sentiment: "neutral",
+            body: "CEO Martijn Hagens (started March 1, ex-Vattenfall) continues to embed at Eneco. Key developments: the 5-year Equinor gas supply deal (0.5 bcm annually) reduces procurement risk, Gulf Gas + Power acquisition received ACM approval, and Eneco maintained flat heating grid rates for 2026 customers. The Ecowende offshore wind farm (with Chubu and Shell) progresses toward late 2026 operations. These moves signal Hagens prioritizing supply security and strategic acquisitions — EiH's positioning within this portfolio remains the key question for Director Schoon.",
+            actie: "Strategy: Director Schoon should schedule a follow-up with Hagens to discuss EiH's Q1 performance and demand surge. Present updated standalone P&L showing rental and ServiceGemak® recurring revenue growth. Frame EiH as the consumer-facing monetization engine for Eneco's energy transition strategy.",
+            actieType: "Strategy",
+            sourceUrl: "https://news.eneco.com/martijn-hagens-appointed-as-chief-executive-officer-of-eneco-effective-1-march-2026/",
+            mtTags: ["Finance"]
+          },
+          {
+            title: "AI-optimized heat pumps reduce energy costs 25-30% — competitive threat and opportunity for EiH",
+            sentiment: "neutral",
+            body: "AI-enabled HVAC systems now demonstrably reduce electricity consumption up to 30% compared to conventional systems, with pre-commercialization tests showing 25% reduction in total energy costs within three months. AI features include predictive control, proactive fault detection, occupant preference learning, and weather-anticipatory optimization. Quatt leads in the Dutch market with AI-driven hybrid optimization claiming 80% gas reduction. Schools, offices, and hospitals are increasingly adopting AI-powered systems to meet energy regulations. For EiH, this represents both a competitive threat (Quatt's tech differentiation) and an opportunity (add AI capabilities to ServiceGemak® monitoring).",
+            actie: "IT & Data: evaluate AI optimization platforms that could integrate with EiH's installed base — predictive maintenance and energy optimization. Product: benchmark Quatt's AI claims (80% gas reduction) against real-world EiH hybrid heat pump performance data. Strategy: AI-optimized service delivery could be a differentiator for premium ServiceGemak® tiers — explore partnership or build-vs-buy options.",
+            actieType: "IT & Data",
+            sourceUrl: "https://www.intellspot.com/ai-optimized-heat-pumps-smart-heating/",
+            mtTags: ["IT & Data", "Product"]
+          }
+        ]
+      }
+    ],
+    priorities: [
+      "HR: Download and brief team on VCA 2026/6.1 changes by April 18 — orderly July 1 transition. Establish zij-instromers partnership with House of Bèta or Technisi by end of Q2 — target 10-15 career switchers annually. Continue monitoring R290 certification compliance. Budget for wage pressure beyond TI CAO 3% if inflation persists above 2.5%.",
+      "IT & Data: URGENT — assess Mitsubishi AC CVE-2025-3699 exposure across 100,000+ installed devices. Maintain NIS2 readiness for July 1 despite parliamentary delays. Deploy MFA across all systems by end of April. Continue Nexperia component audit and alternate supplier qualification. Evaluate AI optimization platforms for ServiceGemak® integration. Budget €50-100K for combined NIS2/CRA compliance.",
+      "Finance: Update gas price models to €55/MWh (Goldman Sachs Q2 forecast). Model +5-10% component cost increase from tariff pass-through for Q3 quotes. Lock aluminum forward contracts at current €3,010/ton dip. Stress-test rental model under 2.40-2.65% ECB rate range. Prepare standalone P&L for CEO Hagens showing recurring revenue growth.",
+      "Customer Ops: Launch 'affordability-first' campaign leading with rental pricing (€79.50/month) over purchase. Train advisors on ISDE subsidy guidance and financing options. Prepare Right-to-Repair compliance by June 30. Develop cross-sell playbook for solar panel owners losing net metering. Create new homeowner onboarding process for 233K annual transactions.",
+      "Field Ops: Maintain 8-week safety stock for Asia-sourced parts. Accelerate orders for aluminum-heavy components before tariff pass-through. Ensure all technicians trained on VCA 2026/6.1 before July 1. Enforce strong password defaults on all smart device installations. Schedule Remeha Confida and Vaillant aroTHERM pro training sessions.",
+      "Product: Contact Vaillant, Remeha, Intergas procurement — assess tariff exposure and confirm Q2 supply. Request Remeha Confida demo units (SCOP 5.34). Evaluate full Vaillant R290 portfolio including geoCOMPACT brine/water. Accelerate Nexperia-alternative chip supplier qualification by end of April. Develop commercial building heating solutions for EPBD pipeline.",
+      "Marketing: Sustain 'energy independence' and 'affordability-first' dual messaging — lead with €79.50/month rental. Refresh ROI calculators with €55/MWh gas baseline. Target solar panel owners losing net metering and new homeowners (233K transactions). Counter Quatt's AI messaging with EiH service quality and brand trust differentiation. Develop EPBD-focused content for woningcorporaties.",
+      "Strategy: The tariff war + Hormuz crisis create the most complex operating environment since EiH's formation. Present Hagens with updated EiH standalone valuation showing recurring revenue premium. EPBD creates 5+ year structural demand pipeline — position EiH as preferred renovation partner. Evaluate AI-optimized service delivery as next-gen ServiceGemak® differentiator. Monitor April 30 ECB decision for consumer financing impact."
+    ]
+  },
+  {
+    date: "2026-04-02",
+    dateFormatted: "Thursday 2 April 2026",
+    samenvatting: "ENECO REORG DEADLINE PASSED: March 31 deadline hit — Director Schoon's EiH positioning paper was due to CEO Hagens. 350 job cuts proceeding through natural attrition. Monitor shared services continuity (IT, Finance, HR). APRIL 6 INFLECTION POINT: Trump extends Iran strike pause to April 6 — if talks fail, US signals 'extensive attacks' on Iranian energy infrastructure. Ceasefire talks deadlocked: US 15-point proposal vs. Iran 5-condition counter far apart. DEMAND EXPLOSION: NL Times reports 100% surge in heat pump inquiries driven by Iran war fuel price spike — installers describe market as 'one big madhouse.' SUPPLY CHAIN CRUNCH: CMA CGM FAK rates hit €3,220/container effective April 1. Aluminum at €3,245/ton, copper at €11,288/ton. Nexperia Netherlands-China dispute escalates — Dutch Enterprise Chamber orders governance investigation, threatening HVAC chip supply through H1. MARKET DATA: TTF gas at €50/MWh (easing from €56). Brent crude at $105/bbl. Eurozone inflation surges to 2.5% (flash March) with energy prices +4.9% — first positive YoY reading since early 2025. Consumer confidence still at -30 (4-year low). ECB next decision April 30. PRODUCT LAUNCHES: Vaillant aroTHERM pro R290 launches April 2026 — compact, zero-safety-zone installation, 65°C flow. Intergas Xtend Eco R290 with 7-year performance guarantee. Quatt secures additional €10M ABN AMRO financing (total ~€30M). Remeha Apeldoorn factory facing workforce restructuring and potential relocation. REGULATION: Russian LNG import ban effective April 25. EU post-2030 energy efficiency consultation closes April 16. Cyberbeveiligingswet still pending parliamentary vote — Q2 implementation target.",
+    kpis: [
+      { label: "TTF Gas Price", value: "€50/MWh", sub: "Easing from €56 — but EU storage at 28%, Qatar offline 3-5yr", trend: "positive" },
+      { label: "Brent Crude", value: "$105/bbl", sub: "Iran Day 33 — April 6 deadline looms, strikes or talks", trend: "negative" },
+      { label: "ECB Rate", value: "2.15%", sub: "Held — next decision April 30, inflation surges to 2.5%", trend: "negative" },
+      { label: "Heat Pump Demand", value: "+100%", sub: "NL Times: inquiries doubled on Iran war fuel price surge", trend: "positive" }
+    ],
+    sections: [
+      {
+        title: "Geopolitics & Energy Crisis",
+        icon: "🌍",
+        items: [
+          {
+            title: "April 6 inflection point: Trump extends Iran strike pause — 'extensive attacks' on energy infrastructure if talks fail",
+            sentiment: "negative",
+            body: "Ceasefire negotiations between the US and Iran remain deadlocked. The US presented a 15-point peace proposal; Iran countered with 5 conditions demanding guaranteed ceasefire, reparations, and Strait of Hormuz control. President Trump extended a pause on strikes against Iranian energy infrastructure until April 6. If Iran does not reopen the Strait by then, the US has signaled extensive attacks on Iranian energy sites. Iran's parliament speaker warns forces are 'waiting' for a ground invasion. Brent crude at $105/bbl reflects the embedded risk premium. A 22-nation coalition signed a safe passage statement but key NATO allies (Germany, Netherlands, France, UK) rejected formal military participation.",
+            actie: "Strategy: prepare dual scenario plans — (A) ceasefire and rapid gas price drop to €35-40/MWh; (B) escalation and spike to €80+/MWh. Defer multi-month fixed-price gas service quotes until post-April 6 clarity. Marketing: accelerate heat pump proposals NOW to convert demand before the April 6 outcome — either way, urgency drops after resolution.",
+            actieType: "Strategy",
+            sourceUrl: "https://www.cnbc.com/2026/04/01/iran-demands-guaranteed-ceasefire-to-end-war-permanently-senior-source-says.html",
+            mtTags: ["Finance", "Marketing"]
+          },
+          {
+            title: "Russian LNG import ban takes effect April 25 — further tightening European gas supply",
+            sentiment: "negative",
+            body: "The EU's prohibition on Russian LNG imports takes effect April 25, 2026, with pipeline gas banned from June 17. This removes another low-cost supply source at the worst possible time — Qatar's Ras Laffan is offline for 3-5 years (17% of global LNG), Hormuz is blockaded, and EU storage sits at just 28% capacity. Europe must now compete for scarce spot LNG from the US and Australia at premium prices. The injection season (April-October) will be the most challenging since 2022. Dutch gas storage (5 bcm) shows the most depleted reserves alongside Germany.",
+            actie: "Finance: model TTF scenarios for Q3-Q4 at €60-80/MWh range given triple supply squeeze (Qatar offline, Russian ban, Hormuz). Marketing: develop 'last chance before winter' campaign — every month of delay means higher gas costs. Customer Ops: proactively contact all ServiceGemak® customers on gas boilers about heat pump upgrade options before injection season price spikes.",
+            actieType: "Finance",
+            sourceUrl: "https://www.consilium.europa.eu/en/press/press-releases/2025/12/03/council-and-parliament-strike-a-deal-on-rules-to-phase-out-russian-gas-imports-for-an-energy-secure-and-independent-europe/",
+            mtTags: ["Finance", "Marketing", "Customer Ops"]
+          },
+          {
+            title: "Eurozone inflation surges to 2.5% — energy prices flip to +4.9% YoY, steepest since October 2022",
+            sentiment: "negative",
+            body: "Eurozone annual inflation jumped to 2.5% in March (flash estimate March 31), up sharply from 1.9% in February. Energy prices reversed a -3.1% decline to reach +4.9% annually — the first positive year-over-year reading since early 2025. Month-on-month consumer prices rose 1.2%, the steepest since October 2022. ECB now projects 2026 headline inflation at 2.6% and growth at just 0.9%. Dutch inflation at 2.3% could spike to 3.0% if the Middle East conflict persists (CPB estimate). ECB President Lagarde signaled readiness to hike rates if energy-driven inflation becomes persistent.",
+            actie: "Finance: review ServiceGemak® pricing for potential Q3 inflation-linked adjustment — current €8.99-€22.99/month may need 3-5% uplift to protect margins. HR: budget for potential additional wage pressure beyond TI CAO 3% if inflation persists. Marketing: frame heat pumps as inflation protection — fixed electricity costs vs. volatile gas prices.",
+            actieType: "Finance",
+            sourceUrl: "https://www.euronews.com/business/2026/03/31/eurozone-inflation-jumps-to-25-amid-iran-war-will-the-ecb-hike-rates",
+            mtTags: ["Finance", "HR", "Marketing"]
+          }
+        ]
+      },
+      {
+        title: "Supply Chain & Materials",
+        icon: "⛓",
+        items: [
+          {
+            title: "CMA CGM FAK rates hit €3,220/container effective April 1 — shipping costs locked in higher",
+            sentiment: "negative",
+            body: "CMA CGM's new freight-all-kinds rates from Asia to North Europe are now effective: €3,220/40ft and €1,840/20ft from all Asian ports. Shanghai-Rotterdam spot rates rose 3% to €2,348/40ft (+27% from December 2025). All carriers imposed emergency fuel surcharges of €435-870 per container. Maersk suspended all Trans-Suez sailings; Cape of Good Hope routing remains default, adding 10-14 days transit. No Suez return expected until mid-year at earliest. Bunker fuel surged 30-35% over one week.",
+            actie: "Field Ops: build 8-week safety stock for Asia-sourced parts (up from 6). Compare Maersk/Hapag-Lloyd April rates — some carriers may hold 3-5% below CMA CGM. For critical high-value items (inverter boards, control units), evaluate air freight. Prioritize Remeha Apeldoorn domestic supply and Intergas domestic manufacturing to avoid shipping exposure entirely.",
+            actieType: "Operations",
+            sourceUrl: "https://container-news.com/cma-cgm-sets-new-fak-rates-from-asia-to-north-europe-from-april/",
+            mtTags: ["Field Ops", "Product", "Finance"]
+          },
+          {
+            title: "Nexperia crisis escalates — Dutch Enterprise Chamber orders investigation, HVAC chip supply at risk through H1",
+            sentiment: "negative",
+            body: "The Dutch Enterprise Chamber ordered investigation into Nexperia's governance amid the ongoing dispute between Dutch HQ and Chinese parent Wingtech Technology. Nexperia controls ~40% of global discrete semiconductors critical for HVAC thermostat controllers, motorized valve drivers, and burner ignition circuits. In March, Dutch HQ disabled IT accounts for Chinese staff; Beijing warned of 'full responsibility' for global chip shortages. German automakers flagged 'elevated supply risk' through Q1-Q2. Nexperia committed ~€276M to shift 90% of production outside China by mid-2026, but timelines may slip.",
+            actie: "IT & Data: URGENT — audit bill-of-materials exposure to Nexperia parts (diodes BAT54/BAS40/PMEG series, logic chips 74LVC families). Product: qualify alternate suppliers Infineon, Vishay, ON Semiconductor, STMicroelectronics immediately. Field Ops: increase safety stock of controller boards by 30-50% for Q2-Q3. Communicate 2-4 week extended lead times on smart installations to customers.",
+            actieType: "IT & Data",
+            sourceUrl: "https://www.z2data.com/insights/the-nexperia-chip-crisis-explained",
+            mtTags: ["IT & Data", "Product", "Field Ops"]
+          },
+          {
+            title: "Aluminum at €3,245/ton, copper at €11,288/ton — both metals elevated on geopolitical premium",
+            sentiment: "negative",
+            body: "LME aluminum closed at €3,245/ton on April 1 (+2.66% weekly), near a 4-year high driven by Iran conflict supply concerns and post-Chinese New Year factory restarts. Copper extended its rally to €11,288/ton (+0.92%), supported by energy transition demand and structural supply tightness. Both metals are critical for EiH installations: aluminum for heat pump heat exchangers, radiators, and control panel housings; copper for wiring harnesses, compressor windings, and control board traces. No relief expected through Q2-Q3.",
+            actie: "Finance: lock Q2 aluminum and copper forward contracts with Vaillant, Remeha, Intergas before further price moves. Budget +12-15% materials surcharge into all Q2 installation quotes. Add escalation clauses to customer contracts for multi-month projects. Copper procurement less urgent (stabilizing) but aluminum requires immediate hedging action.",
+            actieType: "Operations",
+            sourceUrl: "https://www.lme.com/metals/non-ferrous/lme-aluminium",
+            mtTags: ["Finance", "Field Ops", "Product"]
+          }
+        ]
+      },
+      {
+        title: "Heat Pump Market & Products",
+        icon: "🔥",
+        items: [
+          {
+            title: "Heat pump demand surges 100% — Iran war fuel price spike drives Dutch market into 'one big madhouse'",
+            sentiment: "positive",
+            body: "NL Times reports a 100% surge in heat pump inquiries across the Netherlands driven by rising gas prices linked to the Iran conflict. Installers describe market conditions as 'one big madhouse' with NVDE and Techniek Nederland reporting overwhelming demand. Supply constraints remain acute — manufacturers have not yet increased production to match the sudden spike. This demand surge is driven by consumer behavior (energy cost anxiety) rather than policy mandates, making it potentially more durable than the 2022 post-Ukraine spike. Combined with ISDE subsidy confirmation at €511M, the market fundamentals are the strongest since 2023.",
+            actie: "ALL MT: This is the defining market opportunity for Q2 2026. Field Ops: maximize installation capacity — consider temporary subcontractor agreements. Product: secure Vaillant/Remeha/Intergas inventory before competitors lock up supply. Marketing: launch 'beat the April 6 deadline' urgency campaign. Customer Ops: prioritize existing ServiceGemak® customers for upgrade offers. HR: accelerate recruitment — market is hot, labour market is tight.",
+            actieType: "Marketing",
+            sourceUrl: "https://nltimes.nl/2026/04/01/iran-war-fuel-price-surge-drives-heat-pump-solar-panel-demand-netherlands",
+            mtTags: ["Marketing", "Field Ops", "Product", "Customer Ops", "HR"]
+          },
+          {
+            title: "Vaillant aroTHERM pro R290 launches April — compact design, zero-safety-zone, 65°C flow temperature",
+            sentiment: "positive",
+            body: "Vaillant is rolling out its aroTHERM pro R290 heat pump in April 2026 (5-7 kW), with 11 kW units following in June. The unit weighs just 84 kg and features revolutionary 'Flexible Space Function' eliminating safety zones around the unit — critical for terraced housing and dense urban installations. Flow temperatures up to 65-70°C make it viable for renovation without radiator replacement. All new Vaillant heat pumps come with 5-year warranty. First installations receive €300 start bonus from Technische Unie. The aroTHERM perform (15-20 kW) targets multi-family homes.",
+            actie: "Product: request demo units and competitive pricing for aroTHERM pro 5kW and 7kW immediately. Evaluate zero-safety-zone feature for EiH's urban/terraced housing segment — this addresses a major barrier. Field Ops: schedule R290-specific training for Vaillant models. Marketing: compare aroTHERM pro vs. current EiH portfolio — prepare competitive positioning before market saturation.",
+            actieType: "Product",
+            sourceUrl: "https://www.installatietotaal.nl/nieuws/vaillant-onthult-nieuwe-generatie-r290-warmtepompen-voor-2026/",
+            mtTags: ["Product", "Field Ops", "Marketing"]
+          },
+          {
+            title: "Intergas Xtend Eco R290 launches with 7-year performance guarantee — competitive differentiation",
+            sentiment: "neutral",
+            body: "Intergas released the Xtend Eco, the latest R290 hybrid heat pump generation featuring ultra-compact design (64 kg), A+++ energy rating, and integrated sound dampening. Critically, Intergas introduced a 7-year performance guarantee: if homeowner savings fall below €3,500 over seven years, Intergas covers the difference. This shifts risk from consumers to the manufacturer — a powerful differentiator for risk-averse renovation customers. The Xceed monobloc offers 75°C heating and 18°C cooling capability.",
+            actie: "Product: evaluate whether EiH can offer comparable savings guarantees — this is a powerful sales tool against consumer hesitancy. Marketing: if EiH sells Intergas, promote the 7-year guarantee prominently. If not, develop alternative value-protection messaging. Field Ops: the 64 kg weight enables faster installation — factor into scheduling capacity.",
+            actieType: "Product",
+            sourceUrl: "https://www.intergas-verwarming.nl/zakelijk/2026/03/19/xtend-eco-de-beste-in-zn-klasse-2/",
+            mtTags: ["Product", "Marketing"]
+          },
+          {
+            title: "Quatt secures additional €10M ABN AMRO financing — total funding now ~€30M, 20,000 households served",
+            sentiment: "negative",
+            body: "Amsterdam-based Quatt obtained €10M additional financing from ABN AMRO on top of its €25M growth equity round (Blue Earth Capital, Seaya, Impact Equity Fund). Total funding now stands at ~€30M. The company serves 20,000+ households with a 4.3/5 customer rating (3,500+ reviews). Quatt claims 80% gas bill reduction through AI optimization and has launched 'Chill' — a proprietary air-conditioning system integrated with existing heat pumps. The AI-driven platform supports both hybrid and fully electric options, creating customer lock-in beyond hardware sales.",
+            actie: "Marketing: analyze Quatt's 80% gas reduction claim and AI messaging — can EiH match or counter this? Product: evaluate whether AI-driven optimization partnerships could be added to EiH's offering. Strategy: Quatt's 20,000 households and 4.3 rating make them a credible competitor — define EiH's differentiation clearly (service quality, local presence, Eneco brand trust, ServiceGemak® recurring relationship).",
+            actieType: "Marketing",
+            sourceUrl: "https://siliconcanals.com/amsterdam-quatt-bags-25m/",
+            mtTags: ["Marketing", "Product"]
+          }
+        ]
+      },
+      {
+        title: "Workforce & Compliance",
+        icon: "👷",
+        items: [
+          {
+            title: "F-gas/R290 certification transition completed — old certificates no longer issued, verify technician compliance",
+            sentiment: "negative",
+            body: "The March 29 deadline has passed. After this date, no more F-gas Category 1/2 or B1/B3 certificates can be issued under the old system. Technicians must now hold new A1/A2 certificates to work with all refrigerants. Old certificates remain valid until March 2029 but no new ones will be issued. R290 systems up to 988g can be handled with F-gas 1 + B3 certification. With the 100% demand surge in heat pump inquiries, any technician gaps in R290 certification directly limit EiH's ability to capture market opportunity.",
+            actie: "HR: CONFIRM certification compliance audit results for all 200+ technicians — this should have been completed last week. Any remaining gaps must be resolved through emergency CRT certification sessions. Field Ops: assign only certified technicians to R290 heat pump jobs. Uncertified technicians continue on boiler-only and non-refrigerant maintenance. Every uncertified technician = lost installation revenue in a 100% demand surge market.",
+            actieType: "HR",
+            sourceUrl: "https://business.gov.nl/amendments/new-certificate-required-for-all-refrigerants/",
+            mtTags: ["HR", "Field Ops"]
+          },
+          {
+            title: "Cyberbeveiligingswet vote still pending — Q2 implementation target, Abutriek ransomware confirms sector risk",
+            sentiment: "negative",
+            body: "The Cyberbeveiligingswet (NIS2 transposition) bill has not yet undergone a final parliamentary vote despite the March 23 plenary debate. Implementation remains targeted for Q2 2026 (July 1). Meanwhile, the threat landscape is intensifying: smart home attack rates surged to 29 compromise attempts per household daily, 38% of IoT devices have been successfully compromised at least once, and AI-powered attacks increased 54% in 2026. Critical HVAC vulnerabilities were discovered in Copeland E2/E3 controllers allowing remote code execution. Dutch Ministry of Finance was hit by a cyberattack March 19.",
+            actie: "IT & Data: develop NIS2 incident response plan by end of April — don't wait for final vote. Implement MFA across ALL systems (ServiceGemak®, field service, customer database). Conduct Copeland controller vulnerability assessment across installed base. Field Ops: enforce strong password policies on all deployed smart thermostats and heating controllers. Budget cybersecurity investments: security audit + MFA deployment + incident response training.",
+            actieType: "IT & Data",
+            sourceUrl: "https://www.digitalsecurityinstituut.nl/en/nieuws/ingang-nis2-cyberbeveiligingswet-verder-uitgesteld",
+            mtTags: ["IT & Data"]
+          },
+          {
+            title: "Remeha Apeldoorn factory faces workforce restructuring — CNV social plan negotiations underway",
+            sentiment: "neutral",
+            body: "Union representatives (CNV) held initial consultation with Remeha management in March regarding a social plan for the Apeldoorn facility. Remeha is negotiating with the municipality about potential relocation to Ecofactorij, with new construction possibly complete in 2027. The factory — the Netherlands' largest heat pump plant — had capacity for 50,000-140,000 hybrid units annually. Production uncertainty during restructuring may create supply gaps at exactly the wrong time, given the 100% demand surge.",
+            actie: "Product: contact Remeha supply contacts immediately — confirm Q2 delivery commitments and allocation. If Remeha supply becomes unreliable, shift orders to Intergas Xtend Eco and Vaillant aroTHERM pro. Field Ops: diversify supplier mix to reduce single-source dependency. Strategy: if Remeha skilled workers become available, evaluate recruitment opportunities for EiH.",
+            actieType: "Product",
+            sourceUrl: "https://www.cnv.nl/industrie/metalektro/cao-metalektro/nieuws/update-onderhandelingen-over-sociaal-plan-bij-remeha-in-apeldoorn-2026-03-20/",
+            mtTags: ["Product", "Field Ops", "HR"]
+          }
+        ]
+      },
+      {
+        title: "Eneco Group & Strategy",
+        icon: "🏢",
+        items: [
+          {
+            title: "Eneco March 31 reorg deadline passed — 350 job cuts proceeding, Hagens steering new direction",
+            sentiment: "neutral",
+            body: "The Eneco Group reorganization March 31 deadline has now passed. 350 positions are being eliminated through natural attrition, non-renewal of temporary contracts, and reduced external hiring. CEO Martijn Hagens (started March 1, ex-Vattenfall) is settling into the role alongside COO Kees-Jan Rameau. Eneco secured a 5-year gas supply deal with Equinor (0.5 bcm annually), completed the Gulf Gas + Power acquisition, and maintains flat heating grid costs for customers in 2026. The Ecowende offshore wind farm (co-owned with Chubu and Shell) is under construction, expected operational late 2026.",
+            actie: "Strategy: follow up on positioning paper presented to Hagens. Confirm continuity of shared services (IT, Finance, HR) post-reorg. Finance: ensure EiH standalone P&L is ready for review — Hagens will want to see revenue segmentation by product and model (purchase vs. rental vs. ServiceGemak®). HR: if reorg creates talent availability at Eneco Group level, evaluate strategic hires for EiH management capacity.",
+            actieType: "Strategy",
+            sourceUrl: "https://news.eneco.com/martijn-hagens-appointed-as-chief-executive-officer-of-eneco-effective-1-march-2026/",
+            mtTags: ["HR", "Finance", "IT & Data"]
+          },
+          {
+            title: "Home services M&A: recurring revenue models command 12-15x EBITDA — ServiceGemak® aligns perfectly",
+            sentiment: "positive",
+            body: "The US home services market (€785B by end-2026) shows a K-shaped valuation split: high-quality platforms with recurring revenue trade at 12-15x EBITDA, while transactional businesses command just 3-8x. Subscription models now account for ~28% of top-quartile firm revenues. Technology stack differentiation (IoT predictive maintenance, AI dispatching, virtual estimates) is the primary driver between 7x and 12x valuations. Private equity continues to dominate M&A, pivoting toward local density and tech integration.",
+            actie: "Strategy: EiH's ServiceGemak® subscriptions (€8.99-€22.99/month recurring) and rental models (€79.50/month heat pump, €37.20/month boiler) position EiH in the premium 12-15x EBITDA valuation category. To maximize, invest in IoT predictive maintenance, data-driven dispatch, and subscription penetration growth. Present Hagens with a standalone valuation model showing EiH's path to premium multiples. This is the strongest argument for EiH independence and investment.",
+            actieType: "Strategy",
+            sourceUrl: "https://www.cfoxadvisory.com/home-services-2026-ma-outlook/",
+            mtTags: ["Finance"]
+          }
+        ]
+      }
+    ],
+    priorities: [
+      "HR: CONFIRM R290/F-gas certification compliance for ALL 200+ technicians — deadline passed March 29, every uncertified technician = lost revenue in 100% demand surge. Accelerate recruitment for installation capacity. Plan VCA sector-neutral training. Evaluate Remeha restructuring for talent acquisition opportunities.",
+      "IT & Data: Develop NIS2 incident response plan by end of April — don't wait for parliamentary vote. Implement MFA across ServiceGemak® and field service platforms. URGENT: audit bill-of-materials for Nexperia semiconductor exposure. Qualify alternate chip suppliers (Infineon, Vishay, STMicroelectronics). Assess Copeland controller vulnerabilities across installed base.",
+      "Finance: Model dual scenarios for April 6 outcome — (A) ceasefire, gas drops to €35-40/MWh; (B) escalation, gas spikes to €80+/MWh. Lock Q2 aluminum forward contracts (€3,245/ton). Budget +12-15% materials surcharge into Q2 quotes. Review ServiceGemak® pricing for Q3 inflation adjustment. Prepare standalone P&L for CEO Hagens.",
+      "Customer Ops: Proactively contact ALL ServiceGemak® gas boiler customers with heat pump upgrade offers — market is +100%, capture demand now. Prepare spare parts for Right-to-Repair compliance (July 31). Develop 'new homeowner welcome' package for ex-rental buyers. Retain at-risk subscribers with value reinforcement amid -30 consumer confidence.",
+      "Field Ops: Maximize installation capacity — consider temporary subcontractor agreements for Q2 demand surge. Build 8-week safety stock for Asia-sourced parts. Maintain 6-month buffer of controller boards (Nexperia shortage). Assign only R290-certified technicians to heat pump jobs. Schedule training for Vaillant aroTHERM pro and Intergas Xtend Eco.",
+      "Product: Request Vaillant aroTHERM pro demo units and pricing IMMEDIATELY — April launch window is critical. Verify ALL heat pump models meet ISDE GWP<750 and smart-readiness. Contact Remeha to confirm Q2 supply during Apeldoorn restructuring. Evaluate Intergas 7-year performance guarantee — can EiH offer comparable? Qualify Nexperia-alternative chip suppliers.",
+      "Marketing: URGENT — capitalize on 100% demand surge with 'beat the April 6 deadline' campaign. Frame heat pumps as inflation protection (energy +4.9%, gas volatile). Target 'just bought ex-rental' homeowners. Counter Quatt's AI messaging — define EiH's differentiation (service, trust, Eneco brand, ServiceGemak® relationship). Update ROI calculators with €50/MWh gas baseline and 2026 ISDE amounts.",
+      "Strategy: Follow up on positioning paper presented to CEO Hagens. Present ServiceGemak® valuation model (12-15x EBITDA for recurring revenue). Prepare dual scenarios for April 6 Iran deadline. Position EiH for demand capture during 100% market surge — this is the most important quarter since company formation. Confirm shared services continuity post-reorg."
+    ]
+  },
+  {
     date: "2026-03-30",
     dateFormatted: "Monday 30 March 2026",
     samenvatting: "REORG D-DAY TOMORROW: Eneco reorganization deadline March 31 — Director Schoon must present EiH positioning paper to CEO Hagens TODAY. 350 jobs being cut; shared services continuity critical. IRAN WAR DAY 30: No de-escalation visible — multi-front conflict now spanning Lebanon, Gaza, and Gulf. Brent crude surges to €99/bbl (steepest monthly rise on record). TTF gas steady at €56/MWh but EU storage at just 28% capacity heading into injection season. Qatar Ras Laffan 17% capacity loss confirmed for 3-5 years. CONSUMER CONFIDENCE CRASHES: CBS reports -30 in March — lowest in 4 years, steepest monthly decline in 4 years. Purchase willingness drops to -15. CERTIFICATION DEADLINE PASSED: F-gas/R290 unified certification expired Saturday March 29 — verify ALL 200+ technicians have new certificates or face installation ban. SUPPLY CHAIN PRESSURE: Aluminum rallies to €3,079/ton (Iran premium), copper extends to €10,449/ton. Nexperia Netherlands-China semiconductor crisis threatens HVAC chip supply. Container rates up 27% from December. Shipping carriers impose emergency fuel surcharges, all Suez transits suspended. CYBERSECURITY: Cyberbeveiligingswet parliamentary debate completed March 23 — Q2 implementation on track. Abutriek (Dutch energy services peer) hit by Qilin ransomware. NEW REGULATION: EU Right-to-Repair directive takes effect July 31, 2026. ISDE confirmed at €511M but GWP>750 refrigerants now excluded — accelerating R290 transition. Vaillant launches R290 ground-source heat pumps for first time.",
